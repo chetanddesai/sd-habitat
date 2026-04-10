@@ -1,0 +1,2404 @@
+[
+  {
+    "id": "quercus-engelmannii",
+    "commonNames": [
+      "Engelmann Oak",
+      "Mesa Oak"
+    ],
+    "scientificName": "Quercus engelmannii",
+    "synonyms": [],
+    "category": "large-tree",
+    "isKeystone": true,
+    "description": "A rare and majestic Southern California endemic oak that supports over 300 species of wildlife. Its acorns are a critical food source for Acorn Woodpeckers, Western Scrub-Jays, and mule deer, while its canopy provides nesting habitat for raptors and songbirds. Listed as endangered due to habitat loss, making backyard cultivation an act of conservation.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26924548/medium.jpg",
+      "attribution": "Photo by Fred Roberts, CC BY-NC 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/17038814"
+    },
+    "calscapeUrl": "https://calscape.org/Quercus-engelmannii-(Engelmann-Oak)",
+    "iNaturalistData": {
+      "taxonId": 58928,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=58928",
+      "observationsByMonth": {
+        "jan": 8,
+        "feb": 10,
+        "mar": 18,
+        "apr": 22,
+        "may": 25,
+        "jun": 20,
+        "jul": 15,
+        "aug": 12,
+        "sep": 10,
+        "oct": 14,
+        "nov": 11,
+        "dec": 7
+      },
+      "observationsByYear": {
+        "2021": 28,
+        "2022": 35,
+        "2023": 31,
+        "2024": 42,
+        "2025": 36
+      },
+      "totalObservations": 172,
+      "frequency": "uncommon",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun to Part Shade",
+      "slopeRequirements": "Tolerates slopes, well-drained preferred",
+      "soilRequirements": "Clay, loam, or sandy; tolerates poor soils; no amendments needed"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "low",
+        "may": "low",
+        "jun": "low",
+        "jul": "low",
+        "aug": "low",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Deep water monthly in summer for first 2–3 years; no irrigation once established. Overwatering causes root rot.",
+      "pruningNotes": "Minimal pruning; remove only dead or crossing branches in late summer. Never prune in wet season to avoid oak disease.",
+      "specialNotes": "Protect root zone from compaction and grade changes. Do not irrigate within drip line of mature trees."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "colors": [
+          "yellow-green"
+        ]
+      },
+      "berry": {
+        "months": [
+          9,
+          10,
+          11
+        ],
+        "colors": [
+          "brown"
+        ],
+        "description": "Acorns mature in fall"
+      },
+      "seed": null,
+      "ecologicalValue": "Acorns feed Acorn Woodpeckers, Scrub-Jays, Band-tailed Pigeons, squirrels, and deer. Catkins provide early-season pollen for native bees."
+    },
+    "wildlife": [
+      {
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "species": "Native bees & beetles",
+        "activity": "nectar-pollen",
+        "notes": "Wind-pollinated catkins also visited by small beetles and bees for pollen",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "species": "Acorn Woodpecker",
+        "activity": "eating-seeds",
+        "notes": "Harvests and caches acorns in granary trees",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/128134/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/79621"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "species": "California Scrub-Jay",
+        "activity": "nesting",
+        "notes": "Nests in canopy; buries acorns for winter food caches",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1668091/medium.jpg",
+          "attribution": "Photo by David Bygott, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1031652"
+        }
+      },
+      {
+        "months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "species": "California sister butterfly",
+        "activity": "caterpillar-host",
+        "notes": "Larvae feed exclusively on oaks; adults often seen gliding around canopy",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3414262/medium.jpg",
+          "attribution": "Photo by Alice Abela, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2213455"
+        }
+      }
+    ]
+  },
+  {
+    "id": "heteromeles-arbutifolia",
+    "commonNames": [
+      "Toyon",
+      "Christmas Berry",
+      "California Holly"
+    ],
+    "scientificName": "Heteromeles arbutifolia",
+    "synonyms": [],
+    "category": "large-shrub",
+    "isKeystone": true,
+    "description": "The iconic shrub that gave Hollywood its name. Toyon produces abundant bright red berries in winter when little else is fruiting, making it critical for overwintering birds like Cedar Waxwings, American Robins, and Hermit Thrushes. Its summer flowers feed native bees and butterflies.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12766781/medium.jpg",
+      "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8478085"
+    },
+    "calscapeUrl": "https://calscape.org/Heteromeles-arbutifolia-(Toyon)",
+    "iNaturalistData": {
+      "taxonId": 52849,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=52849",
+      "observationsByMonth": {
+        "jan": 25,
+        "feb": 15,
+        "mar": 18,
+        "apr": 22,
+        "may": 20,
+        "jun": 30,
+        "jul": 28,
+        "aug": 18,
+        "sep": 12,
+        "oct": 15,
+        "nov": 22,
+        "dec": 35
+      },
+      "observationsByYear": {
+        "2021": 48,
+        "2022": 55,
+        "2023": 52,
+        "2024": 68,
+        "2025": 57
+      },
+      "totalObservations": 280,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun to Part Shade",
+      "slopeRequirements": "Tolerates steep slopes; excellent for erosion control",
+      "soilRequirements": "Clay, loam, or sandy; very adaptable; no amendments"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "low",
+        "jun": "low",
+        "jul": "low",
+        "aug": "low",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Occasional deep water in summer for first 1–2 years. Fully drought-tolerant once established.",
+      "pruningNotes": "Prune to shape in late winter after berries are consumed. Can be hedged or left natural.",
+      "specialNotes": "Fire-follower — resprouts vigorously after fire. May get fireblight in humid conditions; prune affected branches."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          6,
+          7,
+          8
+        ],
+        "colors": [
+          "white"
+        ]
+      },
+      "berry": {
+        "months": [
+          10,
+          11,
+          12,
+          1,
+          2
+        ],
+        "colors": [
+          "red"
+        ],
+        "description": "Bright red berries persist through winter"
+      },
+      "seed": null,
+      "ecologicalValue": "Summer flowers feed native bees; winter berries are critical food for Cedar Waxwings, Robins, Mockingbirds, and Hermit Thrushes."
+    },
+    "wildlife": [
+      {
+        "months": [
+          6,
+          7,
+          8
+        ],
+        "species": "Native bees (Bombus, Halictidae)",
+        "activity": "nectar-pollen",
+        "notes": "Flat flower clusters are excellent landing pads for native bees",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          11,
+          12,
+          1,
+          2
+        ],
+        "species": "Cedar Waxwing",
+        "activity": "eating-berries",
+        "notes": "Flocks descend on berry-laden plants in winter",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3963653/medium.jpg",
+          "attribution": "Photo by Kyle Nessen, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2569268"
+        }
+      },
+      {
+        "months": [
+          11,
+          12,
+          1,
+          2
+        ],
+        "species": "American Robin",
+        "activity": "eating-berries",
+        "notes": "Major winter food source for overwintering robins",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1118417/medium.jpg",
+          "attribution": "Photo by Brian Henderson, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/699959"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "species": "Western Bluebird",
+        "activity": "nesting",
+        "notes": "Nests in cavities near Toyon; feeds berries to fledglings",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2012666/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1257479"
+        }
+      }
+    ]
+  },
+  {
+    "id": "malosma-laurina",
+    "commonNames": [
+      "Laurel Sumac"
+    ],
+    "scientificName": "Malosma laurina",
+    "synonyms": [
+      "Rhus laurina"
+    ],
+    "category": "large-shrub",
+    "isKeystone": false,
+    "description": "A fast-growing evergreen shrub with distinctive taco-shaped leaves that indicate frost-free zones. Its dense canopy provides essential shelter and nesting habitat for birds year-round, while its small fruits feed numerous bird species in late summer and fall.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13262989/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8816668"
+    },
+    "calscapeUrl": "https://calscape.org/Malosma-laurina-(Laurel-Sumac)",
+    "iNaturalistData": {
+      "taxonId": 78898,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=78898",
+      "observationsByMonth": {
+        "jan": 15,
+        "feb": 12,
+        "mar": 22,
+        "apr": 30,
+        "may": 35,
+        "jun": 40,
+        "jul": 38,
+        "aug": 25,
+        "sep": 18,
+        "oct": 14,
+        "nov": 12,
+        "dec": 10
+      },
+      "observationsByYear": {
+        "2021": 45,
+        "2022": 52,
+        "2023": 58,
+        "2024": 65,
+        "2025": 51
+      },
+      "totalObservations": 271,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Excellent on slopes; deep roots prevent erosion",
+      "soilRequirements": "Any well-drained soil; tolerates clay and rocky soil"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "No irrigation once established. One of the most drought-tolerant native shrubs.",
+      "pruningNotes": "Prune to shape in late fall. Can be cut back hard and will resprout from base.",
+      "specialNotes": "Frost-sensitive; the folded leaves are a reliable indicator of frost-free microclimates. Vigorous resprouter after fire."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          5,
+          6,
+          7
+        ],
+        "colors": [
+          "white",
+          "pink"
+        ]
+      },
+      "berry": {
+        "months": [
+          8,
+          9,
+          10
+        ],
+        "colors": [
+          "white"
+        ],
+        "description": "Small white drupes in dense clusters"
+      },
+      "seed": null,
+      "ecologicalValue": "Flowers attract native bees and butterflies; fruits eaten by mockingbirds, thrashers, and other birds; dense canopy provides critical nesting cover."
+    },
+    "wildlife": [
+      {
+        "months": [
+          5,
+          6,
+          7
+        ],
+        "species": "Painted Lady butterfly",
+        "activity": "nectar-pollen",
+        "notes": "Important nectar source during migration years",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3185505/medium.jpg",
+          "attribution": "Photo by Anne Toal, CC BY 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2063746"
+        }
+      },
+      {
+        "months": [
+          8,
+          9,
+          10
+        ],
+        "species": "California Thrasher",
+        "activity": "eating-berries",
+        "notes": "Feeds on drupes in late summer; nests in dense interior branches",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2508654/medium.jpg",
+          "attribution": "Photo by Alan Vernon, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1611260"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "species": "California Gnatcatcher",
+        "activity": "nesting",
+        "notes": "Dense canopy provides important nesting cover for this threatened species",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7618823/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/5209437"
+        }
+      }
+    ]
+  },
+  {
+    "id": "baccharis-sarothroides",
+    "commonNames": [
+      "Desert Broom",
+      "Broom Baccharis"
+    ],
+    "scientificName": "Baccharis sarothroides",
+    "synonyms": [],
+    "category": "large-shrub",
+    "isKeystone": false,
+    "description": "A tough, broom-like shrub that thrives in disturbed areas and provides late-season nectar when few other plants are blooming. Its cottony seed heads in fall are a distinctive sight, and the dense branches offer year-round shelter for lizards and small birds.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10293845/medium.jpg",
+      "attribution": "Photo by Jay Keller, CC BY-NC 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/6879672"
+    },
+    "calscapeUrl": "https://calscape.org/Baccharis-sarothroides-(Desert-Broom)",
+    "iNaturalistData": {
+      "taxonId": 56864,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=56864",
+      "observationsByMonth": {
+        "jan": 5,
+        "feb": 4,
+        "mar": 8,
+        "apr": 10,
+        "may": 8,
+        "jun": 6,
+        "jul": 5,
+        "aug": 6,
+        "sep": 12,
+        "oct": 18,
+        "nov": 15,
+        "dec": 8
+      },
+      "observationsByYear": {
+        "2021": 18,
+        "2022": 22,
+        "2023": 20,
+        "2024": 25,
+        "2025": 20
+      },
+      "totalObservations": 105,
+      "frequency": "uncommon",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Tolerates slopes and disturbed ground",
+      "soilRequirements": "Sandy, loam, or rocky; very tolerant of poor soils"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Extremely drought-tolerant. No supplemental water once established.",
+      "pruningNotes": "Can be pruned hard in late winter to maintain shape. Female plants produce copious seed fluff — prune seed heads if unwanted.",
+      "specialNotes": "Dioecious — plant male plants if seed fluff is a concern. Can spread aggressively in irrigated gardens."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          9,
+          10,
+          11
+        ],
+        "colors": [
+          "white",
+          "yellow"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          11,
+          12,
+          1
+        ],
+        "description": "Cottony seed heads disperse on wind"
+      },
+      "ecologicalValue": "Critical late-season nectar for migrating butterflies and native bees. One of the few plants blooming in fall when pollinators need fuel."
+    },
+    "wildlife": [
+      {
+        "months": [
+          9,
+          10,
+          11
+        ],
+        "species": "Monarch butterfly",
+        "activity": "nectar-pollen",
+        "notes": "Important fall nectar source for migrating Monarchs",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3028851/medium.jpg",
+          "attribution": "Photo by Andrew Cannizzaro, CC BY 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1961898"
+        }
+      },
+      {
+        "months": [
+          9,
+          10,
+          11
+        ],
+        "species": "Native bees (Halictidae)",
+        "activity": "nectar-pollen",
+        "notes": "Late-season blooms fuel final foraging before winter",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "species": "Western Fence Lizard",
+        "activity": "shelter",
+        "notes": "Dense broom-like branches provide year-round cover",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1780994/medium.jpg",
+          "attribution": "Photo by Robert Bhatt, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1111879"
+        }
+      }
+    ]
+  },
+  {
+    "id": "xylococcus-bicolor",
+    "commonNames": [
+      "Mission Manzanita"
+    ],
+    "scientificName": "Xylococcus bicolor",
+    "synonyms": [],
+    "category": "large-shrub",
+    "isKeystone": false,
+    "description": "A striking manzanita with smooth red bark and leathery bicolored leaves — dark green above, white below. Endemic to San Diego County's chaparral, it provides early-season nectar for hummingbirds and bees when few other plants are blooming, and its berries feed birds through summer.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28296542/medium.jpg",
+      "attribution": "Photo by Belinda Lo, CC BY-NC 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/18006155"
+    },
+    "calscapeUrl": "https://calscape.org/Xylococcus-bicolor-(Mission-Manzanita)",
+    "iNaturalistData": {
+      "taxonId": 61746,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=61746",
+      "observationsByMonth": {
+        "jan": 12,
+        "feb": 15,
+        "mar": 18,
+        "apr": 14,
+        "may": 10,
+        "jun": 8,
+        "jul": 6,
+        "aug": 5,
+        "sep": 5,
+        "oct": 6,
+        "nov": 8,
+        "dec": 10
+      },
+      "observationsByYear": {
+        "2021": 20,
+        "2022": 24,
+        "2023": 22,
+        "2024": 28,
+        "2025": 23
+      },
+      "totalObservations": 117,
+      "frequency": "uncommon",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun to Part Shade",
+      "slopeRequirements": "Excellent on slopes; needs sharp drainage",
+      "soilRequirements": "Sandy or rocky, well-drained; no clay; no amendments"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "No summer water once established — overwatering is fatal. One of the most drought-tolerant manzanitas.",
+      "pruningNotes": "Rarely needs pruning. Remove only dead wood. Do not cut into old wood — it won't resprout.",
+      "specialNotes": "Extremely sensitive to summer irrigation. Site on a well-drained slope away from irrigated areas. Slow-growing but very long-lived."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          12,
+          1,
+          2,
+          3
+        ],
+        "colors": [
+          "white",
+          "pink"
+        ]
+      },
+      "berry": {
+        "months": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "colors": [
+          "red"
+        ],
+        "description": "Small manzanita berries ripen through summer"
+      },
+      "seed": null,
+      "ecologicalValue": "Critical winter/early spring nectar source for Anna's Hummingbirds and overwintering bumblebees. Berries feed Wrentits, thrashers, and coyotes."
+    },
+    "wildlife": [
+      {
+        "months": [
+          12,
+          1,
+          2,
+          3
+        ],
+        "species": "Anna's Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Primary winter nectar source; hummingbirds defend individual plants",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2105963/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1313718"
+        }
+      },
+      {
+        "months": [
+          1,
+          2,
+          3
+        ],
+        "species": "Bombus crotchii (Crotch's Bumblebee)",
+        "activity": "nectar-pollen",
+        "notes": "Early blooms critical for this endangered bumblebee species emerging from hibernation",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10064459/medium.jpg",
+          "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/6732345"
+        }
+      },
+      {
+        "months": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "species": "Wrentit",
+        "activity": "eating-berries",
+        "notes": "A chaparral specialist that feeds on manzanita berries and nests in dense shrubs",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5419265/medium.jpg",
+          "attribution": "Photo by Alan Vernon, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/3624817"
+        }
+      }
+    ]
+  },
+  {
+    "id": "encelia-californica",
+    "commonNames": [
+      "Bush Sunflower",
+      "California Encelia"
+    ],
+    "scientificName": "Encelia californica",
+    "synonyms": [],
+    "category": "small-shrub",
+    "isKeystone": false,
+    "description": "A cheerful, long-blooming shrub that produces abundant daisy-like yellow flowers from spring through summer. It's a pollinator magnet that attracts dozens of native bee species, butterflies, and beneficial insects. Easy to grow and quick to establish, making it an ideal starter plant for new native gardens.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12428792/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8250455"
+    },
+    "calscapeUrl": "https://calscape.org/Encelia-californica-(Bush-Sunflower)",
+    "iNaturalistData": {
+      "taxonId": 56265,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=56265",
+      "observationsByMonth": {
+        "jan": 8,
+        "feb": 12,
+        "mar": 35,
+        "apr": 55,
+        "may": 48,
+        "jun": 30,
+        "jul": 15,
+        "aug": 8,
+        "sep": 5,
+        "oct": 5,
+        "nov": 6,
+        "dec": 6
+      },
+      "observationsByYear": {
+        "2021": 42,
+        "2022": 48,
+        "2023": 50,
+        "2024": 55,
+        "2025": 38
+      },
+      "totalObservations": 233,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Flat to moderate slopes; tolerates coastal exposure",
+      "soilRequirements": "Sandy to loam; well-drained; tolerates poor soils"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "low",
+        "may": "low",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Drought-deciduous — drops leaves in summer drought, which is normal. Occasional spring water extends bloom period.",
+      "pruningNotes": "Cut back by half in late fall to maintain compact shape and prevent legginess. Deadhead spent flowers to extend blooming.",
+      "specialNotes": "Short-lived (3–5 years) but self-seeds readily. Replace old plants as they decline."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "colors": [
+          "yellow"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "description": "Small achenes in dried flower heads; eaten by finches"
+      },
+      "ecologicalValue": "One of the best native pollinator plants — attracts 50+ species of native bees, painted lady butterflies, and hover flies. Seeds feed Lesser Goldfinches."
+    },
+    "wildlife": [
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "species": "Native solitary bees (Andrena, Halictus)",
+        "activity": "nectar-pollen",
+        "notes": "One of the top native bee plants in coastal sage scrub",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "species": "Painted Lady butterfly",
+        "activity": "nectar-pollen",
+        "notes": "Frequent visitor during spring migration",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3185505/medium.jpg",
+          "attribution": "Photo by Anne Toal, CC BY 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2063746"
+        }
+      },
+      {
+        "months": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "species": "Lesser Goldfinch",
+        "activity": "eating-seeds",
+        "notes": "Flocks feed on dried seed heads in summer and fall",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2416987/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1553281"
+        }
+      }
+    ]
+  },
+  {
+    "id": "artemisia-californica",
+    "commonNames": [
+      "California Sagebrush",
+      "Coastal Sagebrush"
+    ],
+    "scientificName": "Artemisia californica",
+    "synonyms": [],
+    "category": "small-shrub",
+    "isKeystone": true,
+    "description": "The signature aromatic shrub of coastal sage scrub, California Sagebrush defines the plant community that once covered much of Southern California. Its fragrant foliage is a critical host plant for several butterfly species and provides year-round cover for California Gnatcatchers and other declining sage scrub birds.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11580244/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/7702982"
+    },
+    "calscapeUrl": "https://calscape.org/Artemisia-californica-(California-Sagebrush)",
+    "iNaturalistData": {
+      "taxonId": 52857,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=52857",
+      "observationsByMonth": {
+        "jan": 20,
+        "feb": 22,
+        "mar": 35,
+        "apr": 42,
+        "may": 38,
+        "jun": 30,
+        "jul": 22,
+        "aug": 18,
+        "sep": 15,
+        "oct": 18,
+        "nov": 20,
+        "dec": 18
+      },
+      "observationsByYear": {
+        "2021": 55,
+        "2022": 60,
+        "2023": 58,
+        "2024": 72,
+        "2025": 53
+      },
+      "totalObservations": 298,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Excellent on dry slopes; good for erosion control",
+      "soilRequirements": "Sandy to loam; well-drained; no amendments; tolerates poor soils"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "No supplemental water once established. Drought-deciduous — drops leaves in summer, re-leafs with fall rains.",
+      "pruningNotes": "Light pruning in fall to maintain shape. Can be cut back to 12 inches to rejuvenate.",
+      "specialNotes": "Allelopathic — may inhibit some plants nearby. Highly aromatic foliage. Important Chumash and Kumeyaay medicinal plant."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "colors": [
+          "yellow-green"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          11,
+          12,
+          1
+        ],
+        "description": "Tiny wind-dispersed achenes"
+      },
+      "ecologicalValue": "Defines coastal sage scrub habitat. Host plant for California Sagebrush moth. Foliage provides year-round cover for threatened California Gnatcatcher."
+    },
+    "wildlife": [
+      {
+        "months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "species": "California Gnatcatcher",
+        "activity": "shelter",
+        "notes": "This threatened species depends on sagebrush-dominated habitat for foraging and nesting",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7618823/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/5209437"
+        }
+      },
+      {
+        "months": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "species": "Sagebrush moth (Aroga websteri)",
+        "activity": "caterpillar-host",
+        "notes": "Larvae feed inside the stems",
+        "image": null
+      },
+      {
+        "months": [
+          8,
+          9,
+          10
+        ],
+        "species": "Native bees (Halictidae)",
+        "activity": "nectar-pollen",
+        "notes": "Wind-pollinated but bees collect pollen from the small flower heads",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      }
+    ]
+  },
+  {
+    "id": "eriogonum-fasciculatum",
+    "commonNames": [
+      "California Buckwheat"
+    ],
+    "scientificName": "Eriogonum fasciculatum",
+    "synonyms": [],
+    "category": "small-shrub",
+    "isKeystone": true,
+    "description": "The single most important native pollinator plant in Southern California. California Buckwheat supports over 50 species of native bees and is visited by countless butterflies. Its flowers transition from white to pink to rust as they age, providing nectar from spring through fall, and the dried seed heads feed birds through winter.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11098920/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/7395281"
+    },
+    "calscapeUrl": "https://calscape.org/Eriogonum-fasciculatum-(California-Buckwheat)",
+    "iNaturalistData": {
+      "taxonId": 53420,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=53420",
+      "observationsByMonth": {
+        "jan": 12,
+        "feb": 18,
+        "mar": 35,
+        "apr": 52,
+        "may": 68,
+        "jun": 71,
+        "jul": 42,
+        "aug": 19,
+        "sep": 10,
+        "oct": 6,
+        "nov": 5,
+        "dec": 4
+      },
+      "observationsByYear": {
+        "2021": 58,
+        "2022": 72,
+        "2023": 65,
+        "2024": 91,
+        "2025": 56
+      },
+      "totalObservations": 342,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Well-drained; excellent on slopes and road cuts",
+      "soilRequirements": "Sandy to loam, low fertility, no amendments needed"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "low",
+        "apr": "low",
+        "may": "low",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Extremely drought-tolerant once established; no summer water needed.",
+      "pruningNotes": "Cut back by 1/3 in late fall after seeds drop to maintain compact form.",
+      "specialNotes": "Leave dried flower/seed heads through winter for bird foraging. One of the easiest natives to grow."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "colors": [
+          "white",
+          "pink",
+          "rust"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "description": "Russet seed heads persist through winter, gradually consumed by finches"
+      },
+      "ecologicalValue": "Major nectar source for 50+ native bee species, Painted Ladies, hairstreak butterflies. Seeds eaten by goldfinches and sparrows."
+    },
+    "wildlife": [
+      {
+        "months": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "species": "Native solitary bees (Halictidae, Andrenidae)",
+        "activity": "nectar-pollen",
+        "notes": "The #1 native bee plant in San Diego County — peak visitation June–July",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          5,
+          6,
+          7
+        ],
+        "species": "Acmon Blue butterfly",
+        "activity": "caterpillar-host",
+        "notes": "Buckwheat is a primary host plant for this common blue butterfly",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4530399/medium.jpg",
+          "attribution": "Photo by Bill Bouton, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/3001736"
+        }
+      },
+      {
+        "months": [
+          10,
+          11,
+          12,
+          1
+        ],
+        "species": "Lesser Goldfinch",
+        "activity": "eating-seeds",
+        "notes": "Flocks feed on dried seed heads through winter",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2416987/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1553281"
+        }
+      }
+    ]
+  },
+  {
+    "id": "salvia-apiana",
+    "commonNames": [
+      "White Sage"
+    ],
+    "scientificName": "Salvia apiana",
+    "synonyms": [],
+    "category": "small-shrub",
+    "isKeystone": false,
+    "description": "Sacred to Indigenous peoples and beloved by pollinators, White Sage produces tall flowering spikes that are a magnet for native bees, especially large carpenter bees and bumblebees. Its intensely aromatic silver-white foliage is deer-resistant and the plant is supremely drought-tolerant once established.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12118253/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8044875"
+    },
+    "calscapeUrl": "https://calscape.org/Salvia-apiana-(White-Sage)",
+    "iNaturalistData": {
+      "taxonId": 52854,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=52854",
+      "observationsByMonth": {
+        "jan": 10,
+        "feb": 12,
+        "mar": 22,
+        "apr": 35,
+        "may": 48,
+        "jun": 42,
+        "jul": 25,
+        "aug": 15,
+        "sep": 10,
+        "oct": 8,
+        "nov": 8,
+        "dec": 8
+      },
+      "observationsByYear": {
+        "2021": 40,
+        "2022": 48,
+        "2023": 45,
+        "2024": 58,
+        "2025": 52
+      },
+      "totalObservations": 243,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Well-drained slopes preferred; avoid low spots where water pools",
+      "soilRequirements": "Sandy to loam; excellent drainage essential; no clay"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "No summer water once established — overwatering causes root rot and death.",
+      "pruningNotes": "Remove spent flower stalks after bloom. Light shaping in fall if needed.",
+      "specialNotes": "Culturally significant to Kumeyaay and other Indigenous peoples. Avoid harvesting from wild populations. Deer-resistant."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "colors": [
+          "white",
+          "lavender"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          7,
+          8,
+          9
+        ],
+        "description": "Nutlets in persistent calyces along tall stalks"
+      },
+      "ecologicalValue": "Major bee plant — visited by carpenter bees, bumblebees, and honey bees. Hummingbirds visit flowers. Seeds eaten by sparrows and juncos."
+    },
+    "wildlife": [
+      {
+        "months": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "species": "Valley Carpenter Bee (Xylocopa varipuncta)",
+        "activity": "nectar-pollen",
+        "notes": "Large golden females are the primary pollinators, buzz-pollinating the flowers",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6283847/medium.jpg",
+          "attribution": "Photo by Lon Brehmer, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/4238178"
+        }
+      },
+      {
+        "months": [
+          4,
+          5,
+          6
+        ],
+        "species": "Costa's Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Visits flower spikes; males display nearby during breeding season",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3616270/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2347068"
+        }
+      },
+      {
+        "months": [
+          8,
+          9,
+          10
+        ],
+        "species": "White-crowned Sparrow",
+        "activity": "eating-seeds",
+        "notes": "Arriving winter flocks forage on fallen seeds",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2012690/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1257489"
+        }
+      }
+    ]
+  },
+  {
+    "id": "salvia-mellifera",
+    "commonNames": [
+      "Black Sage"
+    ],
+    "scientificName": "Salvia mellifera",
+    "synonyms": [],
+    "category": "small-shrub",
+    "isKeystone": true,
+    "description": "The 'honey sage' — named for the exceptional quality of honey produced from its nectar. Black Sage is the backbone of coastal sage scrub alongside California Sagebrush, supporting an extraordinary diversity of native bees. Its whorled flower clusters bloom in a sequence up the stalk, providing extended nectar availability.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12662541/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8410061"
+    },
+    "calscapeUrl": "https://calscape.org/Salvia-mellifera-(Black-Sage)",
+    "iNaturalistData": {
+      "taxonId": 53077,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=53077",
+      "observationsByMonth": {
+        "jan": 8,
+        "feb": 10,
+        "mar": 25,
+        "apr": 50,
+        "may": 62,
+        "jun": 45,
+        "jul": 22,
+        "aug": 12,
+        "sep": 8,
+        "oct": 6,
+        "nov": 6,
+        "dec": 6
+      },
+      "observationsByYear": {
+        "2021": 45,
+        "2022": 52,
+        "2023": 48,
+        "2024": 68,
+        "2025": 47
+      },
+      "totalObservations": 260,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Slopes and flats; needs good drainage",
+      "soilRequirements": "Sandy to loam; well-drained; tolerates poor soils"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "low",
+        "may": "low",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Drought-deciduous — drops leaves in summer. No summer water once established.",
+      "pruningNotes": "Cut back by 1/3 after bloom to maintain shape. Avoid cutting into old wood.",
+      "specialNotes": "Highly aromatic. Produces some of California's finest sage honey. Deer-resistant."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "colors": [
+          "pale-blue",
+          "lavender"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "description": "Nutlets in persistent whorled calyces; important for seed-eating birds"
+      },
+      "ecologicalValue": "Premier native bee plant. Whorled flower clusters provide sequential blooming up each stalk. Important nectar source for butterflies and hummingbirds."
+    },
+    "wildlife": [
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "species": "Native bees (40+ species)",
+        "activity": "nectar-pollen",
+        "notes": "Black Sage is among the top 3 native bee plants in San Diego County",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          4,
+          5,
+          6
+        ],
+        "species": "Anna's Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Regular visitor throughout bloom period",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2105963/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1313718"
+        }
+      },
+      {
+        "months": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "species": "California Towhee",
+        "activity": "eating-seeds",
+        "notes": "Scratches beneath plants for fallen seeds",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5217893/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/3486750"
+        }
+      }
+    ]
+  },
+  {
+    "id": "diplacus-puniceus",
+    "commonNames": [
+      "Red Bush Monkeyflower",
+      "Red Monkey Flower"
+    ],
+    "scientificName": "Diplacus puniceus",
+    "synonyms": [
+      "Mimulus puniceus"
+    ],
+    "category": "small-shrub",
+    "isKeystone": false,
+    "description": "A hummingbird favorite with tubular red-orange flowers that bloom over a long season. Endemic to San Diego County and northern Baja California, Red Bush Monkeyflower is perfectly adapted to the local climate and provides critical nectar for resident and migrating hummingbirds.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12916041/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8581397"
+    },
+    "calscapeUrl": "https://calscape.org/Diplacus-puniceus-(Red-Bush-Monkeyflower)",
+    "iNaturalistData": {
+      "taxonId": 50381,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=50381",
+      "observationsByMonth": {
+        "jan": 5,
+        "feb": 8,
+        "mar": 22,
+        "apr": 38,
+        "may": 42,
+        "jun": 30,
+        "jul": 15,
+        "aug": 8,
+        "sep": 5,
+        "oct": 4,
+        "nov": 4,
+        "dec": 4
+      },
+      "observationsByYear": {
+        "2021": 30,
+        "2022": 38,
+        "2023": 35,
+        "2024": 45,
+        "2025": 37
+      },
+      "totalObservations": 185,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun to Part Shade",
+      "slopeRequirements": "Slopes preferred; needs excellent drainage",
+      "soilRequirements": "Sandy to loam; well-drained; no clay; tolerates rocky soils"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "low",
+        "apr": "low",
+        "may": "low",
+        "jun": "low",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Occasional deep water in spring extends bloom. Reduce to none in late summer.",
+      "pruningNotes": "Cut back by half after main bloom flush in early summer. Promotes fall rebloom.",
+      "specialNotes": "May go dormant in summer drought. Light afternoon shade in hottest inland areas helps extend bloom."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "colors": [
+          "red",
+          "orange"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          7,
+          8,
+          9
+        ],
+        "description": "Small capsules split to release tiny seeds"
+      },
+      "ecologicalValue": "Primary hummingbird nectar plant. Tubular flowers exclude most insects, channeling nectar to hummingbirds. Also visited by carpenter bees that pierce the flower base."
+    },
+    "wildlife": [
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "species": "Anna's Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Primary pollinator; tubular flowers are perfectly shaped for hummingbird bills",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2105963/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1313718"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "species": "Allen's Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Spring migrant stops to refuel on monkeyflower nectar",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3616189/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2347012"
+        }
+      },
+      {
+        "months": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "species": "Buckeye butterfly",
+        "activity": "caterpillar-host",
+        "notes": "Monkeyflowers are a host plant for Common Buckeye butterfly larvae",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4127253/medium.jpg",
+          "attribution": "Photo by Bill Bouton, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2744285"
+        }
+      }
+    ]
+  },
+  {
+    "id": "epilobium-canum",
+    "commonNames": [
+      "California Fuchsia",
+      "Hummingbird Trumpet"
+    ],
+    "scientificName": "Epilobium canum",
+    "synonyms": [
+      "Zauschneria californica"
+    ],
+    "category": "herbaceous-perennial",
+    "isKeystone": false,
+    "description": "The ultimate fall hummingbird plant — California Fuchsia explodes with brilliant scarlet tubular flowers from late summer into fall, precisely when hummingbirds are fattening up for migration or establishing winter territories. One of the very few native plants that provides abundant nectar in the dry fall months.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12283958/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8155122"
+    },
+    "calscapeUrl": "https://calscape.org/Epilobium-canum-(California-Fuchsia)",
+    "iNaturalistData": {
+      "taxonId": 60756,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=60756",
+      "observationsByMonth": {
+        "jan": 2,
+        "feb": 2,
+        "mar": 5,
+        "apr": 8,
+        "may": 10,
+        "jun": 12,
+        "jul": 15,
+        "aug": 30,
+        "sep": 45,
+        "oct": 35,
+        "nov": 15,
+        "dec": 5
+      },
+      "observationsByYear": {
+        "2021": 32,
+        "2022": 38,
+        "2023": 35,
+        "2024": 48,
+        "2025": 31
+      },
+      "totalObservations": 184,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun to Part Shade",
+      "slopeRequirements": "Slopes or flat; good drainage preferred",
+      "soilRequirements": "Sandy to loam; adaptable; tolerates rocky soils"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "low",
+        "may": "low",
+        "jun": "low",
+        "jul": "low",
+        "aug": "low",
+        "sep": "low",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Occasional summer water keeps it greener and extends bloom. Tolerates drought but blooms better with some water.",
+      "pruningNotes": "Cut back to 4–6 inches in late winter after frost. New growth emerges from base in spring.",
+      "specialNotes": "Spreads by underground rhizomes — can be aggressive. Plant where spreading is welcome or contain with hardscape."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "colors": [
+          "red",
+          "orange-red"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          10,
+          11,
+          12
+        ],
+        "description": "Small parachute-like seeds dispersed by wind"
+      },
+      "ecologicalValue": "The most important fall hummingbird plant in coastal sage scrub. Fills the critical nectar gap between summer-blooming sages and winter-blooming manzanitas."
+    },
+    "wildlife": [
+      {
+        "months": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "species": "Anna's Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Resident hummingbirds depend on this plant as summer flowers fade",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2105963/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1313718"
+        }
+      },
+      {
+        "months": [
+          8,
+          9,
+          10
+        ],
+        "species": "Rufous Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Fall migrants fuel up on California Fuchsia during southward migration",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3616351/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2347121"
+        }
+      },
+      {
+        "months": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "species": "White-lined Sphinx Moth",
+        "activity": "nectar-pollen",
+        "notes": "Visits flowers at dusk; caterpillars also feed on Epilobium foliage",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6009982/medium.jpg",
+          "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/4054237"
+        }
+      }
+    ]
+  },
+  {
+    "id": "eriophyllum-confertiflorum",
+    "commonNames": [
+      "Golden Yarrow",
+      "Yellow Yarrow"
+    ],
+    "scientificName": "Eriophyllum confertiflorum",
+    "synonyms": [],
+    "category": "herbaceous-perennial",
+    "isKeystone": false,
+    "description": "A cheerful low-growing perennial that covers itself in clusters of small golden flowers in spring. Golden Yarrow is an excellent groundcover for dry slopes and its flowers attract a wide variety of small native bees, hover flies, and butterflies. Its woolly silver foliage is attractive year-round.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11303430/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/7524822"
+    },
+    "calscapeUrl": "https://calscape.org/Eriophyllum-confertiflorum-(Golden-Yarrow)",
+    "iNaturalistData": {
+      "taxonId": 58622,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=58622",
+      "observationsByMonth": {
+        "jan": 3,
+        "feb": 5,
+        "mar": 15,
+        "apr": 32,
+        "may": 38,
+        "jun": 25,
+        "jul": 12,
+        "aug": 6,
+        "sep": 4,
+        "oct": 3,
+        "nov": 3,
+        "dec": 2
+      },
+      "observationsByYear": {
+        "2021": 25,
+        "2022": 30,
+        "2023": 28,
+        "2024": 38,
+        "2025": 27
+      },
+      "totalObservations": 148,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Excellent on dry slopes and banks",
+      "soilRequirements": "Sandy to loam; well-drained; tolerates rocky and poor soils"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "No supplemental water once established. Extremely drought-tolerant.",
+      "pruningNotes": "Shear lightly after bloom to maintain compact form and promote denser growth.",
+      "specialNotes": "Semi-evergreen — may lose some leaves in extreme drought. Self-seeds in favorable conditions."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "colors": [
+          "yellow"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "description": "Tiny achenes in dried flower clusters"
+      },
+      "ecologicalValue": "Important nectar source for small native bees and hover flies. Attracts beneficial predatory insects that control garden pests."
+    },
+    "wildlife": [
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "species": "Small native bees (Lasioglossum, Ceratina)",
+        "activity": "nectar-pollen",
+        "notes": "Compact flower clusters are ideal for small-bodied bees",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          4,
+          5,
+          6
+        ],
+        "species": "Hover flies (Syrphidae)",
+        "activity": "nectar-pollen",
+        "notes": "Abundant hover fly visitors; their larvae are beneficial aphid predators",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7255428/medium.jpg",
+          "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/4954131"
+        }
+      },
+      {
+        "months": [
+          7,
+          8,
+          9
+        ],
+        "species": "Lesser Goldfinch",
+        "activity": "eating-seeds",
+        "notes": "Visits dried flower heads for seeds",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2416987/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1553281"
+        }
+      }
+    ]
+  },
+  {
+    "id": "asclepias-fascicularis",
+    "commonNames": [
+      "Narrowleaf Milkweed",
+      "Mexican Whorled Milkweed"
+    ],
+    "scientificName": "Asclepias fascicularis",
+    "synonyms": [],
+    "category": "herbaceous-perennial",
+    "isKeystone": true,
+    "description": "The native milkweed essential for Monarch butterfly survival in Southern California. Narrowleaf Milkweed is the exclusive larval food plant for Monarch caterpillars and provides nectar for adult butterflies, native bees, and many other pollinators. Planting native milkweed (not tropical) is one of the most impactful things a gardener can do for Monarch conservation.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12534651/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/8320741"
+    },
+    "calscapeUrl": "https://calscape.org/Asclepias-fascicularis-(Narrowleaf-Milkweed)",
+    "iNaturalistData": {
+      "taxonId": 47935,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=47935",
+      "observationsByMonth": {
+        "jan": 2,
+        "feb": 3,
+        "mar": 8,
+        "apr": 15,
+        "may": 25,
+        "jun": 35,
+        "jul": 42,
+        "aug": 38,
+        "sep": 22,
+        "oct": 10,
+        "nov": 4,
+        "dec": 2
+      },
+      "observationsByYear": {
+        "2021": 35,
+        "2022": 42,
+        "2023": 38,
+        "2024": 50,
+        "2025": 41
+      },
+      "totalObservations": 206,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Flat to gentle slopes; tolerates seasonal flooding",
+      "soilRequirements": "Loam to clay; adaptable; tolerates heavier soils than most natives"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "low",
+        "apr": "low",
+        "may": "moderate",
+        "jun": "moderate",
+        "jul": "moderate",
+        "aug": "moderate",
+        "sep": "low",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Moderate summer water extends the growing season and supports more caterpillar broods. More water-tolerant than most natives.",
+      "pruningNotes": "Cut back to ground in late fall after stems die back naturally. Do NOT cut while caterpillars are present — check carefully first.",
+      "specialNotes": "Goes fully dormant in winter — mark location to avoid accidental disturbance. Spreads by rhizomes. CRITICAL: use only native milkweed, never tropical milkweed (A. curassavica) which disrupts Monarch migration."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "colors": [
+          "pink",
+          "white"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "description": "Large pods split to release silky-parachuted seeds"
+      },
+      "ecologicalValue": "THE essential Monarch butterfly host plant. Also critical nectar source for native bees, other butterflies, and beneficial insects like Milkweed Bugs and Milkweed Beetles."
+    },
+    "wildlife": [
+      {
+        "months": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "species": "Monarch butterfly",
+        "activity": "caterpillar-host",
+        "notes": "Monarch caterpillars exclusively feed on milkweed — the only larval host plant. Multiple broods per year.",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3028851/medium.jpg",
+          "attribution": "Photo by Andrew Cannizzaro, CC BY 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1961898"
+        }
+      },
+      {
+        "months": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "species": "Native bees (Bombus, Apis, Halictidae)",
+        "activity": "nectar-pollen",
+        "notes": "Complex flower structure requires strong bees to access nectar",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "species": "Large Milkweed Bug (Oncopeltus fasciatus)",
+        "activity": "eating-seeds",
+        "notes": "Feeds on milkweed seeds; distinctive orange and black coloring warns predators",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3732917/medium.jpg",
+          "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2421268"
+        }
+      }
+    ]
+  },
+  {
+    "id": "acmispon-glaber",
+    "commonNames": [
+      "Short-winged Deerweed",
+      "Deerweed",
+      "California Broom"
+    ],
+    "scientificName": "Acmispon glaber var. brevialatus",
+    "synonyms": [
+      "Lotus scoparius var. brevialatus"
+    ],
+    "category": "groundcover-perennial",
+    "isKeystone": false,
+    "description": "A nitrogen-fixing pioneer plant that rapidly colonizes disturbed ground and improves soil for other natives. Deerweed's small yellow flowers bloom prolifically and are critical for native bees, while the plant is one of the primary host plants for several blue butterfly species including the endangered Palos Verdes Blue.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12044918/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/7995826"
+    },
+    "calscapeUrl": "https://calscape.org/Acmispon-glaber-(Deerweed)",
+    "iNaturalistData": {
+      "taxonId": 62928,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=62928",
+      "observationsByMonth": {
+        "jan": 5,
+        "feb": 8,
+        "mar": 18,
+        "apr": 32,
+        "may": 35,
+        "jun": 28,
+        "jul": 15,
+        "aug": 8,
+        "sep": 5,
+        "oct": 4,
+        "nov": 4,
+        "dec": 3
+      },
+      "observationsByYear": {
+        "2021": 28,
+        "2022": 35,
+        "2023": 32,
+        "2024": 42,
+        "2025": 28
+      },
+      "totalObservations": 165,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Excellent on disturbed slopes and road cuts",
+      "soilRequirements": "Sandy to loam; poor soils fine — fixes its own nitrogen; well-drained"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "No supplemental water once established. Thrives on neglect.",
+      "pruningNotes": "Can be cut back hard in fall to rejuvenate. Short-lived (3–5 years) but self-seeds prolifically.",
+      "specialNotes": "Nitrogen-fixer — improves soil for companion plants. Pioneer species ideal for establishing new native gardens. Fire-follower."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "colors": [
+          "yellow"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "description": "Small legume pods; seeds persist in soil bank"
+      },
+      "ecologicalValue": "Critical nitrogen-fixer for ecosystem health. Host plant for Acmon Blue, Orange Sulphur, and Gray Hairstreak butterflies. Abundant nectar for native bees."
+    },
+    "wildlife": [
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "species": "Acmon Blue butterfly",
+        "activity": "caterpillar-host",
+        "notes": "Primary larval host plant; caterpillars feed on flowers and seed pods",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4530399/medium.jpg",
+          "attribution": "Photo by Bill Bouton, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/3001736"
+        }
+      },
+      {
+        "months": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "species": "Native bees (Halictidae, Megachilidae)",
+        "activity": "nectar-pollen",
+        "notes": "Abundant small flowers provide long-season nectar",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "species": "Mule deer",
+        "activity": "browsing",
+        "notes": "Named for deer's preference for browsing the foliage",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4023451/medium.jpg",
+          "attribution": "Photo by James Bailey, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2678524"
+        }
+      }
+    ]
+  },
+  {
+    "id": "lupinus-succulentus",
+    "commonNames": [
+      "Arroyo Lupine",
+      "Succulent Lupine"
+    ],
+    "scientificName": "Lupinus succulentus",
+    "synonyms": [],
+    "category": "groundcover-annual",
+    "isKeystone": false,
+    "description": "A showy spring wildflower that carpets hillsides with spikes of deep purple-blue flowers. As an annual, Arroyo Lupine completes its entire life cycle in one season, germinating with fall rains and blooming spectacularly in spring. Like Deerweed, it fixes nitrogen and enriches soil for perennial natives.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10879277/medium.jpg",
+      "attribution": "Photo by NatureShutterbug, CC BY 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/7247085"
+    },
+    "calscapeUrl": "https://calscape.org/Lupinus-succulentus-(Arroyo-Lupine)",
+    "iNaturalistData": {
+      "taxonId": 64267,
+      "placeId": 122557,
+      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=64267",
+      "observationsByMonth": {
+        "jan": 5,
+        "feb": 12,
+        "mar": 45,
+        "apr": 62,
+        "may": 35,
+        "jun": 8,
+        "jul": 2,
+        "aug": 1,
+        "sep": 1,
+        "oct": 1,
+        "nov": 2,
+        "dec": 3
+      },
+      "observationsByYear": {
+        "2021": 30,
+        "2022": 38,
+        "2023": 42,
+        "2024": 45,
+        "2025": 22
+      },
+      "totalObservations": 177,
+      "frequency": "common",
+      "lastUpdated": "2026-04-10"
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Flat to gentle slopes; natural in washes and roadsides",
+      "soilRequirements": "Sandy to loam; tolerates clay; nitrogen-fixer needs no amendments"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "low",
+        "feb": "low",
+        "mar": "low",
+        "apr": "none",
+        "may": "none",
+        "jun": "none",
+        "jul": "none",
+        "aug": "none",
+        "sep": "none",
+        "oct": "none",
+        "nov": "low",
+        "dec": "low"
+      },
+      "wateringNotes": "Supplemental water during germination (fall) and growth (winter) helps establish dense stands. No water needed once blooming.",
+      "pruningNotes": "None needed — annual dies back naturally. Leave dried plants in place to drop seeds.",
+      "specialNotes": "Sow seeds in late fall after first rains. Scarify seeds with sandpaper for better germination. Self-seeds well once established."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "colors": [
+          "purple",
+          "blue"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          5,
+          6,
+          7
+        ],
+        "description": "Legume pods pop open explosively, flinging seeds several feet"
+      },
+      "ecologicalValue": "Spring nectar for bumblebees and native bees. Host plant for several blue butterfly species. Nitrogen-fixer improves soil for companion plants."
+    },
+    "wildlife": [
+      {
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "species": "Bumblebees (Bombus crotchii, B. vosnesenskii)",
+        "activity": "nectar-pollen",
+        "notes": "Heavy-bodied bumblebees are the primary pollinators; they buzz-pollinate the keel flowers",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10064459/medium.jpg",
+          "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/6732345"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "species": "Painted Lady butterfly",
+        "activity": "nectar-pollen",
+        "notes": "Frequent spring visitor during migration events",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3185505/medium.jpg",
+          "attribution": "Photo by Anne Toal, CC BY 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2063746"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "species": "Silvery Blue butterfly",
+        "activity": "caterpillar-host",
+        "notes": "Lupines are a primary host plant for this small blue butterfly",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4530399/medium.jpg",
+          "attribution": "Photo by Bill Bouton, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/3001736"
+        }
+      }
+    ]
+  }
+]

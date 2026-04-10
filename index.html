@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SD Habitat — Native Garden Guide | Poway, CA</title>
+  <meta name="description" content="A living reference for a native habitat garden in Poway, CA — plant inventory, bloom calendars, wildlife schedules, and maintenance guides for 16 California native plants.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SD Habitat — Native Garden Guide">
+  <meta property="og:description" content="Explore 16 California native plants, their bloom schedules, wildlife interactions, and care guides for a habitat garden in Poway, CA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/icon-512.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SD Habitat — Native Garden Guide">
+  <meta name="twitter:description" content="Explore 16 California native plants, their bloom schedules, wildlife interactions, and care guides.">
+
+  <!-- Favicons -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="images/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#4a7c59">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#" class="nav-logo" aria-label="SD Habitat home">
+        <img src="images/favicon.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span>SD Habitat</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#inventory">Plants</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-label="Garden introduction">
+      <div class="hero-content">
+        <h1>Native Habitat Garden</h1>
+        <p class="hero-subtitle">Poway, California</p>
+        <p class="hero-desc">A living guide to 16 California native plants — what blooms when, which wildlife visits, and how to care for a thriving habitat garden in San Diego County's coastal sage scrub.</p>
+        <a href="#inventory" class="btn btn-primary">Explore Plants</a>
+        <a href="#calendar" class="btn btn-secondary">This Month</a>
+      </div>
+    </section>
+
+    <!-- Plant Inventory -->
+    <section id="inventory" class="section" aria-label="Plant inventory">
+      <div class="container">
+        <h2 class="section-title">Plant Inventory</h2>
+        <p class="section-desc">16 California native plants selected for wildlife value, drought tolerance, and beauty. Click any plant to explore its care requirements, bloom schedule, and wildlife visitors.</p>
+
+        <!-- Filters -->
+        <div class="filters" role="search" aria-label="Filter plants">
+          <input type="search" id="plant-search" class="filter-search" placeholder="Search by name…" aria-label="Search plants by name">
+          <div class="filter-group">
+            <select id="category-filter" aria-label="Filter by category">
+              <option value="all">All Categories</option>
+              <option value="large-tree">Large Tree</option>
+              <option value="large-shrub">Large Shrub</option>
+              <option value="small-shrub">Small Shrub</option>
+              <option value="herbaceous-perennial">Herbaceous Perennial</option>
+              <option value="groundcover-perennial">Groundcover — Perennial</option>
+              <option value="groundcover-annual">Groundcover — Annual</option>
+            </select>
+            <label class="filter-checkbox">
+              <input type="checkbox" id="keystone-filter">
+              <span>Keystone only</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Plant grid rendered by JS -->
+        <div id="plant-grid" class="plant-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Garden Calendar -->
+    <section id="calendar" class="section section-alt" aria-label="Garden calendar">
+      <div class="container">
+        <h2 class="section-title">Garden Calendar</h2>
+        <p class="section-desc">What's happening in the garden right now — blooms, wildlife visitors, maintenance tasks, and citizen-science observation trends.</p>
+
+        <div class="calendar-controls">
+          <button class="month-btn" data-dir="-1" aria-label="Previous month">&larr;</button>
+          <h3 id="calendar-month-label" class="calendar-month-label"></h3>
+          <button class="month-btn" data-dir="1" aria-label="Next month">&rarr;</button>
+        </div>
+
+        <div class="calendar-grid">
+          <div class="calendar-card" id="cal-blooming">
+            <h4><span class="cal-icon" aria-hidden="true">🌸</span> Blooming</h4>
+            <ul id="cal-bloom-list"></ul>
+          </div>
+          <div class="calendar-card" id="cal-wildlife">
+            <h4><span class="cal-icon" aria-hidden="true">🦋</span> Wildlife</h4>
+            <ul id="cal-wildlife-list"></ul>
+          </div>
+          <div class="calendar-card" id="cal-maintenance">
+            <h4><span class="cal-icon" aria-hidden="true">💧</span> Maintenance</h4>
+            <ul id="cal-maintenance-list"></ul>
+          </div>
+          <div class="calendar-card" id="cal-observations">
+            <h4><span class="cal-icon" aria-hidden="true">📊</span> Most Observed</h4>
+            <ul id="cal-observations-list"></ul>
+          </div>
+        </div>
+
+        <!-- Phenology overview -->
+        <h3 class="subsection-title">Year-Round Bloom &amp; Phenology</h3>
+        <div id="phenology-chart" class="phenology-chart" role="img" aria-label="Year-round bloom and phenology timeline for all plants"></div>
+
+        <!-- Observation trends -->
+        <h3 class="subsection-title">Observation Trends</h3>
+        <p class="section-desc">Year-over-year iNaturalist citizen-science observations in Poway, CA.</p>
+        <div id="trend-chart" class="trend-chart" role="img" aria-label="Year-over-year observation trends"></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section" aria-label="About the garden">
+      <div class="container">
+        <h2 class="section-title">About the Garden</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Why Native Plants?</h3>
+            <p>California's native plants have co-evolved with local wildlife for thousands of years. They require less water, no fertilizers, and no pesticides — while supporting 10–50× more wildlife than non-native alternatives. A single native oak supports over 300 species of insects, birds, and mammals.</p>
+          </div>
+          <div class="about-card">
+            <h3>Coastal Sage Scrub</h3>
+            <p>Poway sits within San Diego County's coastal sage scrub ecosystem — one of the most endangered habitats in the United States. Less than 15% remains, making backyard habitat gardens a meaningful act of conservation for species like the California Gnatcatcher and Crotch's Bumblebee.</p>
+          </div>
+          <div class="about-card">
+            <h3>Start Your Own</h3>
+            <p>Begin with 3–5 keystone species: California Buckwheat, Black Sage, Toyon, and a native milkweed. Visit <a href="https://calscape.org" target="_blank" rel="noopener">Calscape.org</a> to find plants native to your zip code and local nurseries that carry them. Remove your lawn, stop irrigating in summer, and watch the wildlife arrive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Data Sources</h4>
+          <ul>
+            <li><a href="https://www.inaturalist.org" target="_blank" rel="noopener">iNaturalist</a> — plant &amp; wildlife images (Creative Commons), observation data</li>
+            <li><a href="https://calscape.org" target="_blank" rel="noopener">Calscape</a> — native plant information &amp; nursery finder</li>
+            <li><a href="https://www.nwf.org/nativeplantfinder" target="_blank" rel="noopener">National Wildlife Federation</a> — keystone species data</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>About This Site</h4>
+          <p>Built with vanilla HTML, CSS, and JavaScript. Data-driven from JSON. No frameworks, no build step.</p>
+          <p><a href="https://github.com/cdesai/sd-habitat" target="_blank" rel="noopener">View on GitHub</a></p>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 SD Habitat. Plant and wildlife images used under Creative Commons licenses from iNaturalist contributors.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

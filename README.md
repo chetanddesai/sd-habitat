@@ -20,6 +20,24 @@ The site serves as a living reference for the garden's **plant inventory**, **ma
 - Images hotlinked from iNaturalist (Creative Commons licensed)
 - Helper script to refresh iNaturalist observation counts (`scripts/update-observations.js`)
 
+## Local Development
+
+No build step required — just serve the repo root with any static file server.
+
+```bash
+npx http-server . -p 8090 -c-1
+```
+
+Then open [http://localhost:8090](http://localhost:8090). The `-c-1` flag disables caching so edits are reflected immediately.
+
+### Updating iNaturalist Observation Data
+
+```bash
+node scripts/update-observations.js
+```
+
+Queries the iNaturalist histogram API for each plant (one call per plant) and updates the monthly and yearly observation counts in `data/plants.json`.
+
 ## Documentation
 
 - [Product Requirements Document](docs/PRD.md)
