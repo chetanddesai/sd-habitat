@@ -510,23 +510,31 @@ select, input { font: inherit; }
 /* --- Phenology tab --- */
 .phenology-row {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 3px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
   margin-bottom: 8px;
 }
-.phenology-row .month-cell {
-  height: 28px;
-  border-radius: 4px;
+.pheno-month {
+  border-radius: 6px;
+  padding: 6px 2px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 0.6rem;
-  font-weight: 600;
+  gap: 2px;
+  min-height: 38px;
 }
-.phenology-empty { background: var(--c-sand); }
+.pheno-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.phenology-empty { background: var(--c-sand); color: var(--c-text-light); }
 .phenology-bloom { background: var(--c-sage-light); color: var(--c-sage-dark); }
 .phenology-berry { background: var(--c-terracotta); color: var(--c-white); }
 .phenology-seed { background: var(--c-oak); color: var(--c-white); opacity: .7; }
+.pheno-month.pheno-current { outline: 2.5px solid var(--c-sage); outline-offset: -2px; }
 
 .phenology-legend {
   display: flex;
@@ -607,18 +615,27 @@ select, input { font: inherit; }
   margin-bottom: 4px;
 }
 .wildlife-months {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 3px;
   margin-bottom: 4px;
 }
-.wildlife-month-dot {
-  width: 18px;
-  height: 8px;
-  border-radius: 4px;
-  font-size: 0;
+.wl-month {
+  border-radius: 5px;
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.wildlife-month-active { background: var(--c-sage); }
-.wildlife-month-inactive { background: var(--c-sand-dark); }
+.wl-month-label {
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.wl-month-active { background: var(--c-sage-light); color: var(--c-sage-dark); }
+.wl-month-inactive { background: var(--c-sand); color: var(--c-text-light); }
+.wl-month.wl-month-current { outline: 2.5px solid var(--c-sage); outline-offset: -2px; }
 .wildlife-notes {
   font-size: 0.82rem;
   color: var(--c-text-light);
@@ -973,9 +990,6 @@ select, input { font: inherit; }
     grid-template-columns: repeat(6, 1fr);
   }
 
-  .phenology-row {
-    grid-template-columns: repeat(6, 1fr);
-  }
 
   .calendar-grid {
     grid-template-columns: 1fr;

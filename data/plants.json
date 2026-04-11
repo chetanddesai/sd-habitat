@@ -1602,7 +1602,7 @@
           6,
           7
         ],
-        "species": "Buckeye butterfly",
+        "species": "Common Buckeye",
         "activity": "caterpillar-host",
         "notes": "Monkeyflowers are a host plant for Common Buckeye butterfly larvae",
         "image": {
@@ -2280,9 +2280,9 @@
           4,
           5
         ],
-        "species": "Bumblebees (Bombus crotchii, B. vosnesenskii)",
+        "species": "Bombus crotchii (Crotch's Bumblebee)",
         "activity": "nectar-pollen",
-        "notes": "Heavy-bodied bumblebees are the primary pollinators; they buzz-pollinate the keel flowers",
+        "notes": "Crotch's Bumblebee and Yellow-faced Bumblebee (B. vosnesenskii) are primary pollinators; they buzz-pollinate the keel flowers",
         "image": {
           "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10064459/medium.jpg",
           "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",

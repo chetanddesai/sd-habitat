@@ -350,17 +350,16 @@
     const berrySet = new Set(ph.berry ? ph.berry.months : []);
     const seedSet = new Set(ph.seed ? ph.seed.months : []);
 
-    const row = Array.from({ length: 12 }, (_, i) => {
+    const curMonth = new Date().getMonth();
+    const cells = Array.from({ length: 12 }, (_, i) => {
       const m = i + 1;
       let cls = 'phenology-empty';
-      let label = '';
-      if (bloomSet.has(m)) { cls = 'phenology-bloom'; label = '🌸'; }
-      else if (berrySet.has(m)) { cls = 'phenology-berry'; label = '🫐'; }
-      else if (seedSet.has(m)) { cls = 'phenology-seed'; label = '🌾'; }
-      return `<div class="month-cell ${cls}" title="${MONTHS[i]}">${label}</div>`;
+      if (bloomSet.has(m)) cls = 'phenology-bloom';
+      else if (berrySet.has(m)) cls = 'phenology-berry';
+      else if (seedSet.has(m)) cls = 'phenology-seed';
+      if (i === curMonth) cls += ' pheno-current';
+      return `<div class="pheno-month ${cls}"><span class="pheno-label">${MONTHS[i]}</span></div>`;
     }).join('');
-
-    const monthHeaders = MONTHS.map(m => `<div style="font-size:.65rem;text-align:center;color:#5a5a5a">${m}</div>`).join('');
 
     let colors = '';
     if (ph.bloom && ph.bloom.colors) {
@@ -375,8 +374,7 @@
         <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-terracotta)"></span>Berry / Fruit</span>
         <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-oak);opacity:.7"></span>Seed</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin-bottom:4px">${monthHeaders}</div>
-      <div class="phenology-row">${row}</div>
+      <div class="phenology-row">${cells}</div>
       ${colors}
       ${ph.berry ? `<p style="font-size:.85rem;margin-top:4px"><strong>Berry/Fruit:</strong> ${ph.berry.description || ''}</p>` : ''}
       ${ph.seed ? `<p style="font-size:.85rem;margin-top:4px"><strong>Seed:</strong> ${ph.seed.description || ''}</p>` : ''}
@@ -387,11 +385,14 @@
   function wildlifeTab(p) {
     if (!p.wildlife || !p.wildlife.length) return '<p class="cal-empty">No wildlife data.</p>';
 
+    const curMonth = new Date().getMonth();
     return p.wildlife.map(w => {
       const monthSet = new Set(w.months);
-      const dots = Array.from({ length: 12 }, (_, i) =>
-        `<span class="wildlife-month-dot ${monthSet.has(i + 1) ? 'wildlife-month-active' : 'wildlife-month-inactive'}" title="${MONTHS[i]}"></span>`
-      ).join('');
+      const cells = Array.from({ length: 12 }, (_, i) => {
+        let cls = monthSet.has(i + 1) ? 'wl-month-active' : 'wl-month-inactive';
+        if (i === curMonth) cls += ' wl-month-current';
+        return `<div class="wl-month ${cls}"><span class="wl-month-label">${MONTHS[i]}</span></div>`;
+      }).join('');
 
       const imgHtml = `<img class="wildlife-img loading" data-species="${escapeAttr(w.species)}" alt="${escapeAttr(w.species)}" width="60" height="60">`;
 
@@ -400,7 +401,7 @@
         <div class="wildlife-info">
           <div class="wildlife-species">${w.species}</div>
           <div class="wildlife-activity">${ACTIVITY_LABELS[w.activity] || w.activity}</div>
-          <div class="wildlife-months">${dots}</div>
+          <div class="wildlife-months">${cells}</div>
           ${w.notes ? `<div class="wildlife-notes">${w.notes}</div>` : ''}
           <div class="attribution" style="font-size:.68rem;margin-top:2px"></div>
         </div>

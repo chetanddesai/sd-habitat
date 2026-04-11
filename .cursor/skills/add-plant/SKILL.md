@@ -29,7 +29,8 @@ Copy this checklist and track progress:
 - [ ] Step 4: Insert into data/plants.json
 - [ ] Step 5: Run the observation script
 - [ ] Step 6: Update plant counts across the site
-- [ ] Step 7: Verify locally
+- [ ] Step 7: Verify wildlife image searchability
+- [ ] Step 8: Verify locally
 ```
 
 ---
@@ -51,7 +52,7 @@ Gather this information (Calscape, iNaturalist, and web search are the primary s
 | Berry/fruit months | Calscape or general botany references. Set to `null` if the plant doesn't produce notable berries/fruit. |
 | Seed months | If applicable, when seeds are available for wildlife. Set to `null` if not notable. |
 | Ecological value | 1 sentence on what the blooms/berries/seeds support (pollinators, birds, etc.) |
-| Wildlife visitors | 2–4 entries of **specific, named species** that interact with this plant. Generic groups like "Native bees" or "Hover flies" belong in the description/ecologicalValue, NOT as wildlife entries. Good: "Anna's Hummingbird", "Monarch butterfly", "Bombus crotchii". Bad: "Native bees (Halictidae)". See Activity Enums below. |
+| Wildlife visitors | 2–4 entries of **specific, named species** that interact with this plant. Generic groups like "Native bees" or "Hover flies" belong in the description/ecologicalValue, NOT as wildlife entries. See **Wildlife Species Naming Rules** below and Activity Enums at the end. |
 
 ### Step 2: Find the iNaturalist Taxon ID
 
@@ -141,9 +142,24 @@ Use this template. All fields are required unless marked optional.
 **Important conventions:**
 - `id`: lowercase scientific name with hyphens, e.g. `"bahiopsis-laciniata"`
 - `image`: Leave `url`, `attribution`, and `iNaturalistUrl` as empty strings — the client-side JS fetches images dynamically from the iNaturalist taxa API at runtime using the scientific name. The image object is a fallback only.
-- Wildlife `image` objects: Same approach — leave empty. The JS searches iNaturalist using the first two words of the `species` field.
-- **Wildlife entries must be specific, named species** (e.g. "Anna's Hummingbird", "Monarch butterfly", "Bombus crotchii"). Do NOT add generic group entries like "Native bees", "Native solitary bees (Halictidae)", or "Hover flies (Syrphidae)". Generic pollinator info belongs in the `description` or `ecologicalValue` fields instead.
+- Wildlife `image` objects: Same approach — leave empty. The JS searches iNaturalist using the **first two words** of the `species` field.
+- **Wildlife entries must be specific, named species** — do NOT add generic group entries like "Native bees", "Hover flies", or "Bumblebees". Generic pollinator info belongs in `description` or `ecologicalValue` instead.
 - Include 2–4 entries covering the major ecological interactions. Common patterns: a specific pollinator species visiting blooms, a named bird nesting, a specific butterfly as caterpillar host, a named bird eating seeds/berries.
+
+**Wildlife Species Naming Rules (critical for image loading):**
+
+The JS image loader calls `species.split(' ').slice(0, 2).join(' ')` to build the iNaturalist search query. The first two words of the `species` field **must** return results on the iNaturalist taxa API. Follow these rules:
+
+1. **Birds, lizards, mammals** — Use the standard common name. These almost always resolve.
+   - Good: `"Anna's Hummingbird"`, `"Western Fence Lizard"`, `"Mule deer"`
+2. **Butterflies/moths** — Use the proper common name WITHOUT the word "butterfly"/"moth" appended, unless it's part of the official two-word name. The first two words must be the searchable name.
+   - Good: `"Common Buckeye"`, `"Painted Lady butterfly"`, `"Monarch butterfly"`
+   - Bad: `"Buckeye butterfly"` (iNaturalist returns 0 results for "Buckeye butterfly")
+3. **Insects with scientific names** — Put the scientific binomial FIRST, common name in parentheses. The first two words (the binomial) will be the search term.
+   - Good: `"Bombus crotchii (Crotch's Bumblebee)"`, `"Xylocopa varipuncta (Valley Carpenter Bee)"`
+   - Bad: `"Crotch's Bumblebee (Bombus crotchii)"` (iNaturalist returns 0 for "Crotch's Bumblebee")
+4. **Never combine multiple species** in one entry.
+   - Bad: `"Bumblebees (Bombus crotchii, B. vosnesenskii)"` — pick the primary species and mention others in `notes`.
 
 ### Step 4: Insert into data/plants.json
 
@@ -184,12 +200,31 @@ The total plant count appears in **6 locations** across 3 files. Search for the 
 - Success criteria (`All N plants populated`)
 - Success criteria (`script runs successfully against all N plants`)
 
-### Step 7: Verify
+### Step 7: Verify Wildlife Image Searchability
+
+**Before** starting the dev server, validate that every wildlife `species` name resolves on iNaturalist. For each wildlife entry in the new plant, run:
+
+```bash
+curl -s "https://api.inaturalist.org/v1/taxa?q=FIRST+TWO+WORDS&per_page=1&is_active=true" | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+r = data.get('results', [])
+if r and r[0].get('default_photo'):
+    print(f'OK: {r[0][\"name\"]} — {r[0].get(\"preferred_common_name\",\"\")}')
+else:
+    print('FAIL: no results or no photo — rename the species field')
+"
+```
+
+Replace `FIRST+TWO+WORDS` with the first two words of the `species` field (URL-encoded). If **any** entry prints `FAIL`, fix the `species` name using the naming rules above before proceeding.
+
+### Step 8: Verify Locally
 
 1. Start the local dev server if not running: `npx http-server . -p 8090 -c-1`
 2. Open the site and check:
    - New plant card appears in the inventory under the correct category
    - Expanding the card shows all 4 tabs (Maintenance, Bloom & Seeds, Wildlife, Observations)
+   - **Wildlife tab**: every species entry loads a photo (no broken image placeholders)
    - The phenology chart includes the new plant row
    - The observation trends section has a sparkline card for the new plant
    - The garden calendar shows the plant in the appropriate months
