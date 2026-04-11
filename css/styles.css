@@ -897,6 +897,42 @@ select, input { font: inherit; }
   padding-top: 16px;
 }
 
+/* --- Back to top (floating) --- */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--c-sage);
+  color: var(--c-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background var(--transition), box-shadow var(--transition);
+  z-index: 90;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--c-sage-dark);
+  box-shadow: 0 6px 24px rgba(0,0,0,.15);
+}
+.back-to-top:focus-visible {
+  outline: 2px solid var(--c-sage-dark);
+  outline-offset: 3px;
+}
+
 /* --- Mobile --- */
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
@@ -927,6 +963,36 @@ select, input { font: inherit; }
   .plant-detail-top { flex-direction: column; }
   .plant-detail-hero { width: 100%; }
 
+  /* Plant detail tabs: grid instead of horizontal scroll on narrow screens */
+  .detail-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    border-bottom: none;
+    overflow-x: visible;
+    margin-bottom: 14px;
+    padding-bottom: 0;
+  }
+  .detail-tab {
+    white-space: normal;
+    line-height: 1.25;
+    min-height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-sm);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .detail-tab.active {
+    border-color: var(--c-sage);
+    background: rgba(74, 124, 89, 0.1);
+  }
+
   .watering-grid {
     grid-template-columns: repeat(6, 1fr);
   }
@@ -942,6 +1008,11 @@ select, input { font: inherit; }
   .obs-histogram {
     grid-template-columns: repeat(6, 1fr);
   }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -956,4 +1027,10 @@ select, input { font: inherit; }
   }
   .filter-group { width: 100%; }
   .filter-group select { flex: 1; }
+}
+
+@media print {
+  .back-to-top {
+    display: none !important;
+  }
 }

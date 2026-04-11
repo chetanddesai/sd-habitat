@@ -35,6 +35,52 @@
     'pale-blue': '#a0c0e0', 'rust': '#b06030', 'brown': '#8b6b4a'
   };
 
+  function escapeAttr(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;');
+  }
+
+  /**
+   * Build iNaturalist taxon search strings to try in order.
+   * First: comma-separated names inside parentheses (families, genera, species), e.g. Halictidae before Megachilidae.
+   * Then optional explicit speciesKey from JSON.
+   * Last: first two words of the label with parentheticals removed (legacy fallback).
+   */
+  function getTaxonSearchCandidates(label, speciesKeyOverride) {
+    const candidates = [];
+    const seen = new Set();
+    const add = (s) => {
+      const t = String(s).trim();
+      if (t.length < 2 || seen.has(t.toLowerCase())) return;
+      seen.add(t.toLowerCase());
+      candidates.push(t);
+    };
+
+    if (label) {
+      const re = /\(([^)]+)\)/g;
+      let m;
+      while ((m = re.exec(label)) !== null) {
+        m[1].split(',').forEach(part => {
+          const p = part.trim();
+          if (/^syn\.?/i.test(p)) return;
+          if (p.length >= 3) add(p);
+        });
+      }
+    }
+
+    if (speciesKeyOverride) add(speciesKeyOverride);
+
+    if (label) {
+      const stripped = label.replace(/\s*\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim();
+      const twoWord = stripped.split(/\s+/).slice(0, 2).join(' ');
+      if (twoWord) add(twoWord);
+    }
+
+    return candidates;
+  }
+
   // ---- iNaturalist Image Loading (runtime, cached in localStorage) ----
   const INAT_TAXA_API = 'https://api.inaturalist.org/v1/taxa';
   const IMAGE_CACHE_KEY = 'sd-habitat-img-cache-v1';
@@ -73,25 +119,31 @@
   }
 
   async function fetchTaxonImage(img) {
-    const species = img.dataset.species;
-    const searchName = species.split(' ').slice(0, 2).join(' ');
+    const cacheKey = img.dataset.species;
+    const speciesKeyOverride = img.dataset.speciesKey || '';
+    const candidates = getTaxonSearchCandidates(cacheKey, speciesKeyOverride);
+    if (!candidates.length) {
+      showImageFailed(img);
+      return;
+    }
+
     try {
-      const resp = await fetch(`${INAT_TAXA_API}?q=${encodeURIComponent(searchName)}&per_page=1&is_active=true`);
-      if (!resp.ok) throw new Error('API error');
-      const data = await resp.json();
-      if (data.results && data.results.length > 0) {
+      for (const searchName of candidates) {
+        const resp = await fetch(`${INAT_TAXA_API}?q=${encodeURIComponent(searchName)}&per_page=1&is_active=true`);
+        if (!resp.ok) continue;
+        const data = await resp.json();
+        if (!data.results || !data.results.length) continue;
         const taxon = data.results[0];
-        if (taxon.default_photo) {
-          const photoData = {
-            url: (taxon.default_photo.medium_url || taxon.default_photo.url || '').replace('square', 'medium'),
-            attribution: taxon.default_photo.attribution || '',
-            inatUrl: `https://www.inaturalist.org/taxa/${taxon.id}`
-          };
-          imageCache[species] = photoData;
-          saveImageCache();
-          applyImage(img, photoData);
-          return;
-        }
+        if (!taxon.default_photo) continue;
+        const photoData = {
+          url: (taxon.default_photo.medium_url || taxon.default_photo.url || '').replace('square', 'medium'),
+          attribution: taxon.default_photo.attribution || '',
+          inatUrl: `https://www.inaturalist.org/taxa/${taxon.id}`
+        };
+        imageCache[cacheKey] = photoData;
+        saveImageCache();
+        applyImage(img, photoData);
+        return;
       }
       showImageFailed(img);
     } catch {
@@ -180,6 +232,18 @@
         toggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+      const toggleBtt = () => {
+        backToTop.classList.toggle('visible', window.scrollY > 600);
+      };
+      window.addEventListener('scroll', toggleBtt, { passive: true });
+      toggleBtt();
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   }
 
   // ---- Filtering ----
@@ -374,9 +438,8 @@
         `<span class="wildlife-month-dot ${monthSet.has(i + 1) ? 'wildlife-month-active' : 'wildlife-month-inactive'}" title="${MONTHS[i]}"></span>`
       ).join('');
 
-      // Extract a searchable species name: first two words or use a lookup key
-      const speciesKey = w.speciesKey || w.species.replace(/\s*\(.*?\)\s*/g, ' ').trim().split(' ').slice(0, 2).join(' ');
-      const imgHtml = `<img class="wildlife-img loading" data-species="${speciesKey}" alt="${w.species}" width="60" height="60">`;
+      const skAttr = w.speciesKey ? ` data-species-key="${escapeAttr(w.speciesKey)}"` : '';
+      const imgHtml = `<img class="wildlife-img loading" data-species="${escapeAttr(w.species)}"${skAttr} alt="${escapeAttr(w.species)}" width="60" height="60">`;
 
       return `<div class="wildlife-entry">
         ${imgHtml}
