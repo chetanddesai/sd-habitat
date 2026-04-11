@@ -119,6 +119,13 @@
     if (attrEl) {
       attrEl.innerHTML = `<a href="${photoData.inatUrl}" target="_blank" rel="noopener">${photoData.attribution}</a>`;
     }
+    const imgLink = img.closest('.wildlife-img-link');
+    if (imgLink) imgLink.href = photoData.inatUrl;
+    const entry = img.closest('.wildlife-entry');
+    if (entry) {
+      const nameLink = entry.querySelector('.wildlife-species-link');
+      if (nameLink) nameLink.href = photoData.inatUrl;
+    }
   }
 
   function showImageFailed(img) {
@@ -143,8 +150,9 @@
     document.querySelectorAll('img[data-species]').forEach(img => observer.observe(img));
   }
 
+  const CUR_MONTH = new Date().getMonth(); // 0-indexed, actual calendar month
   let plants = [];
-  let currentMonth = new Date().getMonth();
+  let currentMonth = CUR_MONTH;
 
   async function init() {
     try {
@@ -330,7 +338,8 @@
     const ws = p.maintenance.wateringSchedule;
     const cells = MONTH_KEYS.map((k, i) => {
       const level = ws[k] || 'none';
-      return `<div class="water-cell water-${level}"><span class="month-label">${MONTHS[i]}</span>${WATER_LABELS[level]}</div>`;
+      const cur = i === CUR_MONTH ? ' water-current' : '';
+      return `<div class="water-cell water-${level}${cur}"><span class="month-label">${MONTHS[i]}</span>${WATER_LABELS[level]}</div>`;
     }).join('');
 
     return `
@@ -350,14 +359,13 @@
     const berrySet = new Set(ph.berry ? ph.berry.months : []);
     const seedSet = new Set(ph.seed ? ph.seed.months : []);
 
-    const curMonth = new Date().getMonth();
     const cells = Array.from({ length: 12 }, (_, i) => {
       const m = i + 1;
       let cls = 'phenology-empty';
       if (bloomSet.has(m)) cls = 'phenology-bloom';
       else if (berrySet.has(m)) cls = 'phenology-berry';
       else if (seedSet.has(m)) cls = 'phenology-seed';
-      if (i === curMonth) cls += ' pheno-current';
+      if (i === CUR_MONTH) cls += ' pheno-current';
       return `<div class="pheno-month ${cls}"><span class="pheno-label">${MONTHS[i]}</span></div>`;
     }).join('');
 
@@ -385,21 +393,20 @@
   function wildlifeTab(p) {
     if (!p.wildlife || !p.wildlife.length) return '<p class="cal-empty">No wildlife data.</p>';
 
-    const curMonth = new Date().getMonth();
     return p.wildlife.map(w => {
       const monthSet = new Set(w.months);
       const cells = Array.from({ length: 12 }, (_, i) => {
         let cls = monthSet.has(i + 1) ? 'wl-month-active' : 'wl-month-inactive';
-        if (i === curMonth) cls += ' wl-month-current';
+        if (i === CUR_MONTH) cls += ' wl-month-current';
         return `<div class="wl-month ${cls}"><span class="wl-month-label">${MONTHS[i]}</span></div>`;
       }).join('');
 
-      const imgHtml = `<img class="wildlife-img loading" data-species="${escapeAttr(w.species)}" alt="${escapeAttr(w.species)}" width="60" height="60">`;
+      const imgHtml = `<a class="wildlife-img-link" target="_blank" rel="noopener"><img class="wildlife-img loading" data-species="${escapeAttr(w.species)}" alt="${escapeAttr(w.species)}" width="60" height="60"></a>`;
 
       return `<div class="wildlife-entry">
         ${imgHtml}
         <div class="wildlife-info">
-          <div class="wildlife-species">${w.species}</div>
+          <a class="wildlife-species wildlife-species-link" target="_blank" rel="noopener">${w.species}</a>
           <div class="wildlife-activity">${ACTIVITY_LABELS[w.activity] || w.activity}</div>
           <div class="wildlife-months">${cells}</div>
           ${w.notes ? `<div class="wildlife-notes">${w.notes}</div>` : ''}
@@ -525,21 +532,19 @@
       const berrySet = new Set(ph.berry ? ph.berry.months : []);
       const seedSet = new Set(ph.seed ? ph.seed.months : []);
 
-      const now = new Date().getMonth(); // 0-indexed
       const cells = Array.from({ length: 12 }, (_, i) => {
         const m = i + 1;
         let cls = 'phenology-empty';
         if (bloomSet.has(m)) cls = 'phenology-bloom';
         else if (berrySet.has(m)) cls = 'phenology-berry';
         else if (seedSet.has(m)) cls = 'phenology-seed';
-        const cur = i === now ? ' current-month' : '';
+        const cur = i === CUR_MONTH ? ' current-month' : '';
         return `<td class="${cur}"><div class="pheno-cell ${cls}"></div></td>`;
       }).join('');
 
       return `<tr><td>${p.commonNames[0]}</td>${cells}</tr>`;
     }).join('');
 
-    const now = new Date().getMonth();
     container.innerHTML = `
       <div class="phenology-legend" style="margin-bottom:12px">
         <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-sage-light)"></span>Bloom</span>
@@ -547,7 +552,7 @@
         <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-oak);opacity:.7"></span>Seed</span>
       </div>
       <table>
-        <thead><tr><th>Plant</th>${MONTHS.map((m, i) => `<th class="${i === now ? 'current-month' : ''}">${m}</th>`).join('')}</tr></thead>
+        <thead><tr><th>Plant</th>${MONTHS.map((m, i) => `<th class="${i === CUR_MONTH ? 'current-month' : ''}">${m}</th>`).join('')}</tr></thead>
         <tbody>${rows}</tbody>
       </table>`;
   }

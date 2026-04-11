@@ -477,7 +477,7 @@ select, input { font: inherit; }
 /* --- Maintenance tab --- */
 .watering-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 4px;
   margin-bottom: 12px;
 }
@@ -499,6 +499,7 @@ select, input { font: inherit; }
 .water-low { background: #d4edff; color: #1a6fb5; }
 .water-moderate { background: #87ceeb; color: #0a4a7a; }
 .water-regular { background: #4a90d9; color: var(--c-white); }
+.water-cell.water-current { outline: 2.5px solid var(--c-sage); outline-offset: -2px; }
 
 .maintenance-notes {
   font-size: 0.9rem;
@@ -609,6 +610,15 @@ select, input { font: inherit; }
   font-size: 0.92rem;
   margin-bottom: 2px;
 }
+.wildlife-species-link {
+  color: inherit;
+  text-decoration: none;
+}
+.wildlife-species-link:hover {
+  color: var(--c-sage-dark);
+  text-decoration: underline;
+}
+.wildlife-img-link { display: block; flex-shrink: 0; }
 .wildlife-activity {
   font-size: 0.8rem;
   color: var(--c-text-light);
@@ -985,11 +995,6 @@ select, input { font: inherit; }
 
   .plant-detail-top { flex-direction: column; }
   .plant-detail-hero { width: 100%; }
-
-  .watering-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
 
   .calendar-grid {
     grid-template-columns: 1fr;
