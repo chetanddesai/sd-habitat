@@ -1,28 +1,28 @@
-# SD Habitat
+# SD Habitat — Native Garden Guide
 
-A static website showcasing a native habitat garden in Poway, CA — built for GitHub Pages.
+**[chetanddesai.github.io/sd-habitat](https://chetanddesai.github.io/sd-habitat)**
 
-The site serves as a living reference for the garden's **plant inventory**, **maintenance calendar**, **bloom/berry/seed phenology**, and the **wildlife** each plant supports throughout the year. All content is data-driven (JSON-backed) so that adding or editing plants requires no code changes.
+A GitHub Pages site providing a living reference for a native habitat garden in Poway, CA — plant inventory, bloom calendars, wildlife schedules, and maintenance guides for 17 California native plants in the coastal sage scrub ecosystem.
 
 ## Features
 
 - **Plant Inventory** — 17 California native plants organized by category (trees, shrubs, groundcover) with images, descriptions, keystone species indicators, planting requirements, and links to Calscape and iNaturalist
 - **Maintenance Schedule** — month-by-month watering, pruning, and care tasks for each plant
-- **Bloom, Berry & Seed Calendar** — color-coded phenology timelines showing what's flowering, fruiting, and seeding across the garden
-- **Wildlife Schedule** — which birds, butterflies, bees, and other wildlife to expect each month and what they're doing
-- **Garden Calendar** — a garden-wide "what's happening this month" dashboard combining bloom, wildlife, maintenance, and iNaturalist citizen-science observation data
-- **iNaturalist Integration** — monthly observation histograms and year-over-year trends sourced from citizen-science data for the Poway area
+- **Bloom, Berry & Seed Calendar** — color-coded phenology timelines showing what's flowering, fruiting, and seeding across the garden, with the current month highlighted
+- **Wildlife Schedule** — specific named species (birds, butterflies, moths, lizards) to look for each month and what they're doing
+- **Garden Calendar** — a "what's happening this month" dashboard combining bloom, wildlife, maintenance, and citizen-science observation data
+- **Observation Trends** — SVG sparkline cards showing year-over-year iNaturalist citizen-science sighting trends for each plant in the Poway area
 
 ## Tech Stack
 
-- Static HTML, CSS, and vanilla JavaScript — hosted on GitHub Pages
+- Static HTML, CSS, and vanilla JavaScript — no frameworks, no build step
+- Hosted on [GitHub Pages](https://pages.github.com/)
 - Plant and wildlife data stored in JSON (`data/plants.json`)
-- Images hotlinked from iNaturalist (Creative Commons licensed)
-- Helper script to refresh iNaturalist observation counts (`scripts/update-observations.js`)
+- Images fetched at runtime from the [iNaturalist](https://www.inaturalist.org/) taxa API (Creative Commons licensed) and cached in localStorage
 
 ## Local Development
 
-No build step required — just serve the repo root with any static file server.
+Serve the repo root with any static file server:
 
 ```bash
 npx http-server . -p 8090 -c-1
@@ -36,7 +36,7 @@ Then open [http://localhost:8090](http://localhost:8090). The `-c-1` flag disabl
 node scripts/update-observations.js
 ```
 
-Queries the iNaturalist histogram API for each plant (one call per plant) and updates the monthly and yearly observation counts in `data/plants.json`.
+Queries the iNaturalist histogram API for each plant (one call per plant, scoped to the Poway bounding box) and updates the monthly and yearly observation counts in `data/plants.json`.
 
 ## Documentation
 
