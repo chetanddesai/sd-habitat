@@ -144,10 +144,12 @@ A month-by-month wildlife interaction calendar per plant:
 | Field | Detail |
 |---|---|
 | **Month** | 1–12 |
-| **Wildlife visitors** | Species or group (e.g., "Monarch butterfly", "Anna's Hummingbird", "native solitary bees") |
+| **Wildlife visitors** | **Specific, identifiable species only** (e.g., "Monarch butterfly", "Anna's Hummingbird", "Acmon Blue butterfly"). Generic groupings like "native bees" or "hover flies" belong in the plant description and `ecologicalValue` field, not as separate wildlife entries. |
 | **Wildlife image** | Hotlinked from iNaturalist CDN (Creative Commons). Same loading/caching strategy as plant images. Attribution stored with the image URL. |
 | **Activity** | What they're doing: nectar/pollen foraging, eating seeds, eating berries, nesting, caterpillar host plant, shelter/roosting |
 | **Notes** | Any special observations (e.g., "Monarch caterpillars exclusively feed on milkweed") |
+
+> **Guideline — specific species only:** Each wildlife entry must name a specific, identifiable species (or a named species-level organism like "Bombus crotchii"). Broad groups such as "Native bees", "Native solitary bees (Halictidae)", or "Hover flies (Syrphidae)" should **not** appear as wildlife entries. Instead, fold that information into the plant's `description` field or the phenology `ecologicalValue` field where it serves as useful ecological context without cluttering the wildlife tab with entries that can't produce a meaningful image or calendar marker.
 
 #### Presentation
 
@@ -225,10 +227,10 @@ Each plant object in `data/plants.json`:
   },
   "wildlife": [
     {
-      "months": [5, 6, 7, 8],
-      "species": "Native solitary bees (Halictidae, Andrenidae)",
-      "activity": "nectar-pollen",
-      "notes": "Peak visitation June–July",
+      "months": [5, 6, 7],
+      "species": "Acmon Blue butterfly",
+      "activity": "caterpillar-host",
+      "notes": "Buckwheat is a primary host plant for this common blue butterfly",
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/...",
         "attribution": "Photo by John Smith, CC BY 4.0",

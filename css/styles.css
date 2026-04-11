@@ -442,28 +442,34 @@ select, input { font: inherit; }
 
 /* --- Tabs --- */
 .detail-tabs {
-  display: flex;
-  gap: 0;
-  border-bottom: 2px solid var(--c-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   margin-bottom: 16px;
-  overflow-x: auto;
 }
 .detail-tab {
-  padding: 8px 16px;
+  padding: 8px 12px;
   font-size: 0.85rem;
   font-weight: 600;
+  line-height: 1.25;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
   color: var(--c-text-light);
-  white-space: nowrap;
+  cursor: pointer;
   transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
 }
-.detail-tab:hover { color: var(--c-sage-dark); }
+.detail-tab:hover { color: var(--c-sage-dark); border-color: var(--c-sage); }
 .detail-tab.active {
   color: var(--c-sage-dark);
-  border-bottom-color: var(--c-sage);
+  border-color: var(--c-sage);
+  background: rgba(74, 124, 89, 0.1);
 }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
@@ -962,36 +968,6 @@ select, input { font: inherit; }
 
   .plant-detail-top { flex-direction: column; }
   .plant-detail-hero { width: 100%; }
-
-  /* Plant detail tabs: grid instead of horizontal scroll on narrow screens */
-  .detail-tabs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    border-bottom: none;
-    overflow-x: visible;
-    margin-bottom: 14px;
-    padding-bottom: 0;
-  }
-  .detail-tab {
-    white-space: normal;
-    line-height: 1.25;
-    min-height: 2.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 8px 10px;
-    font-size: 0.8rem;
-    margin-bottom: 0;
-    border: 1px solid var(--c-border);
-    border-radius: var(--radius-sm);
-    -webkit-tap-highlight-color: transparent;
-  }
-  .detail-tab.active {
-    border-color: var(--c-sage);
-    background: rgba(74, 124, 89, 0.1);
-  }
 
   .watering-grid {
     grid-template-columns: repeat(6, 1fr);

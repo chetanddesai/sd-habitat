@@ -51,7 +51,7 @@ Gather this information (Calscape, iNaturalist, and web search are the primary s
 | Berry/fruit months | Calscape or general botany references. Set to `null` if the plant doesn't produce notable berries/fruit. |
 | Seed months | If applicable, when seeds are available for wildlife. Set to `null` if not notable. |
 | Ecological value | 1 sentence on what the blooms/berries/seeds support (pollinators, birds, etc.) |
-| Wildlife visitors | 2–4 entries: which animals interact with this plant, when, and how. See Activity Enums below. |
+| Wildlife visitors | 2–4 entries of **specific, named species** that interact with this plant. Generic groups like "Native bees" or "Hover flies" belong in the description/ecologicalValue, NOT as wildlife entries. Good: "Anna's Hummingbird", "Monarch butterfly", "Bombus crotchii". Bad: "Native bees (Halictidae)". See Activity Enums below. |
 
 ### Step 2: Find the iNaturalist Taxon ID
 
@@ -141,8 +141,9 @@ Use this template. All fields are required unless marked optional.
 **Important conventions:**
 - `id`: lowercase scientific name with hyphens, e.g. `"bahiopsis-laciniata"`
 - `image`: Leave `url`, `attribution`, and `iNaturalistUrl` as empty strings — the client-side JS fetches images dynamically from the iNaturalist taxa API at runtime using the scientific name. The image object is a fallback only.
-- Wildlife `image` objects: Same approach — leave empty. The JS `getTaxonSearchCandidates()` function extracts search terms from parenthesized text in the `species` field (e.g. family names like "Halictidae") or from `speciesKey`. Include taxonomic family/genus in parentheses in the `species` string to help image lookup: `"Native bees (Halictidae, Megachilidae)"`.
-- Wildlife entries: Include 2–4 entries covering the major ecological interactions. Common patterns: pollinator visiting blooms, bird nesting, caterpillar host, seed/berry eater.
+- Wildlife `image` objects: Same approach — leave empty. The JS searches iNaturalist using the first two words of the `species` field.
+- **Wildlife entries must be specific, named species** (e.g. "Anna's Hummingbird", "Monarch butterfly", "Bombus crotchii"). Do NOT add generic group entries like "Native bees", "Native solitary bees (Halictidae)", or "Hover flies (Syrphidae)". Generic pollinator info belongs in the `description` or `ecologicalValue` fields instead.
+- Include 2–4 entries covering the major ecological interactions. Common patterns: a specific pollinator species visiting blooms, a named bird nesting, a specific butterfly as caterpillar host, a named bird eating seeds/berries.
 
 ### Step 4: Insert into data/plants.json
 

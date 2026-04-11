@@ -9,7 +9,7 @@
     "synonyms": [],
     "category": "large-tree",
     "isKeystone": true,
-    "description": "A rare and majestic Southern California endemic oak that supports over 300 species of wildlife. Its acorns are a critical food source for Acorn Woodpeckers, Western Scrub-Jays, and mule deer, while its canopy provides nesting habitat for raptors and songbirds. Listed as endangered due to habitat loss, making backyard cultivation an act of conservation.",
+    "description": "A rare and majestic Southern California endemic oak that supports over 300 species of wildlife. Its acorns are a critical food source for Acorn Woodpeckers, Western Scrub-Jays, and mule deer, while its canopy provides nesting habitat for raptors and songbirds. Listed as endangered due to habitat loss, making backyard cultivation an act of conservation Its wind-pollinated catkins also attract small beetles and native bees collecting pollen in spring.",
     "image": {
       "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26924548/medium.jpg",
       "attribution": "Photo by Fred Roberts, CC BY-NC 4.0",
@@ -101,21 +101,6 @@
       "ecologicalValue": "Acorns feed Acorn Woodpeckers, Scrub-Jays, Band-tailed Pigeons, squirrels, and deer. Catkins provide early-season pollen for native bees."
     },
     "wildlife": [
-      {
-        "months": [
-          3,
-          4,
-          5
-        ],
-        "species": "Native bees & beetles",
-        "activity": "nectar-pollen",
-        "notes": "Wind-pollinated catkins also visited by small beetles and bees for pollen",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
       {
         "months": [
           9,
@@ -280,21 +265,6 @@
       "ecologicalValue": "Summer flowers feed native bees; winter berries are critical food for Cedar Waxwings, Robins, Mockingbirds, and Hermit Thrushes."
     },
     "wildlife": [
-      {
-        "months": [
-          6,
-          7,
-          8
-        ],
-        "species": "Native bees (Bombus, Halictidae)",
-        "activity": "nectar-pollen",
-        "notes": "Flat flower clusters are excellent landing pads for native bees",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
       {
         "months": [
           11,
@@ -615,21 +585,6 @@
       },
       {
         "months": [
-          9,
-          10,
-          11
-        ],
-        "species": "Native bees (Halictidae)",
-        "activity": "nectar-pollen",
-        "notes": "Late-season blooms fuel final foraging before winter",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
-      {
-        "months": [
           1,
           2,
           3,
@@ -914,23 +869,6 @@
         "months": [
           3,
           4,
-          5,
-          6,
-          7
-        ],
-        "species": "Native solitary bees (Andrena, Halictus)",
-        "activity": "nectar-pollen",
-        "notes": "One of the top native bee plants in coastal sage scrub",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
-      {
-        "months": [
-          3,
-          4,
           5
         ],
         "species": "Painted Lady butterfly",
@@ -970,7 +908,7 @@
     "synonyms": [],
     "category": "small-shrub",
     "isKeystone": true,
-    "description": "The signature aromatic shrub of coastal sage scrub, California Sagebrush defines the plant community that once covered much of Southern California. Its fragrant foliage is a critical host plant for several butterfly species and provides year-round cover for California Gnatcatchers and other declining sage scrub birds.",
+    "description": "The signature aromatic shrub of coastal sage scrub, California Sagebrush defines the plant community that once covered much of Southern California. Its fragrant foliage is a critical host plant for several butterfly species and provides year-round cover for California Gnatcatchers and other declining sage scrub birds Though wind-pollinated, its small flower heads also attract native bees collecting pollen in fall.",
     "image": {
       "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11580244/medium.jpg",
       "attribution": "Photo by NatureShutterbug, CC BY 4.0",
@@ -1096,21 +1034,6 @@
         "activity": "caterpillar-host",
         "notes": "Larvae feed inside the stems",
         "image": null
-      },
-      {
-        "months": [
-          8,
-          9,
-          10
-        ],
-        "species": "Native bees (Halictidae)",
-        "activity": "nectar-pollen",
-        "notes": "Wind-pollinated but bees collect pollen from the small flower heads",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
       }
     ]
   },
@@ -1218,23 +1141,6 @@
       "ecologicalValue": "Major nectar source for 50+ native bee species, Painted Ladies, hairstreak butterflies. Seeds eaten by goldfinches and sparrows."
     },
     "wildlife": [
-      {
-        "months": [
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "species": "Native solitary bees (Halictidae, Andrenidae)",
-        "activity": "nectar-pollen",
-        "notes": "The #1 native bee plant in San Diego County — peak visitation June–July",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
       {
         "months": [
           5,
@@ -1518,23 +1424,6 @@
       "ecologicalValue": "Premier native bee plant. Whorled flower clusters provide sequential blooming up each stalk. Important nectar source for butterflies and hummingbirds."
     },
     "wildlife": [
-      {
-        "months": [
-          3,
-          4,
-          5,
-          6,
-          7
-        ],
-        "species": "Native bees (40+ species)",
-        "activity": "nectar-pollen",
-        "notes": "Black Sage is among the top 3 native bee plants in San Diego County",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
       {
         "months": [
           4,
@@ -1981,37 +1870,6 @@
     "wildlife": [
       {
         "months": [
-          3,
-          4,
-          5,
-          6
-        ],
-        "species": "Small native bees (Lasioglossum, Ceratina)",
-        "activity": "nectar-pollen",
-        "notes": "Compact flower clusters are ideal for small-bodied bees",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
-      {
-        "months": [
-          4,
-          5,
-          6
-        ],
-        "species": "Hover flies (Syrphidae)",
-        "activity": "nectar-pollen",
-        "notes": "Abundant hover fly visitors; their larvae are beneficial aphid predators",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7255428/medium.jpg",
-          "attribution": "Photo by Ken-ichi Ueda, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/4954131"
-        }
-      },
-      {
-        "months": [
           7,
           8,
           9
@@ -2145,22 +2003,6 @@
           "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3028851/medium.jpg",
           "attribution": "Photo by Andrew Cannizzaro, CC BY 4.0",
           "iNaturalistUrl": "https://www.inaturalist.org/observations/1961898"
-        }
-      },
-      {
-        "months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "species": "Native bees (Bombus, Apis, Halictidae)",
-        "activity": "nectar-pollen",
-        "notes": "Complex flower structure requires strong bees to access nectar",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
         }
       },
       {
@@ -2303,23 +2145,6 @@
           "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4530399/medium.jpg",
           "attribution": "Photo by Bill Bouton, CC BY-NC 4.0",
           "iNaturalistUrl": "https://www.inaturalist.org/observations/3001736"
-        }
-      },
-      {
-        "months": [
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "species": "Native bees (Halictidae, Megachilidae)",
-        "activity": "nectar-pollen",
-        "notes": "Abundant small flowers provide long-season nectar",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
         }
       },
       {
@@ -2509,7 +2334,7 @@
     ],
     "category": "small-shrub",
     "isKeystone": false,
-    "description": "A fast-growing evergreen aster-family shrub native to coastal Southern California, with bright yellow sunflower-like blooms from winter through summer and glossy, toothed leaves. Sometimes called tornleaf goldeneye, it thrives on dry slopes and sandy, well-drained soils with very little water once established, and mixes well with other coastal sage scrub and chaparral companions.",
+    "description": "A fast-growing evergreen aster-family shrub native to coastal Southern California, with bright yellow sunflower-like blooms from winter through summer and glossy, toothed leaves. Sometimes called tornleaf goldeneye, it thrives on dry slopes and sandy, well-drained soils with very little water once established, and mixes well with other coastal sage scrub and chaparral companions Its long bloom season makes it a valuable nectar and pollen source for native bees across multiple families including sweat bees and leafcutter bees.",
     "image": {
       "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/525329467/medium.jpg",
       "attribution": "Photo by Nisdao, CC BY-NC 4.0",
@@ -2607,30 +2432,6 @@
       "ecologicalValue": "Nectar and pollen for native bees and butterflies; Calscape notes likely caterpillar hosts in the sunflower family. Dense foliage provides cover; spent heads can support seed-eating birds."
     },
     "wildlife": [
-      {
-        "months": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12
-        ],
-        "species": "Native bees (Halictidae, Megachilidae)",
-        "activity": "nectar-pollen",
-        "notes": "Yellow composite flowers attract a wide range of pollinators over a long bloom season",
-        "image": {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
-          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
-          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
-        }
-      },
       {
         "months": [
           3,
