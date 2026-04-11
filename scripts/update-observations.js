@@ -6,7 +6,8 @@
  * frequency, and lastUpdated fields.
  *
  * Uses the /observations/histogram endpoint with a rolling 5-year window.
- * One API call per plant (16 total for the current inventory).
+ * Queries are scoped to a Poway, CA bounding box (nelat/nelng/swlat/swlng), not county-wide.
+ * One API call per plant (17 total for the current inventory).
  *
  * Usage:  node scripts/update-observations.js
  */
@@ -18,6 +19,23 @@ const DATA_PATH = path.join(__dirname, '..', 'data', 'plants.json');
 const API_BASE = 'https://api.inaturalist.org/v1';
 const LOOKBACK_YEARS = 5;
 const RATE_LIMIT_MS = 1200; // ~1 req/sec to be polite to the API
+
+/** Poway area — same bounds for web UI links and API histogram */
+const POWAY_BOUNDS = {
+  nelat: 33.0652649,
+  nelng: -116.9575429,
+  swlat: 32.899128,
+  swlng: -117.103013
+};
+
+function boundsQueryString() {
+  const b = POWAY_BOUNDS;
+  return `nelat=${b.nelat}&nelng=${b.nelng}&swlat=${b.swlat}&swlng=${b.swlng}`;
+}
+
+function buildSearchUrl(taxonId) {
+  return `https://www.inaturalist.org/observations?taxon_id=${taxonId}&${boundsQueryString()}`;
+}
 
 const MONTH_KEYS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 
@@ -31,8 +49,8 @@ function computeFrequency(total) {
   return 'rare';
 }
 
-async function fetchHistogram(taxonId, placeId, d1, d2, interval) {
-  const url = `${API_BASE}/observations/histogram?taxon_id=${taxonId}&place_id=${placeId}&d1=${d1}&d2=${d2}&interval=${interval}`;
+async function fetchHistogram(taxonId, d1, d2, interval) {
+  const url = `${API_BASE}/observations/histogram?taxon_id=${taxonId}&${boundsQueryString()}&d1=${d1}&d2=${d2}&interval=${interval}`;
   const res = await fetch(url, {
     headers: { 'User-Agent': 'sd-habitat-garden/1.0 (github.com/cdesai/sd-habitat)' }
   });
@@ -41,22 +59,26 @@ async function fetchHistogram(taxonId, placeId, d1, d2, interval) {
 }
 
 async function updatePlant(plant) {
-  const { taxonId, placeId } = plant.iNaturalistData;
-  if (!taxonId || !placeId) {
-    console.warn(`  ⚠ Skipping ${plant.id}: missing taxonId or placeId`);
+  const { taxonId } = plant.iNaturalistData;
+  if (!taxonId) {
+    console.warn(`  ⚠ Skipping ${plant.id}: missing taxonId`);
     return;
   }
+
+  plant.iNaturalistData.bounds = { ...POWAY_BOUNDS };
+  delete plant.iNaturalistData.placeId;
+  plant.iNaturalistData.searchUrl = buildSearchUrl(taxonId);
 
   const now = new Date();
   const d2 = now.toISOString().slice(0, 10);
   const d1 = `${now.getFullYear() - LOOKBACK_YEARS}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 
   // Monthly histogram (month_of_year gives Jan–Dec aggregated across all years)
-  const monthData = await fetchHistogram(taxonId, placeId, d1, d2, 'month_of_year');
+  const monthData = await fetchHistogram(taxonId, d1, d2, 'month_of_year');
   await sleep(RATE_LIMIT_MS);
 
   // Yearly histogram
-  const yearData = await fetchHistogram(taxonId, placeId, d1, d2, 'year');
+  const yearData = await fetchHistogram(taxonId, d1, d2, 'year');
   await sleep(RATE_LIMIT_MS);
 
   const monthResults = monthData.results?.month_of_year || {};

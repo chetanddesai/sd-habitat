@@ -31,7 +31,7 @@ A static informational website showcasing a native habitat garden in Poway, CA. 
 | **Schema** | Each plant is a single JSON object containing all inventory, schedule, bloom, and wildlife data (see §4 for schema draft) |
 | **Extensibility** | Adding a new plant = adding a JSON entry + an optional image. No HTML changes needed. |
 | **Image strategy** | All plant and wildlife images hotlinked from iNaturalist CDN (no local copies). The site displays skeleton/placeholder states while images load and sets `Cache-Control` headers via `<meta>` or service worker to cache images locally in the browser after first load. |
-| **iNaturalist helper script** | A standalone Node script (`scripts/update-observations.js`) queries the iNaturalist `/observations/histogram` API with `interval=month_of_year` for each plant in the Poway area over a **rolling 5-year window**. Returns per-month observation counts (Jan–Dec) and per-year totals, enabling both seasonal patterns in the calendar view and year-over-year trend lines. Still **one API call per plant** (16 total). Run manually or on a schedule; outputs updated values into `data/plants.json`. |
+| **iNaturalist helper script** | A standalone Node script (`scripts/update-observations.js`) queries the iNaturalist `/observations/histogram` API with `interval=month_of_year` for each plant, scoped to a **Poway bounding box** (`nelat` / `nelng` / `swlat` / `swlng` — same values as the iNaturalist observation search links) over a **rolling 5-year window**. Returns per-month observation counts (Jan–Dec) and per-year totals, enabling both seasonal patterns in the calendar view and year-over-year trend lines. Still **one API call per plant** (17 total). Run manually or on a schedule; outputs updated values into `data/plants.json`. |
 
 ### 2.3 Favicons & Touch Icons
 
@@ -177,9 +177,14 @@ Each plant object in `data/plants.json`:
   },
   "calscapeUrl": "https://calscape.org/Eriogonum-fasciculatum-(California-Buckwheat)",
   "iNaturalistData": {
-    "taxonId": 53420,
-    "placeId": 122557,
-    "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=53420",
+    "taxonId": 54999,
+    "bounds": {
+      "nelat": 33.0652649,
+      "nelng": -116.9575429,
+      "swlat": 32.899128,
+      "swlng": -117.103013
+    },
+    "searchUrl": "https://www.inaturalist.org/observations?taxon_id=54999&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
     "observationsByMonth": {
       "jan": 12, "feb": 18, "mar": 35, "apr": 52, "may": 68, "jun": 71,
       "jul": 42, "aug": 19, "sep": 10, "oct": 6, "nov": 5, "dec": 4
@@ -290,6 +295,7 @@ Each plant object in `data/plants.json`:
 | 14 | *Asclepias fascicularis* | Narrowleaf Milkweed | Herbaceous Perennial |
 | 15 | *Acmispon glaber* var. *brevialatus* | Short-winged Deerweed | Groundcover — Perennial |
 | 16 | *Lupinus succulentus* | Arroyo Lupine | Groundcover — Annual |
+| 17 | *Bahiopsis laciniata* | Tornleaf Goldeneye / San Diego Sunflower | Small Shrub |
 
 ---
 
@@ -373,7 +379,7 @@ Each plant object in `data/plants.json`:
 
 ## 10. Success Criteria
 
-- [ ] All 16 plants populated with complete data
+- [ ] All 17 plants populated with complete data
 - [ ] Site shell (HTML/CSS/JS, excluding off-site images) loads in < 500 KB
 - [ ] Plant and wildlife images display skeleton placeholders while loading and cache in browser after first load
 - [ ] Passes Lighthouse audits at target thresholds
@@ -381,4 +387,4 @@ Each plant object in `data/plants.json`:
 - [ ] All plant and wildlife images properly attributed with Creative Commons compliance
 - [ ] Garden calendar provides actionable "this month" guidance
 - [ ] A non-technical gardener can understand and use the site without instruction
-- [ ] iNaturalist observation count helper script runs successfully against all 16 plants
+- [ ] iNaturalist observation count helper script runs successfully against all 17 plants

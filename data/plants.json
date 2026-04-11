@@ -17,33 +17,39 @@
     },
     "calscapeUrl": "https://calscape.org/Quercus-engelmannii-(Engelmann-Oak)",
     "iNaturalistData": {
-      "taxonId": 58928,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=58928",
+      "taxonId": 78804,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=78804&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 8,
-        "feb": 10,
-        "mar": 18,
-        "apr": 22,
-        "may": 25,
-        "jun": 20,
-        "jul": 15,
-        "aug": 12,
-        "sep": 10,
-        "oct": 14,
-        "nov": 11,
-        "dec": 7
+        "jan": 2,
+        "feb": 4,
+        "mar": 3,
+        "apr": 5,
+        "may": 3,
+        "jun": 2,
+        "jul": 0,
+        "aug": 2,
+        "sep": 2,
+        "oct": 6,
+        "nov": 4,
+        "dec": 6
       },
       "observationsByYear": {
-        "2021": 28,
-        "2022": 35,
-        "2023": 31,
-        "2024": 42,
-        "2025": 36
+        "2021": 3,
+        "2022": 5,
+        "2023": 8,
+        "2024": 11,
+        "2025": 7,
+        "2026": 5
       },
-      "totalObservations": 172,
-      "frequency": "uncommon",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 39,
+      "frequency": "rare",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun to Part Shade",
@@ -188,33 +194,39 @@
     },
     "calscapeUrl": "https://calscape.org/Heteromeles-arbutifolia-(Toyon)",
     "iNaturalistData": {
-      "taxonId": 52849,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=52849",
+      "taxonId": 53405,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=53405&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 25,
-        "feb": 15,
-        "mar": 18,
-        "apr": 22,
-        "may": 20,
-        "jun": 30,
-        "jul": 28,
-        "aug": 18,
+        "jan": 19,
+        "feb": 8,
+        "mar": 9,
+        "apr": 13,
+        "may": 5,
+        "jun": 9,
+        "jul": 4,
+        "aug": 6,
         "sep": 12,
-        "oct": 15,
-        "nov": 22,
-        "dec": 35
+        "oct": 8,
+        "nov": 17,
+        "dec": 19
       },
       "observationsByYear": {
-        "2021": 48,
-        "2022": 55,
-        "2023": 52,
-        "2024": 68,
-        "2025": 57
+        "2021": 9,
+        "2022": 27,
+        "2023": 17,
+        "2024": 33,
+        "2025": 37,
+        "2026": 6
       },
-      "totalObservations": 280,
-      "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 129,
+      "frequency": "uncommon",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun to Part Shade",
@@ -352,33 +364,39 @@
     },
     "calscapeUrl": "https://calscape.org/Malosma-laurina-(Laurel-Sumac)",
     "iNaturalistData": {
-      "taxonId": 78898,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=78898",
+      "taxonId": 64122,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=64122&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 15,
-        "feb": 12,
+        "jan": 16,
+        "feb": 34,
         "mar": 22,
-        "apr": 30,
-        "may": 35,
-        "jun": 40,
-        "jul": 38,
-        "aug": 25,
-        "sep": 18,
-        "oct": 14,
-        "nov": 12,
-        "dec": 10
+        "apr": 39,
+        "may": 40,
+        "jun": 30,
+        "jul": 24,
+        "aug": 22,
+        "sep": 25,
+        "oct": 12,
+        "nov": 21,
+        "dec": 17
       },
       "observationsByYear": {
-        "2021": 45,
-        "2022": 52,
-        "2023": 58,
-        "2024": 65,
-        "2025": 51
+        "2021": 41,
+        "2022": 71,
+        "2023": 49,
+        "2024": 53,
+        "2025": 72,
+        "2026": 16
       },
-      "totalObservations": 271,
+      "totalObservations": 302,
       "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -498,33 +516,39 @@
     },
     "calscapeUrl": "https://calscape.org/Baccharis-sarothroides-(Desert-Broom)",
     "iNaturalistData": {
-      "taxonId": 56864,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=56864",
+      "taxonId": 52108,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=52108&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 5,
-        "feb": 4,
-        "mar": 8,
-        "apr": 10,
-        "may": 8,
-        "jun": 6,
+        "jan": 17,
+        "feb": 15,
+        "mar": 13,
+        "apr": 13,
+        "may": 14,
+        "jun": 11,
         "jul": 5,
-        "aug": 6,
-        "sep": 12,
-        "oct": 18,
-        "nov": 15,
-        "dec": 8
+        "aug": 16,
+        "sep": 24,
+        "oct": 23,
+        "nov": 21,
+        "dec": 25
       },
       "observationsByYear": {
-        "2021": 18,
-        "2022": 22,
-        "2023": 20,
-        "2024": 25,
-        "2025": 20
+        "2021": 21,
+        "2022": 38,
+        "2023": 18,
+        "2024": 41,
+        "2025": 68,
+        "2026": 11
       },
-      "totalObservations": 105,
+      "totalObservations": 197,
       "frequency": "uncommon",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -647,33 +671,39 @@
     },
     "calscapeUrl": "https://calscape.org/Xylococcus-bicolor-(Mission-Manzanita)",
     "iNaturalistData": {
-      "taxonId": 61746,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=61746",
+      "taxonId": 79543,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=79543&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 12,
-        "feb": 15,
-        "mar": 18,
-        "apr": 14,
-        "may": 10,
-        "jun": 8,
-        "jul": 6,
-        "aug": 5,
-        "sep": 5,
-        "oct": 6,
-        "nov": 8,
-        "dec": 10
+        "jan": 18,
+        "feb": 27,
+        "mar": 50,
+        "apr": 43,
+        "may": 27,
+        "jun": 13,
+        "jul": 8,
+        "aug": 15,
+        "sep": 12,
+        "oct": 13,
+        "nov": 18,
+        "dec": 28
       },
       "observationsByYear": {
-        "2021": 20,
-        "2022": 24,
-        "2023": 22,
-        "2024": 28,
-        "2025": 23
+        "2021": 33,
+        "2022": 43,
+        "2023": 54,
+        "2024": 37,
+        "2025": 85,
+        "2026": 20
       },
-      "totalObservations": 117,
-      "frequency": "uncommon",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 272,
+      "frequency": "common",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun to Part Shade",
@@ -795,33 +825,39 @@
     },
     "calscapeUrl": "https://calscape.org/Encelia-californica-(Bush-Sunflower)",
     "iNaturalistData": {
-      "taxonId": 56265,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=56265",
+      "taxonId": 64141,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=64141&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 8,
-        "feb": 12,
-        "mar": 35,
-        "apr": 55,
-        "may": 48,
-        "jun": 30,
-        "jul": 15,
-        "aug": 8,
-        "sep": 5,
-        "oct": 5,
-        "nov": 6,
-        "dec": 6
+        "jan": 5,
+        "feb": 20,
+        "mar": 27,
+        "apr": 58,
+        "may": 24,
+        "jun": 6,
+        "jul": 3,
+        "aug": 0,
+        "sep": 2,
+        "oct": 4,
+        "nov": 14,
+        "dec": 8
       },
       "observationsByYear": {
-        "2021": 42,
-        "2022": 48,
-        "2023": 50,
-        "2024": 55,
-        "2025": 38
+        "2021": 21,
+        "2022": 27,
+        "2023": 43,
+        "2024": 26,
+        "2025": 41,
+        "2026": 13
       },
-      "totalObservations": 233,
-      "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 171,
+      "frequency": "uncommon",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -942,33 +978,39 @@
     },
     "calscapeUrl": "https://calscape.org/Artemisia-californica-(California-Sagebrush)",
     "iNaturalistData": {
-      "taxonId": 52857,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=52857",
+      "taxonId": 53357,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=53357&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 20,
-        "feb": 22,
-        "mar": 35,
-        "apr": 42,
-        "may": 38,
-        "jun": 30,
-        "jul": 22,
-        "aug": 18,
-        "sep": 15,
-        "oct": 18,
-        "nov": 20,
+        "jan": 22,
+        "feb": 30,
+        "mar": 39,
+        "apr": 39,
+        "may": 10,
+        "jun": 17,
+        "jul": 6,
+        "aug": 7,
+        "sep": 14,
+        "oct": 9,
+        "nov": 12,
         "dec": 18
       },
       "observationsByYear": {
-        "2021": 55,
-        "2022": 60,
-        "2023": 58,
-        "2024": 72,
-        "2025": 53
+        "2021": 20,
+        "2022": 49,
+        "2023": 40,
+        "2024": 36,
+        "2025": 62,
+        "2026": 16
       },
-      "totalObservations": 298,
+      "totalObservations": 223,
       "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -1089,33 +1131,39 @@
     },
     "calscapeUrl": "https://calscape.org/Eriogonum-fasciculatum-(California-Buckwheat)",
     "iNaturalistData": {
-      "taxonId": 53420,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=53420",
+      "taxonId": 54999,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=54999&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 12,
-        "feb": 18,
-        "mar": 35,
-        "apr": 52,
-        "may": 68,
-        "jun": 71,
-        "jul": 42,
-        "aug": 19,
-        "sep": 10,
-        "oct": 6,
-        "nov": 5,
-        "dec": 4
+        "jan": 23,
+        "feb": 52,
+        "mar": 49,
+        "apr": 84,
+        "may": 56,
+        "jun": 52,
+        "jul": 40,
+        "aug": 28,
+        "sep": 35,
+        "oct": 23,
+        "nov": 24,
+        "dec": 20
       },
       "observationsByYear": {
-        "2021": 58,
-        "2022": 72,
-        "2023": 65,
-        "2024": 91,
-        "2025": 56
+        "2021": 54,
+        "2022": 88,
+        "2023": 83,
+        "2024": 88,
+        "2025": 123,
+        "2026": 50
       },
-      "totalObservations": 342,
+      "totalObservations": 486,
       "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -1237,33 +1285,39 @@
     },
     "calscapeUrl": "https://calscape.org/Salvia-apiana-(White-Sage)",
     "iNaturalistData": {
-      "taxonId": 52854,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=52854",
+      "taxonId": 64134,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=64134&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 10,
-        "feb": 12,
-        "mar": 22,
-        "apr": 35,
-        "may": 48,
-        "jun": 42,
-        "jul": 25,
-        "aug": 15,
-        "sep": 10,
-        "oct": 8,
-        "nov": 8,
-        "dec": 8
+        "jan": 16,
+        "feb": 28,
+        "mar": 21,
+        "apr": 41,
+        "may": 39,
+        "jun": 32,
+        "jul": 17,
+        "aug": 12,
+        "sep": 21,
+        "oct": 6,
+        "nov": 22,
+        "dec": 13
       },
       "observationsByYear": {
-        "2021": 40,
-        "2022": 48,
-        "2023": 45,
-        "2024": 58,
-        "2025": 52
+        "2021": 27,
+        "2022": 46,
+        "2023": 49,
+        "2024": 47,
+        "2025": 74,
+        "2026": 25
       },
-      "totalObservations": 243,
+      "totalObservations": 268,
       "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -1379,33 +1433,39 @@
     },
     "calscapeUrl": "https://calscape.org/Salvia-mellifera-(Black-Sage)",
     "iNaturalistData": {
-      "taxonId": 53077,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=53077",
+      "taxonId": 50643,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=50643&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 8,
-        "feb": 10,
-        "mar": 25,
-        "apr": 50,
-        "may": 62,
-        "jun": 45,
-        "jul": 22,
-        "aug": 12,
-        "sep": 8,
-        "oct": 6,
-        "nov": 6,
-        "dec": 6
+        "jan": 12,
+        "feb": 13,
+        "mar": 33,
+        "apr": 77,
+        "may": 50,
+        "jun": 7,
+        "jul": 2,
+        "aug": 4,
+        "sep": 5,
+        "oct": 3,
+        "nov": 5,
+        "dec": 9
       },
       "observationsByYear": {
-        "2021": 45,
-        "2022": 52,
-        "2023": 48,
-        "2024": 68,
-        "2025": 47
+        "2021": 19,
+        "2022": 47,
+        "2023": 47,
+        "2024": 44,
+        "2025": 37,
+        "2026": 26
       },
-      "totalObservations": 260,
+      "totalObservations": 220,
       "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -1528,33 +1588,39 @@
     },
     "calscapeUrl": "https://calscape.org/Diplacus-puniceus-(Red-Bush-Monkeyflower)",
     "iNaturalistData": {
-      "taxonId": 50381,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=50381",
+      "taxonId": 161947,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=161947&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 5,
-        "feb": 8,
-        "mar": 22,
-        "apr": 38,
-        "may": 42,
-        "jun": 30,
-        "jul": 15,
-        "aug": 8,
-        "sep": 5,
+        "jan": 12,
+        "feb": 59,
+        "mar": 62,
+        "apr": 115,
+        "may": 57,
+        "jun": 27,
+        "jul": 10,
+        "aug": 4,
+        "sep": 4,
         "oct": 4,
-        "nov": 4,
-        "dec": 4
+        "nov": 5,
+        "dec": 3
       },
       "observationsByYear": {
-        "2021": 30,
-        "2022": 38,
-        "2023": 35,
-        "2024": 45,
-        "2025": 37
+        "2021": 29,
+        "2022": 47,
+        "2023": 86,
+        "2024": 67,
+        "2025": 68,
+        "2026": 65
       },
-      "totalObservations": 185,
+      "totalObservations": 362,
       "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun to Part Shade",
@@ -1678,33 +1744,38 @@
     },
     "calscapeUrl": "https://calscape.org/Epilobium-canum-(California-Fuchsia)",
     "iNaturalistData": {
-      "taxonId": 60756,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=60756",
+      "taxonId": 53051,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=53051&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 2,
-        "feb": 2,
-        "mar": 5,
-        "apr": 8,
-        "may": 10,
-        "jun": 12,
-        "jul": 15,
-        "aug": 30,
-        "sep": 45,
-        "oct": 35,
-        "nov": 15,
-        "dec": 5
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 3,
+        "may": 3,
+        "jun": 3,
+        "jul": 3,
+        "aug": 3,
+        "sep": 7,
+        "oct": 10,
+        "nov": 7,
+        "dec": 4
       },
       "observationsByYear": {
-        "2021": 32,
-        "2022": 38,
-        "2023": 35,
-        "2024": 48,
-        "2025": 31
+        "2021": 7,
+        "2022": 7,
+        "2023": 8,
+        "2024": 6,
+        "2025": 15
       },
-      "totalObservations": 184,
-      "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 43,
+      "frequency": "rare",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun to Part Shade",
@@ -1824,33 +1895,39 @@
     },
     "calscapeUrl": "https://calscape.org/Eriophyllum-confertiflorum-(Golden-Yarrow)",
     "iNaturalistData": {
-      "taxonId": 58622,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=58622",
+      "taxonId": 53395,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=53395&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 3,
-        "feb": 5,
-        "mar": 15,
-        "apr": 32,
-        "may": 38,
-        "jun": 25,
-        "jul": 12,
-        "aug": 6,
+        "jan": 11,
+        "feb": 19,
+        "mar": 33,
+        "apr": 87,
+        "may": 84,
+        "jun": 15,
+        "jul": 2,
+        "aug": 4,
         "sep": 4,
-        "oct": 3,
-        "nov": 3,
-        "dec": 2
+        "oct": 2,
+        "nov": 4,
+        "dec": 3
       },
       "observationsByYear": {
-        "2021": 25,
-        "2022": 30,
-        "2023": 28,
-        "2024": 38,
-        "2025": 27
+        "2021": 34,
+        "2022": 45,
+        "2023": 53,
+        "2024": 51,
+        "2025": 54,
+        "2026": 31
       },
-      "totalObservations": 148,
+      "totalObservations": 268,
       "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -1968,33 +2045,39 @@
     },
     "calscapeUrl": "https://calscape.org/Asclepias-fascicularis-(Narrowleaf-Milkweed)",
     "iNaturalistData": {
-      "taxonId": 47935,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=47935",
+      "taxonId": 56851,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=56851&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 2,
-        "feb": 3,
-        "mar": 8,
-        "apr": 15,
-        "may": 25,
-        "jun": 35,
-        "jul": 42,
-        "aug": 38,
-        "sep": 22,
-        "oct": 10,
-        "nov": 4,
-        "dec": 2
+        "jan": 0,
+        "feb": 0,
+        "mar": 1,
+        "apr": 2,
+        "may": 3,
+        "jun": 7,
+        "jul": 7,
+        "aug": 3,
+        "sep": 0,
+        "oct": 0,
+        "nov": 1,
+        "dec": 0
       },
       "observationsByYear": {
-        "2021": 35,
-        "2022": 42,
-        "2023": 38,
-        "2024": 50,
-        "2025": 41
+        "2021": 7,
+        "2022": 2,
+        "2023": 3,
+        "2024": 3,
+        "2025": 8,
+        "2026": 1
       },
-      "totalObservations": 206,
-      "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 24,
+      "frequency": "rare",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -2120,33 +2203,39 @@
     },
     "calscapeUrl": "https://calscape.org/Acmispon-glaber-(Deerweed)",
     "iNaturalistData": {
-      "taxonId": 62928,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=62928",
+      "taxonId": 53131,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=53131&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 5,
-        "feb": 8,
-        "mar": 18,
-        "apr": 32,
-        "may": 35,
-        "jun": 28,
-        "jul": 15,
-        "aug": 8,
-        "sep": 5,
-        "oct": 4,
-        "nov": 4,
-        "dec": 3
+        "jan": 2,
+        "feb": 0,
+        "mar": 5,
+        "apr": 20,
+        "may": 10,
+        "jun": 3,
+        "jul": 1,
+        "aug": 0,
+        "sep": 1,
+        "oct": 0,
+        "nov": 1,
+        "dec": 1
       },
       "observationsByYear": {
-        "2021": 28,
-        "2022": 35,
-        "2023": 32,
-        "2024": 42,
-        "2025": 28
+        "2021": 8,
+        "2022": 8,
+        "2023": 9,
+        "2024": 11,
+        "2025": 7,
+        "2026": 1
       },
-      "totalObservations": 165,
-      "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 44,
+      "frequency": "rare",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -2277,33 +2366,39 @@
     },
     "calscapeUrl": "https://calscape.org/Lupinus-succulentus-(Arroyo-Lupine)",
     "iNaturalistData": {
-      "taxonId": 64267,
-      "placeId": 122557,
-      "searchUrl": "https://www.inaturalist.org/observations?place_id=122557&taxon_id=64267",
+      "taxonId": 56759,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=56759&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
       "observationsByMonth": {
-        "jan": 5,
-        "feb": 12,
-        "mar": 45,
-        "apr": 62,
-        "may": 35,
-        "jun": 8,
-        "jul": 2,
-        "aug": 1,
-        "sep": 1,
-        "oct": 1,
-        "nov": 2,
-        "dec": 3
+        "jan": 0,
+        "feb": 8,
+        "mar": 12,
+        "apr": 8,
+        "may": 5,
+        "jun": 1,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "observationsByYear": {
-        "2021": 30,
-        "2022": 38,
-        "2023": 42,
-        "2024": 45,
-        "2025": 22
+        "2021": 2,
+        "2022": 6,
+        "2023": 6,
+        "2024": 10,
+        "2025": 3,
+        "2026": 7
       },
-      "totalObservations": 177,
-      "frequency": "common",
-      "lastUpdated": "2026-04-10"
+      "totalObservations": 34,
+      "frequency": "rare",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
     },
     "plantingRequirements": {
       "sunExposure": "Full Sun",
@@ -2397,6 +2492,181 @@
           "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4530399/medium.jpg",
           "attribution": "Photo by Bill Bouton, CC BY-NC 4.0",
           "iNaturalistUrl": "https://www.inaturalist.org/observations/3001736"
+        }
+      }
+    ]
+  },
+  {
+    "id": "bahiopsis-laciniata",
+    "commonNames": [
+      "Tornleaf Goldeneye",
+      "San Diego Sunflower",
+      "San Diego County Viguiera"
+    ],
+    "scientificName": "Bahiopsis laciniata",
+    "synonyms": [
+      "Viguiera laciniata"
+    ],
+    "category": "small-shrub",
+    "isKeystone": false,
+    "description": "A fast-growing evergreen aster-family shrub native to coastal Southern California, with bright yellow sunflower-like blooms from winter through summer and glossy, toothed leaves. Sometimes called tornleaf goldeneye, it thrives on dry slopes and sandy, well-drained soils with very little water once established, and mixes well with other coastal sage scrub and chaparral companions.",
+    "image": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/525329467/medium.jpg",
+      "attribution": "Photo by Nisdao, CC BY-NC 4.0",
+      "iNaturalistUrl": "https://www.inaturalist.org/observations/291950659"
+    },
+    "calscapeUrl": "https://calscape.org/Bahiopsis-laciniata-(San-Diego-County-Viguiera)",
+    "iNaturalistData": {
+      "taxonId": 75736,
+      "searchUrl": "https://www.inaturalist.org/observations?taxon_id=75736&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
+      "observationsByMonth": {
+        "jan": 0,
+        "feb": 1,
+        "mar": 4,
+        "apr": 5,
+        "may": 8,
+        "jun": 1,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 1,
+        "dec": 1
+      },
+      "observationsByYear": {
+        "2021": 5,
+        "2022": 2,
+        "2023": 3,
+        "2024": 4,
+        "2025": 3,
+        "2026": 4
+      },
+      "totalObservations": 21,
+      "frequency": "rare",
+      "lastUpdated": "2026-04-11",
+      "bounds": {
+        "nelat": 33.0652649,
+        "nelng": -116.9575429,
+        "swlat": 32.899128,
+        "swlng": -117.103013
+      }
+    },
+    "plantingRequirements": {
+      "sunExposure": "Full Sun",
+      "slopeRequirements": "Excellent on dry slopes, canyons, and mesas; mounding habit",
+      "soilRequirements": "Sandy to loam; tolerates varied soils when drainage is good; pH roughly 6–8"
+    },
+    "maintenance": {
+      "wateringSchedule": {
+        "jan": "none",
+        "feb": "none",
+        "mar": "none",
+        "apr": "none",
+        "may": "low",
+        "jun": "low",
+        "jul": "low",
+        "aug": "low",
+        "sep": "none",
+        "oct": "none",
+        "nov": "none",
+        "dec": "none"
+      },
+      "wateringNotes": "Very low water; Calscape suggests at most monthly summer irrigation once established. Overwatering promotes weak growth.",
+      "pruningNotes": "Prune in fall after flowering to shape; deadhead spent blooms if desired, or leave for birds.",
+      "specialNotes": "Plant in clusters for hedgerow effect or mix with other low-water perennials. Evergreen in mild climates."
+    },
+    "phenology": {
+      "bloom": {
+        "months": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "colors": [
+          "yellow"
+        ]
+      },
+      "berry": null,
+      "seed": {
+        "months": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "description": "Aster-family achenes in dried heads; finches and other birds often visit spent flowers"
+      },
+      "ecologicalValue": "Nectar and pollen for native bees and butterflies; Calscape notes likely caterpillar hosts in the sunflower family. Dense foliage provides cover; spent heads can support seed-eating birds."
+    },
+    "wildlife": [
+      {
+        "months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "species": "Native bees (Halictidae, Megachilidae)",
+        "activity": "nectar-pollen",
+        "notes": "Yellow composite flowers attract a wide range of pollinators over a long bloom season",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54957412/medium.jpg",
+          "attribution": "Photo by Jill Bazeley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/36471082"
+        }
+      },
+      {
+        "months": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "species": "Painted Lady butterfly",
+        "activity": "nectar-pollen",
+        "notes": "Common visitor where yellow composites are abundant in spring and summer",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3185505/medium.jpg",
+          "attribution": "Photo by Anne Toal, CC BY 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/2063746"
+        }
+      },
+      {
+        "months": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "species": "Anna's Hummingbird",
+        "activity": "nectar-pollen",
+        "notes": "Visits yellow composite flowers for nectar alongside insects",
+        "image": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2105963/medium.jpg",
+          "attribution": "Photo by Greg Lasley, CC BY-NC 4.0",
+          "iNaturalistUrl": "https://www.inaturalist.org/observations/1313718"
         }
       }
     ]

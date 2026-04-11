@@ -6,7 +6,7 @@ The site serves as a living reference for the garden's **plant inventory**, **ma
 
 ## Features
 
-- **Plant Inventory** — 16 California native plants organized by category (trees, shrubs, groundcover) with images, descriptions, keystone species indicators, planting requirements, and links to Calscape and iNaturalist
+- **Plant Inventory** — 17 California native plants organized by category (trees, shrubs, groundcover) with images, descriptions, keystone species indicators, planting requirements, and links to Calscape and iNaturalist
 - **Maintenance Schedule** — month-by-month watering, pruning, and care tasks for each plant
 - **Bloom, Berry & Seed Calendar** — color-coded phenology timelines showing what's flowering, fruiting, and seeding across the garden
 - **Wildlife Schedule** — which birds, butterflies, bees, and other wildlife to expect each month and what they're doing
