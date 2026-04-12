@@ -27,7 +27,7 @@
     'shelter': 'Shelter / Roosting',
     'browsing': 'Browsing'
   };
-  const WATER_LABELS = { none: '—', low: 'Low', moderate: 'Med', regular: 'Reg' };
+  const WATER_LABELS = { 0: '—', 1: '1×', 2: '2×', 3: '3×', 4: '4×' };
   const COLOR_MAP = {
     'white': '#f5f5f0', 'pink': '#f0a0b0', 'red': '#d44040', 'orange': '#e8833a',
     'orange-red': '#e05530', 'yellow': '#f0d040', 'yellow-green': '#b8cc50',
@@ -336,20 +336,29 @@
   // ---- Maintenance Tab ----
   function maintenanceTab(p) {
     const ws = p.maintenance.wateringSchedule;
-    const cells = MONTH_KEYS.map((k, i) => {
-      const level = ws[k] || 'none';
+    const pruneSet = new Set(p.maintenance.pruningMonths || []);
+    const waterCells = MONTH_KEYS.map((k, i) => {
+      const freq = ws[k] || 0;
+      const cls = freq > 0 ? (freq >= 2 ? 'water-moderate' : 'water-low') : 'water-none';
       const cur = i === CUR_MONTH ? ' water-current' : '';
-      return `<div class="water-cell water-${level}${cur}"><span class="month-label">${MONTHS[i]}</span>${WATER_LABELS[level]}</div>`;
+      return `<div class="water-cell ${cls}${cur}"><span class="month-label">${MONTHS[i]}</span>${WATER_LABELS[freq] || '—'}</div>`;
+    }).join('');
+
+    const pruneCells = Array.from({ length: 12 }, (_, i) => {
+      const active = pruneSet.has(i + 1);
+      const cls = active ? 'prune-active' : 'prune-inactive';
+      const cur = i === CUR_MONTH ? ' prune-current' : '';
+      return `<div class="prune-cell ${cls}${cur}"><span class="month-label">${MONTHS[i]}</span>${active ? '✂' : '—'}</div>`;
     }).join('');
 
     return `
-      <h5 style="font-size:.85rem;margin-bottom:8px;color:#6b4c3b">Watering Schedule</h5>
-      <div class="watering-grid">${cells}</div>
-      <div class="maintenance-notes">
-        <p><strong>Watering:</strong> ${p.maintenance.wateringNotes}</p>
-        <p><strong>Pruning:</strong> ${p.maintenance.pruningNotes}</p>
-        ${p.maintenance.specialNotes ? `<p><strong>Notes:</strong> ${p.maintenance.specialNotes}</p>` : ''}
-      </div>`;
+      <h5 style="font-size:.85rem;margin-bottom:8px;color:#6b4c3b">💧 Watering</h5>
+      <div class="watering-grid">${waterCells}</div>
+      <p class="maintenance-note">${p.maintenance.wateringNotes}</p>
+      <h5 style="font-size:.85rem;margin-bottom:8px;color:#6b4c3b">✂ Pruning${p.maintenance.pruningTask ? ` — ${p.maintenance.pruningTask}` : ''}</h5>
+      <div class="watering-grid">${pruneCells}</div>
+      <p class="maintenance-note">${p.maintenance.pruningNotes}</p>
+      ${p.maintenance.specialNotes ? `<p class="maintenance-note"><strong>Notes:</strong> ${p.maintenance.specialNotes}</p>` : ''}`;
   }
 
   // ---- Phenology Tab ----
@@ -492,17 +501,22 @@
       : '<li class="cal-empty">No wildlife activity this month</li>';
 
     // Maintenance
-    const maintItems = plants.filter(p => {
-      const level = p.maintenance.wateringSchedule[mk];
-      return level && level !== 'none';
+    const maintJobs = [];
+    plants.forEach(p => {
+      const freq = p.maintenance.wateringSchedule[mk] || 0;
+      if (freq > 0) {
+        const label = freq === 1 ? 'Water 1×/month' : `Water ${freq}×/month`;
+        maintJobs.push({ name: p.commonNames[0], task: `💧 ${label}` });
+      }
+      if ((p.maintenance.pruningMonths || []).includes(m)) {
+        const pt = p.maintenance.pruningTask;
+        maintJobs.push({ name: p.commonNames[0], task: pt ? `✂ ${pt}` : '✂ Prune' });
+      }
     });
     const maintList = document.getElementById('cal-maintenance-list');
-    maintList.innerHTML = maintItems.length
-      ? maintItems.map(p => {
-          const level = p.maintenance.wateringSchedule[mk];
-          return `<li><span class="cal-plant-name">${p.commonNames[0]}</span><br><span class="cal-detail">Water: ${level}</span></li>`;
-        }).join('')
-      : '<li class="cal-empty">No watering needed — let nature do its thing!</li>';
+    maintList.innerHTML = maintJobs.length
+      ? maintJobs.map(j => `<li><span class="cal-plant-name">${j.name}</span><br><span class="cal-detail">${j.task}</span></li>`).join('')
+      : '<li class="cal-empty">No maintenance needed — let nature do its thing!</li>';
 
     // Observations
     const obsItems = plants

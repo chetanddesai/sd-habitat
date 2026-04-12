@@ -58,22 +58,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "low",
-        "may": "low",
-        "jun": "low",
-        "jul": "low",
-        "aug": "low",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 1,
+        "may": 1,
+        "jun": 1,
+        "jul": 1,
+        "aug": 1,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Deep water monthly in summer for first 2–3 years; no irrigation once established. Overwatering causes root rot.",
       "pruningNotes": "Minimal pruning; remove only dead or crossing branches in late summer. Never prune in wet season to avoid oak disease.",
-      "specialNotes": "Protect root zone from compaction and grade changes. Do not irrigate within drip line of mature trees."
+      "specialNotes": "Protect root zone from compaction and grade changes. Do not irrigate within drip line of mature trees.",
+      "pruningMonths": [
+        7,
+        8
+      ],
+      "pruningTask": "Remove dead or crossing branches"
     },
     "phenology": {
       "bloom": {
@@ -220,22 +225,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "low",
-        "jun": "low",
-        "jul": "low",
-        "aug": "low",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 1,
+        "jun": 1,
+        "jul": 1,
+        "aug": 1,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Occasional deep water in summer for first 1–2 years. Fully drought-tolerant once established.",
       "pruningNotes": "Prune to shape in late winter after berries are consumed. Can be hedged or left natural.",
-      "specialNotes": "Fire-follower — resprouts vigorously after fire. May get fireblight in humid conditions; prune affected branches."
+      "specialNotes": "Fire-follower — resprouts vigorously after fire. May get fireblight in humid conditions; prune affected branches.",
+      "pruningMonths": [
+        1,
+        2
+      ],
+      "pruningTask": "Shape after berries consumed"
     },
     "phenology": {
       "bloom": {
@@ -375,22 +385,26 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "No irrigation once established. One of the most drought-tolerant native shrubs.",
       "pruningNotes": "Prune to shape in late fall. Can be cut back hard and will resprout from base.",
-      "specialNotes": "Frost-sensitive; the folded leaves are a reliable indicator of frost-free microclimates. Vigorous resprouter after fire."
+      "specialNotes": "Frost-sensitive; the folded leaves are a reliable indicator of frost-free microclimates. Vigorous resprouter after fire.",
+      "pruningMonths": [
+        11
+      ],
+      "pruningTask": "Shape; can cut back hard"
     },
     "phenology": {
       "bloom": {
@@ -527,22 +541,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Extremely drought-tolerant. No supplemental water once established.",
       "pruningNotes": "Can be pruned hard in late winter to maintain shape. Female plants produce copious seed fluff — prune seed heads if unwanted.",
-      "specialNotes": "Dioecious — plant male plants if seed fluff is a concern. Can spread aggressively in irrigated gardens."
+      "specialNotes": "Dioecious — plant male plants if seed fluff is a concern. Can spread aggressively in irrigated gardens.",
+      "pruningMonths": [
+        1,
+        2
+      ],
+      "pruningTask": "Cut back hard to shape; remove seed heads"
     },
     "phenology": {
       "bloom": {
@@ -667,22 +686,24 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "No summer water once established — overwatering is fatal. One of the most drought-tolerant manzanitas.",
       "pruningNotes": "Rarely needs pruning. Remove only dead wood. Do not cut into old wood — it won't resprout.",
-      "specialNotes": "Extremely sensitive to summer irrigation. Site on a well-drained slope away from irrigated areas. Slow-growing but very long-lived."
+      "specialNotes": "Extremely sensitive to summer irrigation. Site on a well-drained slope away from irrigated areas. Slow-growing but very long-lived.",
+      "pruningMonths": [],
+      "pruningTask": ""
     },
     "phenology": {
       "bloom": {
@@ -821,22 +842,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "low",
-        "may": "low",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 1,
+        "may": 1,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Drought-deciduous — drops leaves in summer drought, which is normal. Occasional spring water extends bloom period.",
       "pruningNotes": "Cut back by half in late fall to maintain compact shape and prevent legginess. Deadhead spent flowers to extend blooming.",
-      "specialNotes": "Short-lived (3–5 years) but self-seeds readily. Replace old plants as they decline."
+      "specialNotes": "Short-lived (3–5 years) but self-seeds readily. Replace old plants as they decline.",
+      "pruningMonths": [
+        10,
+        11
+      ],
+      "pruningTask": "Cut back by half; deadhead spent flowers"
     },
     "phenology": {
       "bloom": {
@@ -957,22 +983,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "No supplemental water once established. Drought-deciduous — drops leaves in summer, re-leafs with fall rains.",
       "pruningNotes": "Light pruning in fall to maintain shape. Can be cut back to 12 inches to rejuvenate.",
-      "specialNotes": "Allelopathic — may inhibit some plants nearby. Highly aromatic foliage. Important Chumash and Kumeyaay medicinal plant."
+      "specialNotes": "Allelopathic — may inhibit some plants nearby. Highly aromatic foliage. Important Chumash and Kumeyaay medicinal plant.",
+      "pruningMonths": [
+        10,
+        11
+      ],
+      "pruningTask": "Light shape; can cut to 12″ to rejuvenate"
     },
     "phenology": {
       "bloom": {
@@ -1095,22 +1126,26 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "low",
-        "apr": "low",
-        "may": "low",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 1,
+        "apr": 1,
+        "may": 1,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Extremely drought-tolerant once established; no summer water needed.",
       "pruningNotes": "Cut back by 1/3 in late fall after seeds drop to maintain compact form.",
-      "specialNotes": "Leave dried flower/seed heads through winter for bird foraging. One of the easiest natives to grow."
+      "specialNotes": "Leave dried flower/seed heads through winter for bird foraging. One of the easiest natives to grow.",
+      "pruningMonths": [
+        11
+      ],
+      "pruningTask": "Cut back by ⅓ after seeds drop"
     },
     "phenology": {
       "bloom": {
@@ -1232,22 +1267,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "No summer water once established — overwatering causes root rot and death.",
       "pruningNotes": "Remove spent flower stalks after bloom. Light shaping in fall if needed.",
-      "specialNotes": "Culturally significant to Kumeyaay and other Indigenous peoples. Avoid harvesting from wild populations. Deer-resistant."
+      "specialNotes": "Culturally significant to Kumeyaay and other Indigenous peoples. Avoid harvesting from wild populations. Deer-resistant.",
+      "pruningMonths": [
+        7,
+        10
+      ],
+      "pruningTask": "Remove spent flower stalks; light shaping"
     },
     "phenology": {
       "bloom": {
@@ -1380,22 +1420,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "low",
-        "may": "low",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 1,
+        "may": 1,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Drought-deciduous — drops leaves in summer. No summer water once established.",
       "pruningNotes": "Cut back by 1/3 after bloom to maintain shape. Avoid cutting into old wood.",
-      "specialNotes": "Highly aromatic. Produces some of California's finest sage honey. Deer-resistant."
+      "specialNotes": "Highly aromatic. Produces some of California's finest sage honey. Deer-resistant.",
+      "pruningMonths": [
+        6,
+        7
+      ],
+      "pruningTask": "Cut back by ⅓; avoid old wood"
     },
     "phenology": {
       "bloom": {
@@ -1518,22 +1563,26 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "low",
-        "apr": "low",
-        "may": "low",
-        "jun": "low",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 1,
+        "apr": 1,
+        "may": 1,
+        "jun": 1,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Occasional deep water in spring extends bloom. Reduce to none in late summer.",
       "pruningNotes": "Cut back by half after main bloom flush in early summer. Promotes fall rebloom.",
-      "specialNotes": "May go dormant in summer drought. Light afternoon shade in hottest inland areas helps extend bloom."
+      "specialNotes": "May go dormant in summer drought. Light afternoon shade in hottest inland areas helps extend bloom.",
+      "pruningMonths": [
+        6
+      ],
+      "pruningTask": "Cut back by half for fall rebloom"
     },
     "phenology": {
       "bloom": {
@@ -1673,22 +1722,26 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "low",
-        "may": "low",
-        "jun": "low",
-        "jul": "low",
-        "aug": "low",
-        "sep": "low",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 1,
+        "may": 1,
+        "jun": 1,
+        "jul": 1,
+        "aug": 1,
+        "sep": 1,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Occasional summer water keeps it greener and extends bloom. Tolerates drought but blooms better with some water.",
       "pruningNotes": "Cut back to 4–6 inches in late winter after frost. New growth emerges from base in spring.",
-      "specialNotes": "Spreads by underground rhizomes — can be aggressive. Plant where spreading is welcome or contain with hardscape."
+      "specialNotes": "Spreads by underground rhizomes — can be aggressive. Plant where spreading is welcome or contain with hardscape.",
+      "pruningMonths": [
+        2
+      ],
+      "pruningTask": "Cut back to 4–6″ above ground"
     },
     "phenology": {
       "bloom": {
@@ -1825,22 +1878,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "No supplemental water once established. Extremely drought-tolerant.",
       "pruningNotes": "Shear lightly after bloom to maintain compact form and promote denser growth.",
-      "specialNotes": "Semi-evergreen — may lose some leaves in extreme drought. Self-seeds in favorable conditions."
+      "specialNotes": "Semi-evergreen — may lose some leaves in extreme drought. Self-seeds in favorable conditions.",
+      "pruningMonths": [
+        6,
+        7
+      ],
+      "pruningTask": "Shear lightly for compact form"
     },
     "phenology": {
       "bloom": {
@@ -1944,22 +2002,26 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "low",
-        "apr": "low",
-        "may": "moderate",
-        "jun": "moderate",
-        "jul": "moderate",
-        "aug": "moderate",
-        "sep": "low",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 1,
+        "apr": 1,
+        "may": 2,
+        "jun": 2,
+        "jul": 2,
+        "aug": 2,
+        "sep": 1,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Moderate summer water extends the growing season and supports more caterpillar broods. More water-tolerant than most natives.",
       "pruningNotes": "Cut back to ground in late fall after stems die back naturally. Do NOT cut while caterpillars are present — check carefully first.",
-      "specialNotes": "Goes fully dormant in winter — mark location to avoid accidental disturbance. Spreads by rhizomes. CRITICAL: use only native milkweed, never tropical milkweed (A. curassavica) which disrupts Monarch migration."
+      "specialNotes": "Goes fully dormant in winter — mark location to avoid accidental disturbance. Spreads by rhizomes. CRITICAL: use only native milkweed, never tropical milkweed (A. curassavica) which disrupts Monarch migration.",
+      "pruningMonths": [
+        11
+      ],
+      "pruningTask": "Cut to ground after die-back (check for caterpillars first)"
     },
     "phenology": {
       "bloom": {
@@ -2086,22 +2148,27 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "No supplemental water once established. Thrives on neglect.",
       "pruningNotes": "Can be cut back hard in fall to rejuvenate. Short-lived (3–5 years) but self-seeds prolifically.",
-      "specialNotes": "Nitrogen-fixer — improves soil for companion plants. Pioneer species ideal for establishing new native gardens. Fire-follower."
+      "specialNotes": "Nitrogen-fixer — improves soil for companion plants. Pioneer species ideal for establishing new native gardens. Fire-follower.",
+      "pruningMonths": [
+        10,
+        11
+      ],
+      "pruningTask": "Cut back hard to rejuvenate"
     },
     "phenology": {
       "bloom": {
@@ -2232,22 +2299,24 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "low",
-        "feb": "low",
-        "mar": "low",
-        "apr": "none",
-        "may": "none",
-        "jun": "none",
-        "jul": "none",
-        "aug": "none",
-        "sep": "none",
-        "oct": "none",
-        "nov": "low",
-        "dec": "low"
+        "jan": 1,
+        "feb": 1,
+        "mar": 1,
+        "apr": 0,
+        "may": 0,
+        "jun": 0,
+        "jul": 0,
+        "aug": 0,
+        "sep": 0,
+        "oct": 0,
+        "nov": 1,
+        "dec": 1
       },
       "wateringNotes": "Supplemental water during germination (fall) and growth (winter) helps establish dense stands. No water needed once blooming.",
       "pruningNotes": "None needed — annual dies back naturally. Leave dried plants in place to drop seeds.",
-      "specialNotes": "Sow seeds in late fall after first rains. Scarify seeds with sandpaper for better germination. Self-seeds well once established."
+      "specialNotes": "Sow seeds in late fall after first rains. Scarify seeds with sandpaper for better germination. Self-seeds well once established.",
+      "pruningMonths": [],
+      "pruningTask": ""
     },
     "phenology": {
       "bloom": {
@@ -2383,22 +2452,26 @@
     },
     "maintenance": {
       "wateringSchedule": {
-        "jan": "none",
-        "feb": "none",
-        "mar": "none",
-        "apr": "none",
-        "may": "low",
-        "jun": "low",
-        "jul": "low",
-        "aug": "low",
-        "sep": "none",
-        "oct": "none",
-        "nov": "none",
-        "dec": "none"
+        "jan": 0,
+        "feb": 0,
+        "mar": 0,
+        "apr": 0,
+        "may": 1,
+        "jun": 1,
+        "jul": 1,
+        "aug": 1,
+        "sep": 0,
+        "oct": 0,
+        "nov": 0,
+        "dec": 0
       },
       "wateringNotes": "Very low water; Calscape suggests at most monthly summer irrigation once established. Overwatering promotes weak growth.",
       "pruningNotes": "Prune in fall after flowering to shape; deadhead spent blooms if desired, or leave for birds.",
-      "specialNotes": "Plant in clusters for hedgerow effect or mix with other low-water perennials. Evergreen in mild climates."
+      "specialNotes": "Plant in clusters for hedgerow effect or mix with other low-water perennials. Evergreen in mild climates.",
+      "pruningMonths": [
+        11
+      ],
+      "pruningTask": "Shape after flowering; deadhead or leave for birds"
     },
     "phenology": {
       "bloom": {

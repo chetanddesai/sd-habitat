@@ -194,11 +194,29 @@ select, input { font: inherit; }
   margin-bottom: 28px;
   line-height: 1.7;
 }
+.section-title-sm {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
 .subsection-title {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   color: var(--c-sage-dark);
   margin: 40px 0 16px;
+}
+.calendar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 24px;
+}
+.calendar-list li {
+  break-inside: avoid;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+@media (max-width: 600px) {
+  .calendar-list { columns: 1; }
 }
 
 /* --- Filters --- */
@@ -498,8 +516,30 @@ select, input { font: inherit; }
 .water-none { background: var(--c-sand); color: var(--c-text-light); }
 .water-low { background: #d4edff; color: #1a6fb5; }
 .water-moderate { background: #87ceeb; color: #0a4a7a; }
-.water-regular { background: #4a90d9; color: var(--c-white); }
 .water-cell.water-current { outline: 2.5px solid var(--c-sage); outline-offset: -2px; }
+.prune-cell {
+  text-align: center;
+  padding: 6px 2px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.prune-cell .month-label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: inherit;
+  margin-bottom: 2px;
+}
+.prune-inactive { background: var(--c-sand); color: var(--c-text-light); }
+.prune-active { background: #f5e6d0; color: #7a5c3a; }
+.prune-cell.prune-current { outline: 2.5px solid var(--c-sage); outline-offset: -2px; }
+.maintenance-note {
+  font-size: 0.85rem;
+  color: var(--c-text-light);
+  line-height: 1.5;
+  margin: 4px 0 16px;
+}
 
 .maintenance-notes {
   font-size: 0.9rem;
@@ -749,18 +789,6 @@ select, input { font: inherit; }
   font-size: 1.4rem;
   color: var(--c-sage-dark);
 }
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
-}
-.calendar-card {
-  background: var(--c-white);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-}
 .calendar-card h4 {
   font-family: var(--font-heading);
   font-size: 1.05rem;
@@ -771,13 +799,6 @@ select, input { font: inherit; }
   gap: 8px;
 }
 .cal-icon { font-size: 1.2rem; }
-.calendar-card ul { font-size: 0.9rem; }
-.calendar-card li {
-  padding: 6px 0;
-  border-bottom: 1px solid var(--c-sand-dark);
-  line-height: 1.5;
-}
-.calendar-card li:last-child { border-bottom: none; }
 .cal-plant-name { font-weight: 600; color: var(--c-sage-dark); }
 .cal-detail { color: var(--c-text-light); font-size: 0.85rem; }
 .cal-empty { color: var(--c-text-light); font-style: italic; }
@@ -996,9 +1017,6 @@ select, input { font: inherit; }
   .plant-detail-top { flex-direction: column; }
   .plant-detail-hero { width: 100%; }
 
-  .calendar-grid {
-    grid-template-columns: 1fr;
-  }
 
   .obs-histogram {
     grid-template-columns: repeat(6, 1fr);

@@ -105,9 +105,11 @@ A calendar-oriented view (12 months) for each plant covering time-varying care t
 
 | Field | Detail |
 |---|---|
-| **Watering requirements** | Frequency and amount by season (e.g., "Deep water 1×/month Nov–Mar, no summer water once established") |
-| **Watering schedule** | Per-month indicator: None / Low / Moderate / Regular |
-| **Pruning notes** | When and how to prune (by month or season) |
+| **Watering schedule** | Per-month numeric frequency: `0` = none, `1` = once/month, `2` = twice/month. Displayed as "1×", "2×" in the UI. |
+| **Watering notes** | Free-text description of watering strategy (e.g., "Deep water monthly in summer for first 2–3 years; no irrigation once established") |
+| **Pruning months** | Array of 1-indexed months when pruning should be done |
+| **Pruning task** | Short actionable description of what to do (e.g., "Cut back by half for fall rebloom", "Remove dead or crossing branches") |
+| **Pruning notes** | Longer free-text explanation of pruning approach and timing |
 | **Special maintenance** | Deadheading, dividing, fire-clearing, pest notes |
 
 > **Note:** Static planting conditions (sun exposure, slope/drainage, soil) live in the Plant Inventory section under Planting Requirements (§3.1) since they don't vary by month.
@@ -205,12 +207,14 @@ Each plant object in `data/plants.json`:
   },
   "maintenance": {
     "wateringSchedule": {
-      "jan": "none", "feb": "none", "mar": "low", "apr": "low",
-      "may": "low", "jun": "none", "jul": "none", "aug": "none",
-      "sep": "none", "oct": "none", "nov": "none", "dec": "none"
+      "jan": 0, "feb": 0, "mar": 1, "apr": 1,
+      "may": 1, "jun": 0, "jul": 0, "aug": 0,
+      "sep": 0, "oct": 0, "nov": 0, "dec": 0
     },
     "wateringNotes": "Extremely drought-tolerant once established; no summer water needed",
-    "pruningNotes": "Cut back by 1/3 in late fall after seeds drop",
+    "pruningMonths": [11],
+    "pruningTask": "Cut back by ⅓ after seeds drop",
+    "pruningNotes": "Cut back by 1/3 in late fall after seeds drop to maintain compact form.",
     "specialNotes": ""
   },
   "phenology": {

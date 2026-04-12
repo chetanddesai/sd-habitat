@@ -46,8 +46,10 @@ Gather this information (Calscape, iNaturalist, and web search are the primary s
 | Keystone status | National Wildlife Federation keystone search or Calscape "Wildlife supported" |
 | Description | Write 1–2 sentences: what the plant is, its ecological role, why it matters for the garden. Focus on wildlife value. |
 | Sun / Slope / Soil | Calscape "Growing conditions" section |
-| Watering schedule | Calscape water needs + common knowledge for the species. Use the values: `"none"`, `"low"`, `"moderate"` for each month. Native plants generally need no supplemental water Nov–Mar and low water Jun–Sep. |
-| Pruning notes | Calscape or general native plant care guides |
+| Watering schedule | Calscape water needs + common knowledge for the species. Use numeric frequencies: `0` = none, `1` = once/month, `2` = twice/month. Native plants generally need `0` Nov–Mar and `1` Jun–Sep. |
+| Pruning months | Which months to prune. Derive from Calscape or native plant care guides. 1-indexed integers (1=Jan, 12=Dec). Leave as `[]` if pruning is not needed (e.g., annuals). |
+| Pruning task | Short actionable summary of what to do (e.g., "Cut back by half", "Remove spent flower stalks", "Cut to ground after die-back"). |
+| Pruning notes | Longer explanation of pruning approach, timing, and caveats. |
 | Bloom months + colors | Calscape "Bloom" section. Months are 1-indexed integers (1=Jan, 12=Dec). |
 | Berry/fruit months | Calscape or general botany references. Set to `null` if the plant doesn't produce notable berries/fruit. |
 | Seed months | If applicable, when seeds are available for wildlife. Set to `null` if not notable. |
@@ -106,11 +108,13 @@ Use this template. All fields are required unless marked optional.
   },
   "maintenance": {
     "wateringSchedule": {
-      "jan": "none", "feb": "none", "mar": "none", "apr": "none",
-      "may": "low", "jun": "low", "jul": "low", "aug": "low",
-      "sep": "none", "oct": "none", "nov": "none", "dec": "none"
+      "jan": 0, "feb": 0, "mar": 0, "apr": 0,
+      "may": 1, "jun": 1, "jul": 1, "aug": 1,
+      "sep": 0, "oct": 0, "nov": 0, "dec": 0
     },
     "wateringNotes": "...",
+    "pruningMonths": [10, 11],
+    "pruningTask": "Cut back by half to shape",
     "pruningNotes": "...",
     "specialNotes": ""
   },
@@ -145,6 +149,9 @@ Use this template. All fields are required unless marked optional.
 - Wildlife `image` objects: Same approach — leave empty. The JS searches iNaturalist using the **first two words** of the `species` field.
 - **Wildlife entries must be specific, named species** — do NOT add generic group entries like "Native bees", "Hover flies", or "Bumblebees". Generic pollinator info belongs in `description` or `ecologicalValue` instead.
 - Include 2–4 entries covering the major ecological interactions. Common patterns: a specific pollinator species visiting blooms, a named bird nesting, a specific butterfly as caterpillar host, a named bird eating seeds/berries.
+- `wateringSchedule`: Use numeric frequencies (`0`, `1`, `2`) — **not** string values like `"none"` or `"low"`.
+- `pruningMonths`: Array of 1-indexed month numbers when pruning should occur. Use `[]` if no pruning is needed.
+- `pruningTask`: A short, actionable description of the pruning work (e.g., "Remove spent flower stalks", "Cut to ground after die-back"). Required if `pruningMonths` is non-empty.
 
 **Wildlife Species Naming Rules (critical for image loading):**
 
@@ -254,8 +261,8 @@ Replace `FIRST+TWO+WORDS` with the first two words of the `species` field (URL-e
 | `shelter` | Shelter / Roosting |
 | `browsing` | Browsing Foliage |
 
-### Watering Levels
-`"none"` | `"low"` | `"moderate"` (no plant in the current inventory uses `"high"`)
+### Watering Frequencies
+`0` = none | `1` = 1×/month | `2` = 2×/month (numeric integers, not strings)
 
 ### Poway Bounding Box (constant across all plants)
 ```

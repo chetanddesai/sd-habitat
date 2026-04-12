@@ -7,7 +7,7 @@ A GitHub Pages site providing a living reference for a native habitat garden in 
 ## Features
 
 - **Plant Inventory** — 17 California native plants organized by category (trees, shrubs, groundcover) with images, descriptions, keystone species indicators, planting requirements, and links to Calscape and iNaturalist
-- **Maintenance Schedule** — month-by-month watering, pruning, and care tasks for each plant
+- **Maintenance Schedule** — month-by-month watering frequency (1×/month, 2×/month) and pruning tasks with short actionable descriptions for each plant
 - **Bloom, Berry & Seed Calendar** — color-coded phenology timelines showing what's flowering, fruiting, and seeding across the garden, with the current month highlighted
 - **Wildlife Schedule** — specific named species (birds, butterflies, moths, lizards) to look for each month and what they're doing
 - **Garden Calendar** — a "what's happening this month" dashboard combining bloom, wildlife, maintenance, and citizen-science observation data

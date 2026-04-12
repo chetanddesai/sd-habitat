@@ -102,32 +102,53 @@
           <h3 id="calendar-month-label" class="calendar-month-label"></h3>
           <button class="month-btn" data-dir="1" aria-label="Next month">&rarr;</button>
         </div>
+      </div>
+    </section>
 
-        <div class="calendar-grid">
-          <div class="calendar-card" id="cal-blooming">
-            <h4><span class="cal-icon" aria-hidden="true">🌸</span> Blooming</h4>
-            <ul id="cal-bloom-list"></ul>
-          </div>
-          <div class="calendar-card" id="cal-wildlife">
-            <h4><span class="cal-icon" aria-hidden="true">🦋</span> Wildlife</h4>
-            <ul id="cal-wildlife-list"></ul>
-          </div>
-          <div class="calendar-card" id="cal-maintenance">
-            <h4><span class="cal-icon" aria-hidden="true">💧</span> Maintenance</h4>
-            <ul id="cal-maintenance-list"></ul>
-          </div>
-          <div class="calendar-card" id="cal-observations">
-            <h4><span class="cal-icon" aria-hidden="true">📊</span> Most Observed</h4>
-            <ul id="cal-observations-list"></ul>
-          </div>
-        </div>
+    <!-- Blooming This Month -->
+    <section id="cal-blooming-section" class="section" aria-label="What's blooming">
+      <div class="container">
+        <h3 class="section-title section-title-sm"><span class="cal-icon" aria-hidden="true">🌸</span> Blooming</h3>
+        <ul id="cal-bloom-list" class="calendar-list"></ul>
+      </div>
+    </section>
 
-        <!-- Phenology overview -->
-        <h3 class="subsection-title">Year-Round Bloom &amp; Phenology</h3>
+    <!-- Wildlife This Month -->
+    <section id="cal-wildlife-section" class="section section-alt" aria-label="Wildlife activity">
+      <div class="container">
+        <h3 class="section-title section-title-sm"><span class="cal-icon" aria-hidden="true">🦋</span> Wildlife</h3>
+        <ul id="cal-wildlife-list" class="calendar-list"></ul>
+      </div>
+    </section>
+
+    <!-- Maintenance This Month -->
+    <section id="cal-maintenance-section" class="section" aria-label="Maintenance tasks">
+      <div class="container">
+        <h3 class="section-title section-title-sm"><span class="cal-icon" aria-hidden="true">💧</span> Maintenance</h3>
+        <ul id="cal-maintenance-list" class="calendar-list"></ul>
+      </div>
+    </section>
+
+    <!-- Most Observed This Month -->
+    <section id="cal-observations-section" class="section section-alt" aria-label="Most observed plants">
+      <div class="container">
+        <h3 class="section-title section-title-sm"><span class="cal-icon" aria-hidden="true">📊</span> Most Observed</h3>
+        <ul id="cal-observations-list" class="calendar-list"></ul>
+      </div>
+    </section>
+
+    <!-- Year-Round Bloom & Phenology -->
+    <section id="phenology-section" class="section" aria-label="Year-round phenology">
+      <div class="container">
+        <h3 class="section-title section-title-sm">Year-Round Bloom &amp; Phenology</h3>
         <div id="phenology-chart" class="phenology-chart" role="img" aria-label="Year-round bloom and phenology timeline for all plants"></div>
+      </div>
+    </section>
 
-        <!-- Observation trends -->
-        <h3 class="subsection-title">Observation Trends</h3>
+    <!-- Observation Trends -->
+    <section id="trends-section" class="section section-alt" aria-label="Observation trends">
+      <div class="container">
+        <h3 class="section-title section-title-sm">Observation Trends</h3>
         <p class="section-desc">Year-over-year iNaturalist citizen-science observations in Poway, CA.</p>
         <div id="trend-chart" class="trend-chart" role="img" aria-label="Year-over-year observation trends"></div>
       </div>
