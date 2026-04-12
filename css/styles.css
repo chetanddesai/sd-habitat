@@ -572,9 +572,24 @@ select, input { font: inherit; }
   letter-spacing: 0.02em;
 }
 .phenology-empty { background: var(--c-sand); color: var(--c-text-light); }
-.phenology-bloom { background: var(--c-sage-light); color: var(--c-sage-dark); }
-.phenology-berry { background: var(--c-terracotta); color: var(--c-white); }
-.phenology-seed { background: var(--c-oak); color: var(--c-white); opacity: .7; }
+.pheno-seed-stripe {
+  background: repeating-linear-gradient(135deg,#c8b48a,#c8b48a 3px,#bfa97a 3px,#bfa97a 5px);
+  color: var(--c-text);
+}
+.pheno-berry-dot { position: relative; }
+.pheno-berry-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(0,0,0,.12);
+  pointer-events: none;
+}
+.pheno-text-light { color: var(--c-white); }
+.pheno-text-light .pheno-label { color: var(--c-white); }
 .pheno-month.pheno-current { outline: 2.5px solid var(--c-sage); outline-offset: -2px; }
 
 .phenology-legend {
@@ -594,6 +609,14 @@ select, input { font: inherit; }
   height: 14px;
   border-radius: 3px;
   flex-shrink: 0;
+  position: relative;
+  border: 1px solid rgba(0,0,0,.1);
+}
+.legend-swatch.pheno-berry-dot::after {
+  width: 5px; height: 5px;
+}
+.legend-swatch.pheno-seed-stripe {
+  background: repeating-linear-gradient(135deg,#c8b48a,#c8b48a 2px,#bfa97a 2px,#bfa97a 3.5px);
 }
 .phenology-eco {
   font-size: 0.88rem;
@@ -839,6 +862,8 @@ select, input { font: inherit; }
   height: 22px;
   border-radius: 3px;
   margin: 1px;
+  position: relative;
+  border: 1px solid rgba(0,0,0,.06);
 }
 .phenology-chart th.current-month {
   background: var(--c-sage);

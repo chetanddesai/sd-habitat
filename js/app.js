@@ -34,6 +34,35 @@
     'blue': '#5588cc', 'purple': '#8855aa', 'lavender': '#b0a0d0',
     'pale-blue': '#a0c0e0', 'rust': '#b06030', 'brown': '#8b6b4a'
   };
+  const SEED_STRIPE = 'repeating-linear-gradient(135deg,#c8b48a,#c8b48a 3px,#bfa97a 3px,#bfa97a 5px)';
+  const LIGHT_BG_COLORS = new Set(['white','yellow','yellow-green','pink','pale-blue','lavender','orange']);
+
+  function phenoCellData(ph, m) {
+    const bloomSet = new Set(ph.bloom ? ph.bloom.months : []);
+    const berrySet = new Set(ph.berry ? ph.berry.months : []);
+    const seedSet  = new Set(ph.seed  ? ph.seed.months  : []);
+    if (bloomSet.has(m)) {
+      const names = ph.bloom.colors || [];
+      const hexes = names.map(c => COLOR_MAP[c] || c);
+      let bg;
+      if (hexes.length <= 1) { bg = hexes[0] || '#ccc'; }
+      else {
+        const pct = 100 / hexes.length;
+        bg = 'linear-gradient(135deg,' + hexes.map((c, j) =>
+          `${c} ${j * pct}%,${c} ${(j + 1) * pct}%`).join(',') + ')';
+      }
+      return { bg, phase: 'bloom', light: names.length > 0 && LIGHT_BG_COLORS.has(names[0]) };
+    }
+    if (berrySet.has(m)) {
+      const names = ph.berry.colors || [];
+      const hexes = names.map(c => COLOR_MAP[c] || c);
+      return { bg: hexes[0] || COLOR_MAP['red'], phase: 'berry', light: names.length > 0 && LIGHT_BG_COLORS.has(names[0]) };
+    }
+    if (seedSet.has(m)) {
+      return { bg: SEED_STRIPE, phase: 'seed', light: true };
+    }
+    return { bg: null, phase: 'empty', light: true };
+  }
 
   function escapeAttr(s) {
     return String(s)
@@ -364,35 +393,33 @@
   // ---- Phenology Tab ----
   function phenologyTab(p) {
     const ph = p.phenology;
-    const bloomSet = new Set(ph.bloom ? ph.bloom.months : []);
-    const berrySet = new Set(ph.berry ? ph.berry.months : []);
-    const seedSet = new Set(ph.seed ? ph.seed.months : []);
 
     const cells = Array.from({ length: 12 }, (_, i) => {
-      const m = i + 1;
-      let cls = 'phenology-empty';
-      if (bloomSet.has(m)) cls = 'phenology-bloom';
-      else if (berrySet.has(m)) cls = 'phenology-berry';
-      else if (seedSet.has(m)) cls = 'phenology-seed';
+      const d = phenoCellData(ph, i + 1);
+      let cls = d.phase === 'empty' ? 'phenology-empty' : '';
+      if (d.phase === 'seed') cls = 'pheno-seed-stripe';
+      if (d.phase === 'berry') cls += ' pheno-berry-dot';
+      if (!d.light) cls += ' pheno-text-light';
       if (i === CUR_MONTH) cls += ' pheno-current';
-      return `<div class="pheno-month ${cls}"><span class="pheno-label">${MONTHS[i]}</span></div>`;
+      const style = d.bg && d.phase !== 'seed' ? ` style="background:${d.bg}"` : '';
+      return `<div class="pheno-month ${cls}"${style}><span class="pheno-label">${MONTHS[i]}</span></div>`;
     }).join('');
 
-    let colors = '';
+    let colorInfo = '';
     if (ph.bloom && ph.bloom.colors) {
-      colors = `<div class="bloom-colors">${ph.bloom.colors.map(c =>
+      colorInfo += `<div class="bloom-colors">${ph.bloom.colors.map(c =>
         `<span class="color-swatch"><span class="color-dot" style="background:${COLOR_MAP[c] || c}"></span>${c}</span>`
       ).join('')}</div>`;
     }
 
     return `
       <div class="phenology-legend">
-        <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-sage-light)"></span>Bloom</span>
-        <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-terracotta)"></span>Berry / Fruit</span>
-        <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-oak);opacity:.7"></span>Seed</span>
+        <span class="phenology-legend-item"><span class="legend-swatch" style="background:${COLOR_MAP[ph.bloom?.colors?.[0]] || '#ccc'}"></span>Bloom</span>
+        ${ph.berry ? `<span class="phenology-legend-item"><span class="legend-swatch pheno-berry-dot" style="background:${COLOR_MAP[ph.berry.colors?.[0]] || COLOR_MAP['red']}"></span>Berry / Fruit</span>` : ''}
+        ${ph.seed ? `<span class="phenology-legend-item"><span class="legend-swatch pheno-seed-stripe"></span>Seed</span>` : ''}
       </div>
       <div class="phenology-row">${cells}</div>
-      ${colors}
+      ${colorInfo}
       ${ph.berry ? `<p style="font-size:.85rem;margin-top:4px"><strong>Berry/Fruit:</strong> ${ph.berry.description || ''}</p>` : ''}
       ${ph.seed ? `<p style="font-size:.85rem;margin-top:4px"><strong>Seed:</strong> ${ph.seed.description || ''}</p>` : ''}
       <div class="phenology-eco">${ph.ecologicalValue}</div>`;
@@ -542,28 +569,29 @@
 
     let rows = sorted.map(p => {
       const ph = p.phenology;
-      const bloomSet = new Set(ph.bloom ? ph.bloom.months : []);
-      const berrySet = new Set(ph.berry ? ph.berry.months : []);
-      const seedSet = new Set(ph.seed ? ph.seed.months : []);
-
       const cells = Array.from({ length: 12 }, (_, i) => {
-        const m = i + 1;
-        let cls = 'phenology-empty';
-        if (bloomSet.has(m)) cls = 'phenology-bloom';
-        else if (berrySet.has(m)) cls = 'phenology-berry';
-        else if (seedSet.has(m)) cls = 'phenology-seed';
+        const d = phenoCellData(ph, i + 1);
+        let cls = d.phase === 'empty' ? 'phenology-empty' : '';
+        if (d.phase === 'seed') cls = 'pheno-seed-stripe';
+        if (d.phase === 'berry') cls += ' pheno-berry-dot';
+        const style = d.bg && d.phase !== 'seed' ? ` style="background:${d.bg}"` : '';
         const cur = i === CUR_MONTH ? ' current-month' : '';
-        return `<td class="${cur}"><div class="pheno-cell ${cls}"></div></td>`;
+        return `<td class="${cur}"><div class="pheno-cell ${cls}"${style}></div></td>`;
       }).join('');
 
       return `<tr><td>${p.commonNames[0]}</td>${cells}</tr>`;
     }).join('');
 
+    const sampleColors = ['yellow', 'red', 'purple', 'white'].filter(c => COLOR_MAP[c]);
+    const bloomSwatches = sampleColors.map(c =>
+      `<span class="legend-swatch" style="background:${COLOR_MAP[c]}"></span>`
+    ).join('');
+
     container.innerHTML = `
       <div class="phenology-legend" style="margin-bottom:12px">
-        <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-sage-light)"></span>Bloom</span>
-        <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-terracotta)"></span>Berry / Fruit</span>
-        <span class="phenology-legend-item"><span class="legend-swatch" style="background:var(--c-oak);opacity:.7"></span>Seed</span>
+        <span class="phenology-legend-item">${bloomSwatches} Bloom</span>
+        <span class="phenology-legend-item"><span class="legend-swatch pheno-berry-dot" style="background:${COLOR_MAP['red']}"></span> Berry / Fruit</span>
+        <span class="phenology-legend-item"><span class="legend-swatch pheno-seed-stripe"></span> Seed</span>
       </div>
       <table>
         <thead><tr><th>Plant</th>${MONTHS.map((m, i) => `<th class="${i === CUR_MONTH ? 'current-month' : ''}">${m}</th>`).join('')}</tr></thead>

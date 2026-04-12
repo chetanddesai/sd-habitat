@@ -51,7 +51,7 @@ Gather this information (Calscape, iNaturalist, and web search are the primary s
 | Pruning task | Short actionable summary of what to do (e.g., "Cut back by half", "Remove spent flower stalks", "Cut to ground after die-back"). |
 | Pruning notes | Longer explanation of pruning approach, timing, and caveats. |
 | Bloom months + colors | Calscape "Bloom" section. Months are 1-indexed integers (1=Jan, 12=Dec). |
-| Berry/fruit months | Calscape or general botany references. Set to `null` if the plant doesn't produce notable berries/fruit. |
+| Berry/fruit months + colors | Calscape or general botany references. Include a `colors` array (e.g., `["red"]`). Set to `null` if the plant doesn't produce notable berries/fruit. Berry colors are displayed in the phenology chart, so accuracy matters. |
 | Seed months | If applicable, when seeds are available for wildlife. Set to `null` if not notable. |
 | Ecological value | 1 sentence on what the blooms/berries/seeds support (pollinators, birds, etc.) |
 | Wildlife visitors | 2–4 entries of **specific, named species** that interact with this plant. Generic groups like "Native bees" or "Hover flies" belong in the description/ecologicalValue, NOT as wildlife entries. See **Wildlife Species Naming Rules** below and Activity Enums at the end. |

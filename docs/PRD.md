@@ -135,7 +135,7 @@ A phenology calendar for each plant:
 
 #### Presentation
 
-- 12-month timeline rows, color-coded: bloom phase → berry phase → seed phase
+- 12-month timeline rows showing actual botanical colors: bloom cells use the plant's real flower color(s) (gradient for multi-color blooms), berry cells use the fruit color with a dot indicator, and seed cells use a tan stripe pattern
 - Garden-wide phenology chart showing which plants are blooming/fruiting in each month
 - Filter by bloom color
 
