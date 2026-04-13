@@ -830,14 +830,17 @@ select, input { font: inherit; }
 .phenology-chart {
   background: var(--c-white);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 16px;
   box-shadow: var(--shadow);
+}
+.pheno-scroll {
   overflow-x: auto;
+  margin: 0 -16px;
 }
 .phenology-chart table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 700px;
+  min-width: 600px;
 }
 .phenology-chart th {
   font-size: 0.75rem;
@@ -846,7 +849,17 @@ select, input { font: inherit; }
   padding: 6px 4px;
   text-align: center;
 }
-.phenology-chart th:first-child { text-align: left; min-width: 150px; }
+.phenology-chart th:first-child,
+.phenology-chart td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--c-white);
+  padding-left: 16px;
+}
+.phenology-chart th:first-child {
+  text-align: left;
+}
 .phenology-chart td {
   padding: 3px 2px;
   text-align: center;
@@ -855,8 +868,9 @@ select, input { font: inherit; }
   text-align: left;
   font-size: 0.82rem;
   font-weight: 500;
-  padding-right: 12px;
+  padding-right: 8px;
   white-space: nowrap;
+  box-shadow: 2px 0 4px rgba(0,0,0,.06);
 }
 .pheno-cell {
   height: 22px;

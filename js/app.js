@@ -502,16 +502,6 @@
     const mk = MONTH_KEYS[currentMonth];
     document.getElementById('calendar-month-label').textContent = MONTHS[currentMonth] + ' — What\'s Happening';
 
-    // Blooming
-    const blooming = plants.filter(p => p.phenology.bloom && p.phenology.bloom.months.includes(m));
-    const bloomList = document.getElementById('cal-bloom-list');
-    bloomList.innerHTML = blooming.length
-      ? blooming.map(p => {
-          const colors = p.phenology.bloom.colors.map(c => `<span class="color-dot" style="background:${COLOR_MAP[c]||c};width:8px;height:8px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.15)"></span>`).join(' ');
-          return `<li><span class="cal-plant-name">${p.commonNames[0]}</span> ${colors}</li>`;
-        }).join('')
-      : '<li class="cal-empty">Nothing blooming this month</li>';
-
     // Wildlife
     const wildlifeItems = [];
     plants.forEach(p => {
@@ -593,10 +583,12 @@
         <span class="phenology-legend-item"><span class="legend-swatch pheno-berry-dot" style="background:${COLOR_MAP['red']}"></span> Berry / Fruit</span>
         <span class="phenology-legend-item"><span class="legend-swatch pheno-seed-stripe"></span> Seed</span>
       </div>
-      <table>
-        <thead><tr><th>Plant</th>${MONTHS.map((m, i) => `<th class="${i === CUR_MONTH ? 'current-month' : ''}">${m}</th>`).join('')}</tr></thead>
-        <tbody>${rows}</tbody>
-      </table>`;
+      <div class="pheno-scroll">
+        <table>
+          <thead><tr><th>Plant</th>${MONTHS.map((m, i) => `<th class="${i === CUR_MONTH ? 'current-month' : ''}">${m}</th>`).join('')}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
   }
 
   // ============================================================

@@ -325,7 +325,6 @@ Each plant object in `data/plants.json`:
 ├── #calendar — Garden Calendar
 │   ├── Month selector or horizontal scroll
 │   ├── "This Month" summary across all plants
-│   │   ├── What's blooming
 │   │   ├── What wildlife to expect
 │   │   ├── Maintenance tasks
 │   │   └── iNaturalist sightings — which plants are most observed this month
