@@ -535,15 +535,6 @@
       ? maintJobs.map(j => `<li><span class="cal-plant-name">${j.name}</span><br><span class="cal-detail">${j.task}</span></li>`).join('')
       : '<li class="cal-empty">No maintenance needed — let nature do its thing!</li>';
 
-    // Observations
-    const obsItems = plants
-      .map(p => ({ name: p.commonNames[0], count: p.iNaturalistData.observationsByMonth[mk] || 0 }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 8);
-    const obsList = document.getElementById('cal-observations-list');
-    obsList.innerHTML = obsItems.filter(o => o.count > 0).length
-      ? obsItems.filter(o => o.count > 0).map(o => `<li><span class="cal-plant-name">${o.name}</span><br><span class="cal-detail">${o.count} observations</span></li>`).join('')
-      : '<li class="cal-empty">Low observation activity this month</li>';
   }
 
   // ============================================================
@@ -606,51 +597,71 @@
     });
 
     const cards = sorted.map(p => {
-      const byYear = p.iNaturalistData.observationsByYear;
-      const values = years.map(y => byYear[y] || 0);
-      const max = Math.max(...values, 1);
-      const min = Math.min(...values);
-      const first = values[0];
-      const last = values[values.length - 1];
+      const obs = p.iNaturalistData;
+      const byMonth = obs.observationsByMonth;
+      const byYear = obs.observationsByYear;
+
+      // Monthly histogram SVG
+      const monthVals = MONTH_KEYS.map(k => byMonth[k] || 0);
+      const maxM = Math.max(...monthVals, 1);
+      const mw = 140, mh = 32, mpad = 1;
+      const barW = (mw - mpad * 2) / 12 - 1;
+      const monthBars = monthVals.map((v, i) => {
+        const x = mpad + i * ((mw - mpad * 2) / 12);
+        const barH = (v / maxM) * (mh - 10);
+        const fill = i === CUR_MONTH ? 'var(--c-sage)' : 'var(--c-sage-light)';
+        return `<rect x="${x.toFixed(1)}" y="${(mh - 10 - barH).toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(barH, 0.5).toFixed(1)}" rx="1" fill="${fill}"/>
+          <text x="${(x + barW / 2).toFixed(1)}" y="${mh}" text-anchor="middle" font-size="6" fill="var(--c-text-light)">${MONTHS[i][0]}</text>`;
+      }).join('');
+
+      // Year-over-year sparkline SVG
+      const yearVals = years.map(y => byYear[y] || 0);
+      const maxY = Math.max(...yearVals, 1);
+      const minY = Math.min(...yearVals);
+      const first = yearVals[0];
+      const last = yearVals[yearVals.length - 1];
       const trendDir = last > first ? 'up' : last < first ? 'down' : 'flat';
       const trendLabel = trendDir === 'up' ? '↑' : trendDir === 'down' ? '↓' : '→';
       const trendClass = trendDir === 'up' ? 'trend-up' : trendDir === 'down' ? 'trend-down' : 'trend-flat';
 
-      const w = 120, h = 40, pad = 2;
-      const stepX = (w - pad * 2) / Math.max(values.length - 1, 1);
-      const points = values.map((v, i) => {
-        const x = pad + i * stepX;
-        const y = pad + (h - pad * 2) - ((v - min) / (max - min || 1)) * (h - pad * 2);
+      const yw = 140, yh = 36, ypad = 2;
+      const stepX = (yw - ypad * 2) / Math.max(yearVals.length - 1, 1);
+      const points = yearVals.map((v, i) => {
+        const x = ypad + i * stepX;
+        const y = ypad + (yh - ypad * 2 - 12) - ((v - minY) / (maxY - minY || 1)) * (yh - ypad * 2 - 12);
         return `${x.toFixed(1)},${y.toFixed(1)}`;
       });
       const polyline = points.join(' ');
+      const areaPoints = `${ypad},${yh - 12 - ypad} ${polyline} ${(ypad + (yearVals.length - 1) * stepX).toFixed(1)},${yh - 12 - ypad}`;
 
-      // Filled area under the line
-      const areaPoints = `${pad},${h - pad} ${polyline} ${(pad + (values.length - 1) * stepX).toFixed(1)},${h - pad}`;
-
-      const dots = values.map((v, i) => {
-        const x = pad + i * stepX;
-        const y = pad + (h - pad * 2) - ((v - min) / (max - min || 1)) * (h - pad * 2);
-        return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="var(--c-sky)" stroke="var(--c-white)" stroke-width="1"/>`;
+      const dots = yearVals.map((v, i) => {
+        const x = ypad + i * stepX;
+        const y = ypad + (yh - ypad * 2 - 12) - ((v - minY) / (maxY - minY || 1)) * (yh - ypad * 2 - 12);
+        return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2" fill="var(--c-sky)" stroke="var(--c-white)" stroke-width="1"/>`;
       }).join('');
 
       const yearLabels = years.map((y, i) => {
-        const x = pad + i * stepX;
-        return `<text x="${x.toFixed(1)}" y="${h + 10}" text-anchor="middle" font-size="8" fill="var(--c-text-light)">${y.slice(2)}</text>`;
+        const x = ypad + i * stepX;
+        return `<text x="${x.toFixed(1)}" y="${yh - 1}" text-anchor="middle" font-size="7" fill="var(--c-text-light)">${y.slice(2)}</text>`;
       }).join('');
 
-      const valueLabels = values.map((v, i) => {
-        const x = pad + i * stepX;
-        const y = pad + (h - pad * 2) - ((v - min) / (max - min || 1)) * (h - pad * 2);
-        return `<text x="${x.toFixed(1)}" y="${Math.max(y - 5, 8).toFixed(1)}" text-anchor="middle" font-size="7.5" font-weight="600" fill="var(--c-text)">${v}</text>`;
+      const valueLabels = yearVals.map((v, i) => {
+        const x = ypad + i * stepX;
+        const y = ypad + (yh - ypad * 2 - 12) - ((v - minY) / (maxY - minY || 1)) * (yh - ypad * 2 - 12);
+        return `<text x="${x.toFixed(1)}" y="${Math.max(y - 4, 7).toFixed(1)}" text-anchor="middle" font-size="7" font-weight="600" fill="var(--c-text)">${v}</text>`;
       }).join('');
 
       return `<div class="trend-card">
         <div class="trend-card-header">
           <span class="trend-card-name">${p.commonNames[0]}</span>
-          <span class="trend-badge ${trendClass}">${trendLabel} ${last}</span>
+          <span class="trend-badge ${trendClass}">${trendLabel} ${obs.totalObservations}</span>
         </div>
-        <svg class="trend-sparkline" viewBox="0 0 ${w} ${h + 14}" width="${w}" height="${h + 14}" aria-label="Observation trend for ${p.commonNames[0]}">
+        <div class="trend-card-label">Monthly</div>
+        <svg class="trend-month-svg" viewBox="0 0 ${mw} ${mh}" preserveAspectRatio="xMidYMid meet" aria-label="Monthly observations for ${p.commonNames[0]}">
+          ${monthBars}
+        </svg>
+        <div class="trend-card-label">Year-over-Year</div>
+        <svg class="trend-sparkline" viewBox="0 0 ${yw} ${yh}" preserveAspectRatio="xMidYMid meet" aria-label="Yearly trend for ${p.commonNames[0]}">
           <polygon points="${areaPoints}" fill="var(--c-sky)" opacity="0.15"/>
           <polyline points="${polyline}" fill="none" stroke="var(--c-sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           ${dots}

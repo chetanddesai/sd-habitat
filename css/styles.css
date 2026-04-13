@@ -896,7 +896,7 @@ select, input { font: inherit; }
 .trend-chart { overflow: visible; }
 .trend-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
 }
 .trend-card {
@@ -935,7 +935,16 @@ select, input { font: inherit; }
 .trend-up { background: #d4edda; color: #155724; }
 .trend-down { background: #f8d7da; color: #721c24; }
 .trend-flat { background: var(--c-sand-dark); color: var(--c-text-light); }
-.trend-sparkline { display: block; }
+.trend-card-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--c-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 6px 0 2px;
+}
+.trend-month-svg { display: block; width: 100%; }
+.trend-sparkline { display: block; width: 100%; }
 
 /* --- About --- */
 .about-grid {
