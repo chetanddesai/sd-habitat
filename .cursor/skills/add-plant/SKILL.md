@@ -54,7 +54,7 @@ Gather this information (Calscape, iNaturalist, and web search are the primary s
 | Berry/fruit months + colors | Calscape or general botany references. Include a `colors` array (e.g., `["red"]`). Set to `null` if the plant doesn't produce notable berries/fruit. Berry colors are displayed in the phenology chart, so accuracy matters. |
 | Seed months | If applicable, when seeds are available for wildlife. Set to `null` if not notable. |
 | Ecological value | 1 sentence on what the blooms/berries/seeds support (pollinators, birds, etc.) |
-| Wildlife visitors | 2–4 entries of **specific, named species** that interact with this plant. Generic groups like "Native bees" or "Hover flies" belong in the description/ecologicalValue, NOT as wildlife entries. See **Wildlife Species Naming Rules** below and Activity Enums at the end. |
+| Wildlife visitors | 2–4 entries of **specific, named species** that interact with this plant. Generic groups like "Native bees" or "Hover flies" belong in the description/ecologicalValue, NOT as wildlife entries. Species names must resolve on iNaturalist — they're used for both **image loading** AND **observation data fetching** in the Garden Calendar (see below). See **Wildlife Species Naming Rules** below and Activity Enums at the end. |
 
 ### Step 2: Find the iNaturalist Taxon ID
 
@@ -146,16 +146,20 @@ Use this template. All fields are required unless marked optional.
 **Important conventions:**
 - `id`: lowercase scientific name with hyphens, e.g. `"bahiopsis-laciniata"`
 - `image`: Leave `url`, `attribution`, and `iNaturalistUrl` as empty strings — the client-side JS fetches images dynamically from the iNaturalist taxa API at runtime using the scientific name. The image object is a fallback only.
-- Wildlife `image` objects: Same approach — leave empty. The JS searches iNaturalist using the **first two words** of the `species` field.
-- **Wildlife entries must be specific, named species** — do NOT add generic group entries like "Native bees", "Hover flies", or "Bumblebees". Generic pollinator info belongs in `description` or `ecologicalValue` instead.
+- Wildlife `image` objects: Same approach — leave empty. The JS searches iNaturalist using the **first two words** of the `species` field for images and the full name (minus parenthetical content) for observation data.
+- **Wildlife entries must be specific, named species** — do NOT add generic group entries like "Native bees", "Hover flies", or "Bumblebees". Generic pollinator info belongs in `description` or `ecologicalValue` instead. The Garden Calendar deduplicates wildlife entries across plants (e.g., Anna's Hummingbird appearing on 3 plants becomes one card listing all interactions) and classifies species into Common/Uncommon/Rare using real iNaturalist observation counts for the Poway area.
 - Include 2–4 entries covering the major ecological interactions. Common patterns: a specific pollinator species visiting blooms, a named bird nesting, a specific butterfly as caterpillar host, a named bird eating seeds/berries.
 - `wateringSchedule`: Use numeric frequencies (`0`, `1`, `2`) — **not** string values like `"none"` or `"low"`.
 - `pruningMonths`: Array of 1-indexed month numbers when pruning should occur. Use `[]` if no pruning is needed.
 - `pruningTask`: A short, actionable description of the pruning work (e.g., "Remove spent flower stalks", "Cut to ground after die-back"). Required if `pruningMonths` is non-empty.
 
-**Wildlife Species Naming Rules (critical for image loading):**
+**Wildlife Species Naming Rules (critical for image loading AND observation data):**
 
-The JS image loader calls `species.split(' ').slice(0, 2).join(' ')` to build the iNaturalist search query. The first two words of the `species` field **must** return results on the iNaturalist taxa API. Follow these rules:
+The species name is used in two places at runtime:
+1. **Image loading** — the JS calls `species.split(' ').slice(0, 2).join(' ')` to search the iNaturalist taxa API for photos.
+2. **Garden Calendar observation data** — the JS calls `species.replace(/\s*\(.*\)/, '').trim()` to query the iNaturalist histogram API for monthly observation counts in Poway. These counts drive the Common/Uncommon/Rare classification.
+
+Both lookups must succeed. The first two words (or the name minus parenthetical content) **must** return results on iNaturalist. Follow these rules:
 
 1. **Birds, lizards, mammals** — Use the standard common name. These almost always resolve.
    - Good: `"Anna's Hummingbird"`, `"Western Fence Lizard"`, `"Mule deer"`
@@ -207,10 +211,11 @@ The total plant count appears in **6 locations** across 3 files. Search for the 
 - Success criteria (`All N plants populated`)
 - Success criteria (`script runs successfully against all N plants`)
 
-### Step 7: Verify Wildlife Image Searchability
+### Step 7: Verify Wildlife Image & Observation Searchability
 
-**Before** starting the dev server, validate that every wildlife `species` name resolves on iNaturalist. For each wildlife entry in the new plant, run:
+**Before** starting the dev server, validate that every wildlife `species` name resolves on iNaturalist for both images and observations. For each wildlife entry in the new plant, run:
 
+**Image check** (uses first two words of species name):
 ```bash
 curl -s "https://api.inaturalist.org/v1/taxa?q=FIRST+TWO+WORDS&per_page=1&is_active=true" | python3 -c "
 import json, sys
@@ -223,7 +228,21 @@ else:
 "
 ```
 
-Replace `FIRST+TWO+WORDS` with the first two words of the `species` field (URL-encoded). If **any** entry prints `FAIL`, fix the `species` name using the naming rules above before proceeding.
+**Observation check** (uses name minus parenthetical content):
+```bash
+curl -s "https://api.inaturalist.org/v1/observations/histogram?taxon_name=SPECIES_NAME&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013&interval=month_of_year&d1=2021-01-01" | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+m = data.get('results', {}).get('month_of_year', {})
+total = sum(m.values())
+if total > 0:
+    print(f'OK: {total} observations across months')
+else:
+    print('WARN: 0 observations in Poway — species will appear as Rare in the Garden Calendar')
+"
+```
+
+Replace `FIRST+TWO+WORDS` with the first two words of the `species` field (URL-encoded), and `SPECIES_NAME` with the full name minus any parenthetical content (URL-encoded). If the image check prints `FAIL`, fix the `species` name using the naming rules above. The observation check returning 0 is acceptable (species will be classified as Rare) but a non-zero count confirms the name resolves correctly.
 
 ### Step 8: Verify Locally
 
@@ -235,6 +254,7 @@ Replace `FIRST+TWO+WORDS` with the first two words of the `species` field (URL-e
    - The phenology chart includes the new plant row
    - The observation trends section has a sparkline card for the new plant
    - The garden calendar shows the plant in the appropriate months
+   - **Garden Calendar wildlife**: navigate to a month where the new plant's wildlife is active; species should appear in the "Wildlife to Look For" section with observation counts, deduped with any existing entries for the same species on other plants
 
 ---
 

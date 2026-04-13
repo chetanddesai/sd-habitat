@@ -71,6 +71,26 @@
       .replace(/</g, '&lt;');
   }
 
+  // ---- iNaturalist Wildlife Observations (runtime, cached in localStorage) ----
+  const POWAY_BOUNDS = 'nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013';
+  const WL_OBS_CACHE_KEY = 'sd-habitat-wl-obs-v1';
+  let wlObsCache = (() => { try { return JSON.parse(localStorage.getItem(WL_OBS_CACHE_KEY)) || {}; } catch { return {}; } })();
+
+  async function fetchWildlifeObs(speciesName) {
+    const key = speciesName.replace(/\s*\(.*\)/, '').trim();
+    if (wlObsCache[key]) return wlObsCache[key];
+    try {
+      const d1 = (new Date().getFullYear() - 5) + '-01-01';
+      const resp = await fetch(`https://api.inaturalist.org/v1/observations/histogram?taxon_name=${encodeURIComponent(key)}&${POWAY_BOUNDS}&interval=month_of_year&d1=${d1}`);
+      if (!resp.ok) throw new Error('API error');
+      const data = await resp.json();
+      const monthly = data.results?.month_of_year || {};
+      wlObsCache[key] = monthly;
+      try { localStorage.setItem(WL_OBS_CACHE_KEY, JSON.stringify(wlObsCache)); } catch {}
+      return monthly;
+    } catch { return {}; }
+  }
+
   // ---- iNaturalist Image Loading (runtime, cached in localStorage) ----
   const INAT_TAXA_API = 'https://api.inaturalist.org/v1/taxa';
   const IMAGE_CACHE_KEY = 'sd-habitat-img-cache-v1';
@@ -502,67 +522,104 @@
     const mk = MONTH_KEYS[currentMonth];
     document.getElementById('calendar-month-label').textContent = MONTHS[currentMonth] + ' — What\'s Happening';
 
-    // Wildlife — classify by host plant's monthly observation count
-    const wildlifeItems = [];
-    plants.forEach(p => {
-      const plantObs = p.iNaturalistData.observationsByMonth[mk] || 0;
-      p.wildlife.forEach(w => {
-        if (w.months.includes(m)) {
-          wildlifeItems.push({
-            plant: p.commonNames[0],
-            species: w.species,
-            activity: ACTIVITY_LABELS[w.activity] || w.activity,
-            obs: plantObs
-          });
-        }
-      });
-    });
-    wildlifeItems.sort((a, b) => b.obs - a.obs);
-
-    const thresholds = wildlifeItems.length > 0
-      ? (() => {
-          const counts = wildlifeItems.map(w => w.obs).sort((a, b) => b - a);
-          const p66 = counts[Math.floor(counts.length * 0.33)] || 0;
-          const p33 = counts[Math.floor(counts.length * 0.66)] || 0;
-          return { common: p66, uncommon: p33 };
-        })()
-      : { common: 0, uncommon: 0 };
-
-    const buckets = { common: [], uncommon: [], rare: [] };
-    wildlifeItems.forEach(w => {
-      if (w.obs >= thresholds.common && thresholds.common > 0) buckets.common.push(w);
-      else if (w.obs >= thresholds.uncommon && thresholds.uncommon > 0) buckets.uncommon.push(w);
-      else buckets.rare.push(w);
-    });
+    // Wildlife — classify by wildlife species' own observation count in Poway
+    renderWildlifeCalendar(m, mk);
 
     function renderWildlifeCard(w) {
-      return `<div class="cal-wl-card">
-        <img class="cal-wl-img loading" data-species="${escapeAttr(w.species)}" alt="${escapeAttr(w.species)}" width="48" height="48">
+      const details = w.interactions.map(i =>
+        `<span class="cal-wl-interaction">${i.activity} on ${i.plants.join(', ')}</span>`
+      ).join('');
+      return `<div class="cal-wl-card wildlife-entry">
+        <a class="wildlife-img-link cal-wl-img-link" target="_blank" rel="noopener"><img class="cal-wl-img loading" data-species="${escapeAttr(w.species)}" alt="${escapeAttr(w.species)}" width="48" height="48"></a>
         <div class="cal-wl-info">
-          <span class="cal-wl-name">${w.species}</span>
-          <span class="cal-wl-detail">${w.activity} · ${w.plant} · ${w.obs} obs/mo</span>
+          <a class="wildlife-species-link cal-wl-name" target="_blank" rel="noopener">${w.species}</a>
+          <span class="cal-wl-detail">${w.obs} obs/mo</span>
+          <div class="cal-wl-interactions">${details}</div>
         </div>
       </div>`;
     }
 
-    function renderColumn(label, items) {
+    function renderColumn(label, threshold, items) {
       const content = items.length
         ? items.map(renderWildlifeCard).join('')
         : '<p class="cal-empty">None this month</p>';
       return `<div class="cal-wl-column">
-        <h4 class="cal-wl-column-label">${label}</h4>
+        <h4 class="cal-wl-column-label">${label} <span class="cal-wl-threshold">${threshold}</span></h4>
         ${content}
       </div>`;
     }
 
-    const grid = document.getElementById('cal-wildlife-grid');
-    grid.innerHTML = wildlifeItems.length
-      ? renderColumn('Common', buckets.common)
-        + renderColumn('Uncommon', buckets.uncommon)
-        + renderColumn('Rare', buckets.rare)
-      : '<p class="cal-empty">No wildlife activity this month</p>';
+    async function renderWildlifeCalendar(mo, monthKey) {
+      const grid = document.getElementById('cal-wildlife-grid');
 
-    setupImageObserver();
+      // Collect raw entries from all plants
+      const raw = [];
+      plants.forEach(p => {
+        p.wildlife.forEach(w => {
+          if (w.months.includes(mo)) {
+            raw.push({
+              plant: p.commonNames[0],
+              species: w.species,
+              activity: ACTIVITY_LABELS[w.activity] || w.activity
+            });
+          }
+        });
+      });
+
+      if (!raw.length) {
+        grid.innerHTML = '<p class="cal-empty">No wildlife activity this month</p>';
+        return;
+      }
+
+      grid.innerHTML = '<p class="cal-detail" style="text-align:center;padding:24px 0">Loading wildlife observations…</p>';
+
+      // Dedupe by species, grouping activities → plants
+      const speciesMap = new Map();
+      raw.forEach(r => {
+        if (!speciesMap.has(r.species)) {
+          speciesMap.set(r.species, { species: r.species, obs: 0, activityMap: new Map() });
+        }
+        const entry = speciesMap.get(r.species);
+        if (!entry.activityMap.has(r.activity)) entry.activityMap.set(r.activity, []);
+        const plantList = entry.activityMap.get(r.activity);
+        if (!plantList.includes(r.plant)) plantList.push(r.plant);
+      });
+
+      // Fetch observation counts for each unique species
+      const uniqueSpecies = [...speciesMap.keys()];
+      await Promise.all(uniqueSpecies.map(async sp => {
+        const monthly = await fetchWildlifeObs(sp);
+        speciesMap.get(sp).obs = monthly[mo] || 0;
+      }));
+
+      // Convert to array with interactions list
+      const entries = [...speciesMap.values()].map(e => ({
+        species: e.species,
+        obs: e.obs,
+        interactions: [...e.activityMap.entries()].map(([activity, plants]) => ({ activity, plants }))
+      }));
+      entries.sort((a, b) => b.obs - a.obs);
+
+      // Classify into rarity buckets
+      const counts = entries.map(e => e.obs).sort((a, b) => b - a);
+      const p66 = counts[Math.floor(counts.length * 0.33)] || 0;
+      const p33 = counts[Math.floor(counts.length * 0.66)] || 0;
+
+      const buckets = { common: [], uncommon: [], rare: [] };
+      entries.forEach(w => {
+        if (w.obs >= p66 && p66 > 0) buckets.common.push(w);
+        else if (w.obs >= p33 && p33 > 0) buckets.uncommon.push(w);
+        else buckets.rare.push(w);
+      });
+
+      const uncommonLabel = (p33 > 0 && p33 < p66) ? `${p33}–${p66 - 1} obs` : `< ${p66} obs`;
+      const rareLabel = (p33 > 0 && p33 < p66) ? `< ${p33} obs` : `< ${p66} obs`;
+      grid.innerHTML = renderColumn('Common', `≥ ${p66} obs`, buckets.common)
+        + renderColumn('Uncommon', uncommonLabel, buckets.uncommon)
+        + renderColumn('Rare', rareLabel, buckets.rare);
+
+      setupImageObserver();
+    }
 
     // Maintenance
     const maintJobs = [];

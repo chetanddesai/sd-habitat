@@ -9,8 +9,8 @@ A GitHub Pages site providing a living reference for a native habitat garden in 
 - **Plant Inventory** — 17 California native plants organized by category (trees, shrubs, groundcover) with images, descriptions, keystone species indicators, planting requirements, and links to Calscape and iNaturalist
 - **Maintenance Schedule** — month-by-month watering frequency (1×/month, 2×/month) and pruning tasks with short actionable descriptions for each plant
 - **Bloom, Berry & Seed Calendar** — phenology timelines showing actual botanical colors (flower, fruit, and seed) across the garden, with the current month highlighted
-- **Wildlife Schedule** — specific named species (birds, butterflies, moths, lizards) to look for each month and what they're doing
-- **Garden Calendar** — a "what's happening this month" dashboard combining bloom, wildlife, maintenance, and citizen-science observation data
+- **Wildlife Schedule** — specific named species (birds, butterflies, moths, lizards) to look for each month and what they're doing on each plant
+- **Garden Calendar** — a "what's happening this month" dashboard with wildlife classified as Common / Uncommon / Rare using live iNaturalist observation data, plus monthly maintenance tasks
 - **Observation Trends** — SVG sparkline cards showing year-over-year iNaturalist citizen-science sighting trends for each plant in the Poway area
 
 ## Tech Stack
@@ -19,6 +19,7 @@ A GitHub Pages site providing a living reference for a native habitat garden in 
 - Hosted on [GitHub Pages](https://pages.github.com/)
 - Plant and wildlife data stored in JSON (`data/plants.json`)
 - Images fetched at runtime from the [iNaturalist](https://www.inaturalist.org/) taxa API (Creative Commons licensed) and cached in localStorage
+- Wildlife observation data fetched at runtime from the iNaturalist histogram API for species-level rarity classification, also cached in localStorage
 
 ## Local Development
 

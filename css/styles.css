@@ -846,6 +846,12 @@ select, input { font: inherit; }
   padding-bottom: 6px;
   border-bottom: 2px solid var(--c-sage-light);
 }
+.cal-wl-threshold {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--c-text-light);
+}
 .cal-wl-card {
   display: flex;
   align-items: center;
@@ -867,12 +873,24 @@ select, input { font: inherit; }
   font-weight: 600;
   font-size: 0.85rem;
   color: var(--c-sage-dark);
+  text-decoration: none;
 }
+.cal-wl-name:hover { text-decoration: underline; }
+.cal-wl-img-link { display: block; flex-shrink: 0; }
 .cal-wl-detail {
   display: block;
   font-size: 0.78rem;
   color: var(--c-text-light);
   line-height: 1.3;
+}
+.cal-wl-interactions {
+  margin-top: 2px;
+}
+.cal-wl-interaction {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--c-text-light);
+  line-height: 1.4;
 }
 
 /* --- Phenology Chart (garden-wide) --- */

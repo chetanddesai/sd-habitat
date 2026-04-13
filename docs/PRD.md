@@ -32,6 +32,7 @@ A static informational website showcasing a native habitat garden in Poway, CA. 
 | **Extensibility** | Adding a new plant = adding a JSON entry + an optional image. No HTML changes needed. |
 | **Image strategy** | All plant and wildlife images hotlinked from iNaturalist CDN (no local copies). The site displays skeleton/placeholder states while images load and sets `Cache-Control` headers via `<meta>` or service worker to cache images locally in the browser after first load. |
 | **iNaturalist helper script** | A standalone Node script (`scripts/update-observations.js`) queries the iNaturalist `/observations/histogram` API with `interval=month_of_year` for each plant, scoped to a **Poway bounding box** (`nelat` / `nelng` / `swlat` / `swlng` — same values as the iNaturalist observation search links) over a **rolling 5-year window**. Returns per-month observation counts (Jan–Dec) and per-year totals, enabling both seasonal patterns in the calendar view and year-over-year trend lines. Still **one API call per plant** (17 total). Run manually or on a schedule; outputs updated values into `data/plants.json`. |
+| **Wildlife observation data** | Wildlife species observation counts are fetched **client-side at runtime** from the same iNaturalist histogram API (scoped to the Poway bounding box, rolling 5-year window). For each unique wildlife species visible in the current calendar month, the site queries `taxon_name=SPECIES_NAME&interval=month_of_year` to get monthly counts. Results are cached in `localStorage` so each species is fetched only once per browser. These counts drive the Common / Uncommon / Rare rarity classification in the Garden Calendar. |
 
 ### 2.3 Favicons & Touch Icons
 
@@ -155,8 +156,12 @@ A month-by-month wildlife interaction calendar per plant:
 
 #### Presentation
 
-- Per-plant: 12-month row showing wildlife icons/badges by month
-- Garden-wide: "What to look for this month" summary across all plants
+- Per-plant: 12-month grid showing active months for each wildlife species, with current-month highlighting and clickable images/names linking to iNaturalist
+- Garden-wide "Wildlife to Look For" section in the Garden Calendar:
+  - Wildlife entries are **deduplicated by species** across all plants — each species appears once with all its interactions consolidated (e.g., "Anna's Hummingbird · 46 obs/mo" with "Nectar / Pollen on Black Sage, Red Bush Monkeyflower, Tornleaf Goldeneye")
+  - Species are classified into **Common / Uncommon / Rare** columns based on the wildlife species' own monthly observation count in the Poway area (fetched from iNaturalist at runtime, cached in localStorage)
+  - Rarity thresholds are calculated dynamically (percentile-based on the current month's data) and displayed in column headers (e.g., "Common ≥ 9 obs", "Rare < 9 obs")
+  - Each entry includes the species photo, observation count, and a breakdown of activities by host plant
 - Optional: wildlife-centric view — pick a species, see which plants support it and when
 
 ---
@@ -325,9 +330,8 @@ Each plant object in `data/plants.json`:
 ├── #calendar — Garden Calendar
 │   ├── Month selector or horizontal scroll
 │   ├── "This Month" summary across all plants
-│   │   ├── What wildlife to expect
-│   │   ├── Maintenance tasks
-│   │   └── iNaturalist sightings — which plants are most observed this month
+│   │   ├── Wildlife to Look For (deduped by species, Common/Uncommon/Rare via live iNaturalist obs data)
+│   │   └── Maintenance tasks (watering + pruning)
 │   ├── Watering overview grid
 │   └── Year-over-year observation trends (sparkline or bar chart per plant)
 ├── #about — About the Garden
