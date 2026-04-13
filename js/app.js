@@ -71,24 +71,106 @@
       .replace(/</g, '&lt;');
   }
 
-  // ---- iNaturalist Wildlife Observations (runtime, cached in localStorage) ----
+  // ---- Cache infrastructure (7-day TTL) ----
+  const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+  const CACHE_TS_KEY = 'sd-habitat-cache-ts';
+
+  function getCacheTimestamp() {
+    return parseInt(localStorage.getItem(CACHE_TS_KEY), 10) || 0;
+  }
+  function setCacheTimestamp() {
+    const now = Date.now();
+    try { localStorage.setItem(CACHE_TS_KEY, String(now)); } catch {}
+    updateCacheStatusUI(now);
+  }
+  function isCacheExpired() {
+    return (Date.now() - getCacheTimestamp()) > CACHE_TTL_MS;
+  }
+  function clearAllCaches() {
+    wlObsCache = {};
+    plantObsCache = {};
+    imageCache = {};
+    try {
+      localStorage.removeItem(WL_OBS_CACHE_KEY);
+      localStorage.removeItem(PLANT_OBS_CACHE_KEY);
+      localStorage.removeItem(IMAGE_CACHE_KEY);
+      localStorage.removeItem(CACHE_TS_KEY);
+    } catch {}
+    updateCacheStatusUI(0);
+  }
+  function updateCacheStatusUI(ts) {
+    const el = document.getElementById('cache-status');
+    if (!el) return;
+    if (!ts) {
+      el.textContent = 'iNaturalist data: not yet fetched';
+    } else {
+      const d = new Date(ts);
+      el.textContent = `iNaturalist data cached: ${d.toLocaleDateString()} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    }
+  }
+
+  // ---- iNaturalist Observation Data (runtime, cached in localStorage) ----
   const POWAY_BOUNDS = 'nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013';
+  const INAT_HIST_API = 'https://api.inaturalist.org/v1/observations/histogram';
+  const LOOKBACK_YEARS = 5;
   const WL_OBS_CACHE_KEY = 'sd-habitat-wl-obs-v1';
+  const PLANT_OBS_CACHE_KEY = 'sd-habitat-plant-obs-v1';
   let wlObsCache = (() => { try { return JSON.parse(localStorage.getItem(WL_OBS_CACHE_KEY)) || {}; } catch { return {}; } })();
+  let plantObsCache = (() => { try { return JSON.parse(localStorage.getItem(PLANT_OBS_CACHE_KEY)) || {}; } catch { return {}; } })();
+
+  function obsD1() { return (new Date().getFullYear() - LOOKBACK_YEARS) + '-01-01'; }
 
   async function fetchWildlifeObs(speciesName) {
     const key = speciesName.replace(/\s*\(.*\)/, '').trim();
-    if (wlObsCache[key]) return wlObsCache[key];
+    if (!isCacheExpired() && wlObsCache[key]) return wlObsCache[key];
     try {
-      const d1 = (new Date().getFullYear() - 5) + '-01-01';
-      const resp = await fetch(`https://api.inaturalist.org/v1/observations/histogram?taxon_name=${encodeURIComponent(key)}&${POWAY_BOUNDS}&interval=month_of_year&d1=${d1}`);
+      const resp = await fetch(`${INAT_HIST_API}?taxon_name=${encodeURIComponent(key)}&${POWAY_BOUNDS}&interval=month_of_year&d1=${obsD1()}`);
       if (!resp.ok) throw new Error('API error');
       const data = await resp.json();
       const monthly = data.results?.month_of_year || {};
       wlObsCache[key] = monthly;
       try { localStorage.setItem(WL_OBS_CACHE_KEY, JSON.stringify(wlObsCache)); } catch {}
+      setCacheTimestamp();
       return monthly;
-    } catch { return {}; }
+    } catch { return wlObsCache[key] || {}; }
+  }
+
+  function computeFrequency(total) {
+    if (total >= 200) return 'common';
+    if (total >= 50) return 'uncommon';
+    return 'rare';
+  }
+
+  async function fetchPlantObs(taxonId) {
+    const key = String(taxonId);
+    if (!isCacheExpired() && plantObsCache[key]) return plantObsCache[key];
+    try {
+      const d1 = obsD1();
+      const [monthResp, yearResp] = await Promise.all([
+        fetch(`${INAT_HIST_API}?taxon_id=${taxonId}&${POWAY_BOUNDS}&interval=month_of_year&d1=${d1}`),
+        fetch(`${INAT_HIST_API}?taxon_id=${taxonId}&${POWAY_BOUNDS}&interval=year&d1=${d1}`)
+      ]);
+      if (!monthResp.ok || !yearResp.ok) throw new Error('API error');
+      const [monthData, yearData] = await Promise.all([monthResp.json(), yearResp.json()]);
+
+      const monthResults = monthData.results?.month_of_year || {};
+      const byMonth = {};
+      for (let m = 1; m <= 12; m++) byMonth[MONTH_KEYS[m - 1]] = monthResults[m] || 0;
+
+      const yearResults = yearData.results?.year || {};
+      const byYear = {};
+      for (const [dateStr, count] of Object.entries(yearResults)) {
+        const y = dateStr.slice(0, 4);
+        byYear[y] = (byYear[y] || 0) + count;
+      }
+
+      const total = Object.values(byMonth).reduce((s, v) => s + v, 0);
+      const result = { observationsByMonth: byMonth, observationsByYear: byYear, totalObservations: total, frequency: computeFrequency(total) };
+      plantObsCache[key] = result;
+      try { localStorage.setItem(PLANT_OBS_CACHE_KEY, JSON.stringify(plantObsCache)); } catch {}
+      setCacheTimestamp();
+      return result;
+    } catch { return plantObsCache[key] || { observationsByMonth: {}, observationsByYear: {}, totalObservations: 0, frequency: 'rare' }; }
   }
 
   // ---- iNaturalist Image Loading (runtime, cached in localStorage) ----
@@ -105,8 +187,8 @@
     catch { return {}; }
   }
   function saveImageCache() {
-    try { localStorage.setItem(IMAGE_CACHE_KEY, JSON.stringify(imageCache)); }
-    catch { /* storage full */ }
+    try { localStorage.setItem(IMAGE_CACHE_KEY, JSON.stringify(imageCache)); } catch {}
+    setCacheTimestamp();
   }
 
   function queueImageFetch(img) {
@@ -256,6 +338,15 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
+
+    updateCacheStatusUI(getCacheTimestamp());
+    const refreshBtn = document.getElementById('refresh-cache-btn');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', () => {
+        clearAllCaches();
+        window.location.reload();
+      });
+    }
   }
 
   // ---- Filtering ----
@@ -317,7 +408,7 @@
           <div class="plant-card-meta">
             ${p.isKeystone ? '<span class="badge badge-keystone">★ Keystone</span>' : ''}
             <span class="badge badge-category">${CATEGORY_LABELS[p.category]}</span>
-            <span class="badge badge-frequency">${p.iNaturalistData.frequency}</span>
+            <span class="badge badge-frequency" data-taxon="${p.iNaturalistData.taxonId}">…</span>
           </div>
         </div>
         <span class="expand-indicator" aria-hidden="true">▼</span>
@@ -333,14 +424,31 @@
     header.setAttribute('aria-expanded', !wasExpanded);
 
     if (!wasExpanded) {
-      // Fetch images for detail section via iNaturalist taxa API
       card.querySelectorAll('.plant-detail img[data-species]').forEach(img => {
         if (!img.src) queueImageFetch(img);
       });
       card.querySelectorAll('.detail-tab').forEach(tab => {
-        tab.addEventListener('click', () => switchTab(card, tab.dataset.tab));
+        tab.addEventListener('click', () => {
+          switchTab(card, tab.dataset.tab);
+          if (tab.dataset.tab === 'observations') loadObservationsTab(card);
+        });
       });
+      loadObservationsTab(card);
     }
+  }
+
+  async function loadObservationsTab(card) {
+    const panel = card.querySelector('.tab-panel[data-tab="observations"]');
+    if (!panel || panel.dataset.loaded) return;
+    const taxonId = panel.dataset.taxon;
+    const searchUrl = panel.dataset.searchUrl;
+    if (!taxonId) return;
+    panel.dataset.loaded = 'true';
+    const obs = await fetchPlantObs(parseInt(taxonId, 10));
+    panel.innerHTML = renderObservationsContent(obs, searchUrl);
+
+    const badge = card.querySelector(`.badge-frequency[data-taxon="${taxonId}"]`);
+    if (badge) badge.textContent = obs.frequency;
   }
 
   function switchTab(card, tabName) {
@@ -379,7 +487,9 @@
       <div class="tab-panel" data-tab="maintenance">${maintenanceTab(p)}</div>
       <div class="tab-panel" data-tab="phenology">${phenologyTab(p)}</div>
       <div class="tab-panel active" data-tab="wildlife">${wildlifeTab(p)}</div>
-      <div class="tab-panel" data-tab="observations">${observationsTab(p)}</div>`;
+      <div class="tab-panel" data-tab="observations" data-taxon="${p.iNaturalistData.taxonId}" data-search-url="${p.iNaturalistData.searchUrl}">
+        <p class="cal-detail" style="text-align:center;padding:24px 0">Loading observation data…</p>
+      </div>`;
   }
 
   // ---- Maintenance Tab ----
@@ -473,8 +583,7 @@
   }
 
   // ---- Observations Tab ----
-  function observationsTab(p) {
-    const obs = p.iNaturalistData;
+  function renderObservationsContent(obs, searchUrl) {
     const byMonth = obs.observationsByMonth;
     const byYear = obs.observationsByYear;
     const maxMonth = Math.max(...Object.values(byMonth), 1);
@@ -506,12 +615,12 @@
       : '';
 
     return `
-      <p class="obs-total"><strong>${obs.totalObservations}</strong> total observations (5-year) · <strong>${obs.frequency}</strong> in Poway ${trendDir ? `· <strong>${trendDir}</strong>` : ''}</p>
+      <p class="obs-total"><strong>${obs.totalObservations}</strong> total observations (${LOOKBACK_YEARS}-year) · <strong>${obs.frequency}</strong> in Poway ${trendDir ? `· <strong>${trendDir}</strong>` : ''}</p>
       <h5 style="font-size:.85rem;margin-bottom:8px;color:#6b4c3b">Monthly Observations</h5>
       <div class="obs-histogram">${histogram}</div>
       <h5 style="font-size:.85rem;margin:16px 0 8px;color:#6b4c3b">Year-over-Year Trend</h5>
       <div class="obs-trend">${trend}</div>
-      <p style="font-size:.75rem;color:#5a5a5a;margin-top:8px">Data from <a href="${obs.searchUrl}" target="_blank" rel="noopener">iNaturalist</a> · Last updated: ${obs.lastUpdated}</p>`;
+      <p style="font-size:.75rem;color:#5a5a5a;margin-top:8px">Data from <a href="${searchUrl}" target="_blank" rel="noopener">iNaturalist</a></p>`;
   }
 
   // ============================================================
@@ -707,10 +816,9 @@
   // ============================================================
   // TREND CHART (garden-wide) — SVG sparklines
   // ============================================================
-  function renderTrendChart() {
+  async function renderTrendChart() {
     const container = document.getElementById('trend-chart');
-    const years = [...new Set(plants.flatMap(p => Object.keys(p.iNaturalistData.observationsByYear)))].sort();
-    if (!years.length) { container.innerHTML = ''; return; }
+    container.innerHTML = '<p class="cal-detail" style="text-align:center;padding:24px 0">Loading observation trends…</p>';
 
     const sorted = [...plants].sort((a, b) => {
       const ai = CATEGORY_ORDER.indexOf(a.category);
@@ -718,12 +826,21 @@
       return ai !== bi ? ai - bi : a.commonNames[0].localeCompare(b.commonNames[0]);
     });
 
-    const cards = sorted.map(p => {
-      const obs = p.iNaturalistData;
+    const obsResults = await Promise.all(sorted.map(p => fetchPlantObs(p.iNaturalistData.taxonId)));
+    const years = [...new Set(obsResults.flatMap(o => Object.keys(o.observationsByYear)))].sort();
+    if (!years.length) { container.innerHTML = ''; return; }
+
+    // Update all frequency badges
+    sorted.forEach((p, i) => {
+      const badge = document.querySelector(`.badge-frequency[data-taxon="${p.iNaturalistData.taxonId}"]`);
+      if (badge) badge.textContent = obsResults[i].frequency;
+    });
+
+    const cards = sorted.map((p, idx) => {
+      const obs = obsResults[idx];
       const byMonth = obs.observationsByMonth;
       const byYear = obs.observationsByYear;
 
-      // Monthly histogram SVG
       const monthVals = MONTH_KEYS.map(k => byMonth[k] || 0);
       const maxM = Math.max(...monthVals, 1);
       const mw = 140, mh = 32, mpad = 1;
@@ -736,7 +853,6 @@
           <text x="${(x + barW / 2).toFixed(1)}" y="${mh}" text-anchor="middle" font-size="6" fill="var(--c-text-light)">${MONTHS[i][0]}</text>`;
       }).join('');
 
-      // Year-over-year sparkline SVG
       const yearVals = years.map(y => byYear[y] || 0);
       const maxY = Math.max(...yearVals, 1);
       const minY = Math.min(...yearVals);

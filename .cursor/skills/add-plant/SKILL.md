@@ -3,8 +3,8 @@ name: add-plant
 description: >-
   Add a new native plant to the SD Habitat garden website. Handles all steps:
   researching the plant, creating the JSON entry in data/plants.json, looking up
-  the iNaturalist taxon ID, running the observation script, updating plant counts
-  across index.html / README.md / docs/PRD.md, and verifying the result. Use when
+  the iNaturalist taxon ID, updating plant counts across index.html / README.md /
+  docs/PRD.md, and verifying the result. Observation data is fetched at runtime. Use when
   the user wants to add a plant, add a species, expand the inventory, or mentions
   a new plant they want on the site.
 ---
@@ -27,10 +27,9 @@ Copy this checklist and track progress:
 - [ ] Step 2: Find the iNaturalist taxon ID
 - [ ] Step 3: Build the JSON entry
 - [ ] Step 4: Insert into data/plants.json
-- [ ] Step 5: Run the observation script
-- [ ] Step 6: Update plant counts across the site
-- [ ] Step 7: Verify wildlife image searchability
-- [ ] Step 8: Verify locally
+- [ ] Step 5: Update plant counts across the site
+- [ ] Step 6: Verify wildlife image & observation searchability
+- [ ] Step 7: Verify locally
 ```
 
 ---
@@ -85,21 +84,7 @@ Use this template. All fields are required unless marked optional.
   "calscapeUrl": "https://calscape.org/Genus-species-(Common-Name)",
   "iNaturalistData": {
     "taxonId": 12345,
-    "searchUrl": "https://www.inaturalist.org/observations?taxon_id=12345&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
-    "observationsByMonth": {
-      "jan": 0, "feb": 0, "mar": 0, "apr": 0, "may": 0, "jun": 0,
-      "jul": 0, "aug": 0, "sep": 0, "oct": 0, "nov": 0, "dec": 0
-    },
-    "observationsByYear": {},
-    "totalObservations": 0,
-    "frequency": "rare",
-    "lastUpdated": "",
-    "bounds": {
-      "nelat": 33.0652649,
-      "nelng": -116.9575429,
-      "swlat": 32.899128,
-      "swlng": -117.103013
-    }
+    "searchUrl": "https://www.inaturalist.org/observations?taxon_id=12345&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013"
   },
   "plantingRequirements": {
     "sunExposure": "Full Sun",
@@ -178,20 +163,7 @@ Both lookups must succeed. The first two words (or the name minus parenthetical 
 2. Append the new entry to the array (before the closing `]`).
 3. Plants are loosely grouped by category in the file but the JS sorts dynamically, so exact position doesn't matter — appending to the end is fine.
 
-### Step 5: Run the Observation Script
-
-```bash
-node scripts/update-observations.js
-```
-
-This will:
-- Query the iNaturalist histogram API for **all** plants (including the new one)
-- Populate `observationsByMonth`, `observationsByYear`, `totalObservations`, `frequency`, and `lastUpdated`
-- Write updated data back to `data/plants.json`
-
-Verify the new plant shows observations in the script output. If it shows 0 observations, double-check that the `taxonId` is correct.
-
-### Step 6: Update Plant Counts
+### Step 5: Update Plant Counts
 
 The total plant count appears in **6 locations** across 3 files. Search for the old count (e.g. `17`) and increment to the new count (e.g. `18`):
 
@@ -206,12 +178,11 @@ The total plant count appears in **6 locations** across 3 files. Search for the 
 - Features bullet: `**Plant Inventory** — N California native plants...`
 
 **`docs/PRD.md`** — 3 occurrences:
-- iNaturalist helper script description (`N total`)
 - Plant inventory table (add a new row `| N | ...`)
 - Success criteria (`All N plants populated`)
-- Success criteria (`script runs successfully against all N plants`)
+- Success criteria (`observation data loads at runtime for all N plants`)
 
-### Step 7: Verify Wildlife Image & Observation Searchability
+### Step 6: Verify Wildlife Image & Observation Searchability
 
 **Before** starting the dev server, validate that every wildlife `species` name resolves on iNaturalist for both images and observations. For each wildlife entry in the new plant, run:
 
@@ -244,7 +215,7 @@ else:
 
 Replace `FIRST+TWO+WORDS` with the first two words of the `species` field (URL-encoded), and `SPECIES_NAME` with the full name minus any parenthetical content (URL-encoded). If the image check prints `FAIL`, fix the `species` name using the naming rules above. The observation check returning 0 is acceptable (species will be classified as Rare) but a non-zero count confirms the name resolves correctly.
 
-### Step 8: Verify Locally
+### Step 7: Verify Locally
 
 1. Start the local dev server if not running: `npx http-server . -p 8090 -c-1`
 2. Open the site and check:

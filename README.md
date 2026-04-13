@@ -19,7 +19,8 @@ A GitHub Pages site providing a living reference for a native habitat garden in 
 - Hosted on [GitHub Pages](https://pages.github.com/)
 - Plant and wildlife data stored in JSON (`data/plants.json`)
 - Images fetched at runtime from the [iNaturalist](https://www.inaturalist.org/) taxa API (Creative Commons licensed) and cached in localStorage
-- Wildlife observation data fetched at runtime from the iNaturalist histogram API for species-level rarity classification, also cached in localStorage
+- All iNaturalist observation data (plant and wildlife) fetched at runtime from the histogram API, cached in localStorage with a 7-day TTL
+- Footer "Refresh Data" button to force-clear caches and re-fetch
 
 ## Local Development
 
@@ -30,14 +31,6 @@ npx http-server . -p 8090 -c-1
 ```
 
 Then open [http://localhost:8090](http://localhost:8090). The `-c-1` flag disables caching so edits are reflected immediately.
-
-### Updating iNaturalist Observation Data
-
-```bash
-node scripts/update-observations.js
-```
-
-Queries the iNaturalist histogram API for each plant (one call per plant, scoped to the Poway bounding box) and updates the monthly and yearly observation counts in `data/plants.json`.
 
 ## Documentation
 

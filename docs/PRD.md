@@ -31,8 +31,7 @@ A static informational website showcasing a native habitat garden in Poway, CA. 
 | **Schema** | Each plant is a single JSON object containing all inventory, schedule, bloom, and wildlife data (see §4 for schema draft) |
 | **Extensibility** | Adding a new plant = adding a JSON entry + an optional image. No HTML changes needed. |
 | **Image strategy** | All plant and wildlife images hotlinked from iNaturalist CDN (no local copies). The site displays skeleton/placeholder states while images load and sets `Cache-Control` headers via `<meta>` or service worker to cache images locally in the browser after first load. |
-| **iNaturalist helper script** | A standalone Node script (`scripts/update-observations.js`) queries the iNaturalist `/observations/histogram` API with `interval=month_of_year` for each plant, scoped to a **Poway bounding box** (`nelat` / `nelng` / `swlat` / `swlng` — same values as the iNaturalist observation search links) over a **rolling 5-year window**. Returns per-month observation counts (Jan–Dec) and per-year totals, enabling both seasonal patterns in the calendar view and year-over-year trend lines. Still **one API call per plant** (17 total). Run manually or on a schedule; outputs updated values into `data/plants.json`. |
-| **Wildlife observation data** | Wildlife species observation counts are fetched **client-side at runtime** from the same iNaturalist histogram API (scoped to the Poway bounding box, rolling 5-year window). For each unique wildlife species visible in the current calendar month, the site queries `taxon_name=SPECIES_NAME&interval=month_of_year` to get monthly counts. Results are cached in `localStorage` so each species is fetched only once per browser. These counts drive the Common / Uncommon / Rare rarity classification in the Garden Calendar. |
+| **iNaturalist observation data** | All observation data (plant and wildlife) is fetched **client-side at runtime** from the iNaturalist `/observations/histogram` API, scoped to a **Poway bounding box** over a **rolling 5-year window**. Plant observations use `taxon_id` with both `month_of_year` and `year` intervals (2 calls per plant). Wildlife observations use `taxon_name` with `month_of_year` interval (1 call per species). All results are cached in `localStorage` with a **7-day TTL**. A footer "Refresh Data" button allows manual cache clearing. No server-side scripts or pre-computation needed. |
 
 ### 2.3 Favicons & Touch Icons
 
@@ -187,23 +186,7 @@ Each plant object in `data/plants.json`:
   "calscapeUrl": "https://calscape.org/Eriogonum-fasciculatum-(California-Buckwheat)",
   "iNaturalistData": {
     "taxonId": 54999,
-    "bounds": {
-      "nelat": 33.0652649,
-      "nelng": -116.9575429,
-      "swlat": 32.899128,
-      "swlng": -117.103013
-    },
-    "searchUrl": "https://www.inaturalist.org/observations?taxon_id=54999&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013",
-    "observationsByMonth": {
-      "jan": 12, "feb": 18, "mar": 35, "apr": 52, "may": 68, "jun": 71,
-      "jul": 42, "aug": 19, "sep": 10, "oct": 6, "nov": 5, "dec": 4
-    },
-    "observationsByYear": {
-      "2021": 58, "2022": 72, "2023": 65, "2024": 91, "2025": 103
-    },
-    "totalObservations": 389,
-    "frequency": "common",
-    "lastUpdated": "2026-04-10"
+    "searchUrl": "https://www.inaturalist.org/observations?taxon_id=54999&nelat=33.0652649&nelng=-116.9575429&swlat=32.899128&swlng=-117.103013"
   },
   "plantingRequirements": {
     "sunExposure": "Full Sun",
@@ -363,7 +346,7 @@ Each plant object in `data/plants.json`:
 | # | Question | Decision |
 |---|---|---|
 | 1 | **Image hosting** | Hotlink from iNaturalist CDN. Show skeleton/placeholder while loading. Cache locally in browser after first load. No images stored in the repo. |
-| 2 | **Data population** | Manual curation for all plant data. A helper script (`scripts/update-observations.js`) uses the iNaturalist `/observations/histogram` API with `interval=month_of_year` over a rolling 5-year window. One call per plant returns monthly counts (for calendar integration) and yearly totals (for trend analysis). |
+| 2 | **Data population** | Manual curation for all plant data. All iNaturalist observation data (plant and wildlife) is fetched client-side at runtime from the histogram API, cached in localStorage with a 7-day TTL. No server-side scripts needed. |
 | 3 | **Plant detail layout** | Inline expansion only — no modal overlays anywhere on the site. |
 | 4 | **Calendar view scope** | Both: garden-wide "What's happening this month" is the primary view, with drill-down to per-plant detail. |
 | 5 | **Additional plant categories** | No `vine` or `succulent` categories. The garden is strictly California natives; the current six categories are sufficient. |
@@ -394,4 +377,4 @@ Each plant object in `data/plants.json`:
 - [ ] All plant and wildlife images properly attributed with Creative Commons compliance
 - [ ] Garden calendar provides actionable "this month" guidance
 - [ ] A non-technical gardener can understand and use the site without instruction
-- [ ] iNaturalist observation count helper script runs successfully against all 17 plants
+- [ ] iNaturalist observation data loads at runtime for all 17 plants and caches correctly
