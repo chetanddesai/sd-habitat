@@ -111,6 +111,14 @@ select, input { font: inherit; }
   text-decoration: none;
   color: var(--c-sage-dark);
 }
+.nav-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-github svg {
+  vertical-align: middle;
+}
 .nav-toggle {
   display: none;
   flex-direction: column;

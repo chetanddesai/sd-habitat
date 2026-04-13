@@ -1,6 +1,6 @@
 # SD Habitat — Native Garden Guide
 
-**[chetanddesai.github.io/sd-habitat](https://chetanddesai.github.io/sd-habitat)**
+**[View the Guide](https://chetanddesai.github.io/sd-habitat)**
 
 A GitHub Pages site providing a living reference for a native habitat garden in Poway, CA — plant inventory, bloom calendars, wildlife schedules, and maintenance guides for 17 California native plants in the coastal sage scrub ecosystem.
 
