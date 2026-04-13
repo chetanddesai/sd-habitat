@@ -10,7 +10,7 @@ A GitHub Pages site providing a living reference for a native habitat garden in 
 - **Maintenance Schedule** — month-by-month watering frequency (1×/month, 2×/month) and pruning tasks with short actionable descriptions for each plant
 - **Bloom, Berry & Seed Calendar** — phenology timelines showing actual botanical colors (flower, fruit, and seed) across the garden, with the current month highlighted
 - **Wildlife Schedule** — specific named species (birds, butterflies, moths, lizards) to look for each month and what they're doing on each plant
-- **Garden Calendar** — a "what's happening this month" dashboard with wildlife classified as Common / Uncommon / Rare using live iNaturalist observation data, plus monthly maintenance tasks
+- **Garden Calendar** — a "what's happening this month" dashboard with wildlife classified as Common / Uncommon / Rare using live iNaturalist observation data, plus a two-column maintenance view (watering frequencies and pruning tasks)
 - **Observation Trends** — SVG sparkline cards showing year-over-year iNaturalist citizen-science sighting trends for each plant in the Poway area
 
 ## Tech Stack
@@ -42,3 +42,7 @@ Queries the iNaturalist histogram API for each plant (one call per plant, scoped
 ## Documentation
 
 - [Product Requirements Document](docs/PRD.md)
+
+## License
+
+This project is licensed under [CC BY-NC-SA 4.0](LICENSE.md). Plant and wildlife images are sourced from iNaturalist under their respective Creative Commons licenses.

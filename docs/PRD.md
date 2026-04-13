@@ -117,9 +117,9 @@ A calendar-oriented view (12 months) for each plant covering time-varying care t
 
 #### Presentation
 
-- A 12-month grid/timeline per plant, or a combined garden-wide calendar
-- Color-coded intensity bands for watering
-- Ability to view "this month" at a glance across all plants
+- Per-plant: 12-month grid showing watering frequency and pruning tasks, with current-month highlighting
+- Garden-wide: two-column layout in the Garden Calendar — **Watering** (plant name + frequency like "1×/month") and **Pruning** (plant name + actionable task description) — for the selected month
+- Columns stack vertically on mobile; empty columns show "None this month"
 
 ### 3.3 Bloom, Berry & Seed Schedule
 
@@ -331,9 +331,7 @@ Each plant object in `data/plants.json`:
 │   ├── Month selector or horizontal scroll
 │   ├── "This Month" summary across all plants
 │   │   ├── Wildlife to Look For (deduped by species, Common/Uncommon/Rare via live iNaturalist obs data)
-│   │   └── Maintenance tasks (watering + pruning)
-│   ├── Watering overview grid
-│   └── Year-over-year observation trends (sparkline or bar chart per plant)
+│   │   └── Maintenance (two-column: Watering frequencies | Pruning tasks)
 ├── #about — About the Garden
 │   ├── Why native plants matter
 │   ├── Poway's coastal sage scrub ecosystem

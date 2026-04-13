@@ -222,6 +222,43 @@ select, input { font: inherit; }
   .calendar-list { columns: 1; }
 }
 
+/* --- Maintenance Grid (two-column: Watering | Pruning) --- */
+.cal-maintenance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (max-width: 600px) {
+  .cal-maintenance-grid { grid-template-columns: 1fr; }
+}
+.cal-maint-column-label {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--c-sage-dark);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--c-sage-light);
+}
+.cal-maint-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.cal-maint-plant {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--c-sage-dark);
+}
+.cal-maint-detail {
+  font-size: 0.8rem;
+  color: var(--c-text-light);
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
 /* --- Filters --- */
 .filters {
   display: flex;

@@ -621,23 +621,41 @@
       setupImageObserver();
     }
 
-    // Maintenance
-    const maintJobs = [];
+    // Maintenance — two-column layout: Watering | Pruning
+    const waterJobs = [];
+    const pruneJobs = [];
     plants.forEach(p => {
       const freq = p.maintenance.wateringSchedule[mk] || 0;
       if (freq > 0) {
-        const label = freq === 1 ? 'Water 1×/month' : `Water ${freq}×/month`;
-        maintJobs.push({ name: p.commonNames[0], task: `💧 ${label}` });
+        const label = freq === 1 ? '1×/month' : `${freq}×/month`;
+        waterJobs.push({ name: p.commonNames[0], detail: label });
       }
       if ((p.maintenance.pruningMonths || []).includes(m)) {
         const pt = p.maintenance.pruningTask;
-        maintJobs.push({ name: p.commonNames[0], task: pt ? `✂ ${pt}` : '✂ Prune' });
+        pruneJobs.push({ name: p.commonNames[0], detail: pt || 'Prune' });
       }
     });
-    const maintList = document.getElementById('cal-maintenance-list');
-    maintList.innerHTML = maintJobs.length
-      ? maintJobs.map(j => `<li><span class="cal-plant-name">${j.name}</span><br><span class="cal-detail">${j.task}</span></li>`).join('')
-      : '<li class="cal-empty">No maintenance needed — let nature do its thing!</li>';
+
+    function renderMaintCard(j) {
+      return `<div class="cal-maint-card">
+        <span class="cal-maint-plant">${j.name}</span>
+        <span class="cal-maint-detail">${j.detail}</span>
+      </div>`;
+    }
+
+    function renderMaintColumn(icon, label, items) {
+      const content = items.length
+        ? items.map(renderMaintCard).join('')
+        : '<p class="cal-empty">None this month</p>';
+      return `<div class="cal-maint-column">
+        <h4 class="cal-maint-column-label">${icon} ${label}</h4>
+        ${content}
+      </div>`;
+    }
+
+    const maintGrid = document.getElementById('cal-maintenance-grid');
+    maintGrid.innerHTML = renderMaintColumn('💧', 'Watering', waterJobs)
+      + renderMaintColumn('✂️', 'Pruning', pruneJobs);
 
   }
 
