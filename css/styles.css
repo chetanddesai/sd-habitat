@@ -181,6 +181,9 @@ select, input { font: inherit; }
 
 /* --- Sections --- */
 .section { padding: 60px 0; }
+#calendar { padding-bottom: 20px; }
+#cal-wildlife-section,
+#cal-maintenance-section { padding: 20px 0; }
 .section-alt { background: var(--c-sand-dark); }
 .section-title {
   font-family: var(--font-heading);
@@ -825,6 +828,52 @@ select, input { font: inherit; }
 .cal-plant-name { font-weight: 600; color: var(--c-sage-dark); }
 .cal-detail { color: var(--c-text-light); font-size: 0.85rem; }
 .cal-empty { color: var(--c-text-light); font-style: italic; }
+
+/* --- Calendar Wildlife Grid --- */
+.cal-wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .cal-wildlife-grid { grid-template-columns: 1fr; }
+}
+.cal-wl-column-label {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--c-sage-dark);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--c-sage-light);
+}
+.cal-wl-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.cal-wl-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--c-sand-dark);
+}
+.cal-wl-info { min-width: 0; }
+.cal-wl-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--c-sage-dark);
+}
+.cal-wl-detail {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--c-text-light);
+  line-height: 1.3;
+}
 
 /* --- Phenology Chart (garden-wide) --- */
 .phenology-chart {

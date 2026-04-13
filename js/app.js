@@ -502,20 +502,67 @@
     const mk = MONTH_KEYS[currentMonth];
     document.getElementById('calendar-month-label').textContent = MONTHS[currentMonth] + ' — What\'s Happening';
 
-    // Wildlife
+    // Wildlife — classify by host plant's monthly observation count
     const wildlifeItems = [];
     plants.forEach(p => {
+      const plantObs = p.iNaturalistData.observationsByMonth[mk] || 0;
       p.wildlife.forEach(w => {
         if (w.months.includes(m)) {
-          wildlifeItems.push({ plant: p.commonNames[0], species: w.species, activity: ACTIVITY_LABELS[w.activity] || w.activity });
+          wildlifeItems.push({
+            plant: p.commonNames[0],
+            species: w.species,
+            activity: ACTIVITY_LABELS[w.activity] || w.activity,
+            obs: plantObs
+          });
         }
       });
     });
-    const wildlifeList = document.getElementById('cal-wildlife-list');
-    wildlifeList.innerHTML = wildlifeItems.length
-      ? wildlifeItems.slice(0, 10).map(w => `<li><span class="cal-plant-name">${w.species}</span><br><span class="cal-detail">${w.activity} · ${w.plant}</span></li>`).join('')
-        + (wildlifeItems.length > 10 ? `<li class="cal-detail">…and ${wildlifeItems.length - 10} more</li>` : '')
-      : '<li class="cal-empty">No wildlife activity this month</li>';
+    wildlifeItems.sort((a, b) => b.obs - a.obs);
+
+    const thresholds = wildlifeItems.length > 0
+      ? (() => {
+          const counts = wildlifeItems.map(w => w.obs).sort((a, b) => b - a);
+          const p66 = counts[Math.floor(counts.length * 0.33)] || 0;
+          const p33 = counts[Math.floor(counts.length * 0.66)] || 0;
+          return { common: p66, uncommon: p33 };
+        })()
+      : { common: 0, uncommon: 0 };
+
+    const buckets = { common: [], uncommon: [], rare: [] };
+    wildlifeItems.forEach(w => {
+      if (w.obs >= thresholds.common && thresholds.common > 0) buckets.common.push(w);
+      else if (w.obs >= thresholds.uncommon && thresholds.uncommon > 0) buckets.uncommon.push(w);
+      else buckets.rare.push(w);
+    });
+
+    function renderWildlifeCard(w) {
+      return `<div class="cal-wl-card">
+        <img class="cal-wl-img loading" data-species="${escapeAttr(w.species)}" alt="${escapeAttr(w.species)}" width="48" height="48">
+        <div class="cal-wl-info">
+          <span class="cal-wl-name">${w.species}</span>
+          <span class="cal-wl-detail">${w.activity} · ${w.plant} · ${w.obs} obs/mo</span>
+        </div>
+      </div>`;
+    }
+
+    function renderColumn(label, items) {
+      const content = items.length
+        ? items.map(renderWildlifeCard).join('')
+        : '<p class="cal-empty">None this month</p>';
+      return `<div class="cal-wl-column">
+        <h4 class="cal-wl-column-label">${label}</h4>
+        ${content}
+      </div>`;
+    }
+
+    const grid = document.getElementById('cal-wildlife-grid');
+    grid.innerHTML = wildlifeItems.length
+      ? renderColumn('Common', buckets.common)
+        + renderColumn('Uncommon', buckets.uncommon)
+        + renderColumn('Rare', buckets.rare)
+      : '<p class="cal-empty">No wildlife activity this month</p>';
+
+    setupImageObserver();
 
     // Maintenance
     const maintJobs = [];
