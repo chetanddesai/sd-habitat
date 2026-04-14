@@ -300,45 +300,108 @@ sequenceDiagram
 
 ---
 
-## 7. Data Flow Summary
+## 7. Data Flow Diagram
 
+### 7.1 Overall Data Flow
+
+```mermaid
+flowchart TB
+    subgraph "Static Data (GitHub Pages)"
+        PLANTS_JSON[("data/plants.json<br/>17 plants × static fields")]
+    end
+
+    subgraph "External APIs"
+        HIST_API[/"iNaturalist<br/>/observations/histogram"\]
+        TAXA_API[/"iNaturalist<br/>/v1/taxa"\]
+        IMG_CDN[/"iNaturalist CDN<br/>CC-licensed photos"\]
+    end
+
+    subgraph "Client-Side Cache (localStorage)"
+        PLANT_CACHE[["Plant Obs Cache<br/>taxonId → {byMonth, byYear, total, frequency}"]]
+        WL_CACHE[["Wildlife Obs Cache<br/>speciesName → {month_of_year counts}"]]
+        IMG_CACHE[["Image Cache<br/>speciesName → {url, attribution, inatUrl}"]]
+        TS[["Timestamp<br/>Shared 7-day TTL"]]
+    end
+
+    subgraph "Application Layer (app.js)"
+        INIT(("init()"))
+        INV["renderInventory()<br/>Plant cards + filters"]
+        PHENO["renderPhenologyChart()<br/>Garden-wide bloom table"]
+        CAL["renderCalendar()<br/>Wildlife + maintenance"]
+        TREND["renderTrendChart()<br/>SVG sparklines"]
+        OBS_TAB["loadObservationsTab()<br/>Per-plant histograms"]
+        IMG_Q["Image Queue<br/>3 concurrent fetches"]
+    end
+
+    subgraph "Rendered UI (DOM)"
+        CARDS["Plant Cards<br/>Badges, tabs, images"]
+        PHENO_TABLE["Phenology Table<br/>Color-coded 12-month grid"]
+        WL_GRID["Wildlife Grid<br/>Common / Uncommon / Rare"]
+        MAINT_GRID["Maintenance Grid<br/>Watering | Pruning"]
+        TREND_CARDS["Trend Cards<br/>Monthly bars + year sparklines"]
+    end
+
+    PLANTS_JSON -- "fetch() on load" --> INIT
+    INIT --> INV
+    INIT --> PHENO
+    INIT --> CAL
+    INIT --> TREND
+
+    INV --> CARDS
+    INV --> IMG_Q
+    PHENO --> PHENO_TABLE
+
+    CAL -- "wildlife species" --> WL_CACHE
+    WL_CACHE -. "miss" .-> HIST_API
+    HIST_API -. "month_of_year counts" .-> WL_CACHE
+    CAL --> WL_GRID
+    CAL --> MAINT_GRID
+    CAL --> IMG_Q
+
+    TREND -- "17 plants parallel" --> PLANT_CACHE
+    PLANT_CACHE -. "miss" .-> HIST_API
+    HIST_API -. "month + year counts" .-> PLANT_CACHE
+    TREND --> TREND_CARDS
+
+    OBS_TAB --> PLANT_CACHE
+    OBS_TAB --> CARDS
+
+    IMG_Q --> IMG_CACHE
+    IMG_CACHE -. "miss" .-> TAXA_API
+    TAXA_API -. "photo metadata" .-> IMG_CACHE
+    IMG_CACHE --> IMG_CDN
+    IMG_CDN --> CARDS
+    IMG_CDN --> WL_GRID
+
+    PLANT_CACHE --> TS
+    WL_CACHE --> TS
+    IMG_CACHE --> TS
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     data/plants.json                         │
-│  (static: IDs, names, descriptions, phenology, wildlife,    │
-│   maintenance schedules, taxonIds, searchUrls)               │
-└────────────────────────┬────────────────────────────────────┘
-                         │ fetch() on page load
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      js/app.js                               │
-│                                                              │
-│  ┌──────────┐  ┌──────────────┐  ┌────────────────────────┐ │
-│  │ Inventory │  │ Phenology    │  │ Garden Calendar        │ │
-│  │ (sync)    │  │ Chart (sync) │  │ Wildlife (async+cache) │ │
-│  └──────────┘  └──────────────┘  │ Maint    (sync)        │ │
-│                                   │ Trends   (async+cache) │ │
-│  ┌──────────────────────┐        └────────────────────────┘ │
-│  │ Per-plant tabs:       │                                   │
-│  │  Maintenance (sync)   │         ┌──────────────────────┐ │
-│  │  Phenology   (sync)   │         │ Image Queue          │ │
-│  │  Wildlife    (sync)   │         │ (async, 3 concurrent)│ │
-│  │  Observations(async)  │         └──────────────────────┘ │
-│  └──────────────────────┘                                    │
-└─────────────────────────────────────────────────────────────┘
-                         │
-          ┌──────────────┼──────────────┐
-          ▼              ▼              ▼
-   iNaturalist    iNaturalist    iNaturalist
-   /histogram     /taxa          CDN images
-   (obs data)     (image URLs)   (photo files)
-          │              │              │
-          └──────┬───────┘              │
-                 ▼                      │
-          localStorage                  │
-          (7-day TTL)                   │
-                 │                      │
-                 └──────────┬───────────┘
-                            ▼
-                     Rendered DOM
+
+### 7.2 Cache Decision Flow
+
+```mermaid
+flowchart TB
+    START(("Data requested"))
+    CHECK_TS{"Cache timestamp<br/>< 7 days old?"}
+    CHECK_KEY{"Key exists<br/>in cache?"}
+    RETURN_CACHED["Return cached data"]
+    FETCH["Fetch from<br/>iNaturalist API"]
+    WRITE["Write to localStorage<br/>+ update timestamp"]
+    API_OK{"API response<br/>OK?"}
+    FALLBACK{"Stale cache<br/>exists?"}
+    RETURN_STALE["Return stale data"]
+    RETURN_EMPTY["Return empty/default"]
+
+    START --> CHECK_TS
+    CHECK_TS -- "Yes" --> CHECK_KEY
+    CHECK_TS -- "No (expired)" --> FETCH
+    CHECK_KEY -- "Yes" --> RETURN_CACHED
+    CHECK_KEY -- "No" --> FETCH
+    FETCH --> API_OK
+    API_OK -- "Yes" --> WRITE
+    WRITE --> RETURN_CACHED
+    API_OK -- "No (error)" --> FALLBACK
+    FALLBACK -- "Yes" --> RETURN_STALE
+    FALLBACK -- "No" --> RETURN_EMPTY
 ```
