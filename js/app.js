@@ -4,6 +4,8 @@
 (function () {
   'use strict';
 
+  const DATA_VERSION = '1';
+
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const MONTH_KEYS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
   const CATEGORY_ORDER = [
@@ -287,7 +289,7 @@
 
   async function init() {
     try {
-      const res = await fetch('data/plants.json');
+      const res = await fetch(`data/plants.json?v=${DATA_VERSION}`);
       plants = await res.json();
     } catch (e) {
       document.getElementById('plant-grid').innerHTML =

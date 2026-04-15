@@ -27,9 +27,10 @@ Copy this checklist and track progress:
 - [ ] Step 2: Find the iNaturalist taxon ID
 - [ ] Step 3: Build the JSON entry
 - [ ] Step 4: Insert into data/plants.json
-- [ ] Step 5: Update plant counts across the site
-- [ ] Step 6: Verify wildlife image & observation searchability
-- [ ] Step 7: Verify locally
+- [ ] Step 5: Bump DATA_VERSION in js/app.js
+- [ ] Step 6: Update plant counts across the site
+- [ ] Step 7: Verify wildlife image & observation searchability
+- [ ] Step 8: Verify locally
 ```
 
 ---
@@ -163,7 +164,15 @@ Both lookups must succeed. The first two words (or the name minus parenthetical 
 2. Append the new entry to the array (before the closing `]`).
 3. Plants are loosely grouped by category in the file but the JS sorts dynamically, so exact position doesn't matter — appending to the end is fine.
 
-### Step 5: Update Plant Counts
+### Step 5: Bump `DATA_VERSION` in `js/app.js`
+
+**Required.** The app uses a `DATA_VERSION` constant as a cache-busting query parameter on `fetch()` calls for `plants.json`. After changing any data file, increment `DATA_VERSION` at the top of `js/app.js` so mobile and cached browsers pick up the new data without a hard refresh:
+
+```javascript
+const DATA_VERSION = '2';  // was '1' — bump on every data change
+```
+
+### Step 6: Update Plant Counts
 
 The total plant count appears in **6 locations** across 3 files. Search for the old count (e.g. `17`) and increment to the new count (e.g. `18`):
 
@@ -182,7 +191,7 @@ The total plant count appears in **6 locations** across 3 files. Search for the 
 - Success criteria (`All N plants populated`)
 - Success criteria (`observation data loads at runtime for all N plants`)
 
-### Step 6: Verify Wildlife Image & Observation Searchability
+### Step 7: Verify Wildlife Image & Observation Searchability
 
 **Before** starting the dev server, validate that every wildlife `species` name resolves on iNaturalist for both images and observations. For each wildlife entry in the new plant, run:
 
@@ -215,7 +224,7 @@ else:
 
 Replace `FIRST+TWO+WORDS` with the first two words of the `species` field (URL-encoded), and `SPECIES_NAME` with the full name minus any parenthetical content (URL-encoded). If the image check prints `FAIL`, fix the `species` name using the naming rules above. The observation check returning 0 is acceptable (species will be classified as Rare) but a non-zero count confirms the name resolves correctly.
 
-### Step 7: Verify Locally
+### Step 8: Verify Locally
 
 1. Start the local dev server if not running: `npx http-server . -p 8090 -c-1`
 2. Open the site and check:
